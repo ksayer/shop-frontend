@@ -1,13 +1,18 @@
-import { Montserrat } from 'next/font/google';
 import React from 'react';
-import './globals.css';
-
-const montserrat = Montserrat({ subsets: ['latin'] });
+import '@/styles/main.css';
+import { Header } from '@/components/pages/Header';
+import { lato, montserrat } from '@/app/fonts';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>{children}</body>
+      <body
+        className={`${montserrat.variable} ${lato.variable}`}
+        style={{ fontFamily: 'var(--montserrat)' }}
+      >
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

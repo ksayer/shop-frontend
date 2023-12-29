@@ -1,0 +1,22 @@
+.link {
+  display: none;
+  align-items: center;
+  gap: 13px;
+  min-width: 128px;
+  font-family: var(--lato), var(--fonts);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+@media (min-width: 768px) {
+  .link {
+    display: flex;
+  }
+}
+
+@media (min-width: 1920px) {
+  .link {
+    font-size: 18px;
+  }
+}

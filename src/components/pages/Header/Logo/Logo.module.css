@@ -1,0 +1,29 @@
+.link {
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .svg {
+    width: 228px;
+    height: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .link {
+    margin-right: 0;
+  }
+  .svg {
+    width: 240px;
+    height: 25px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .svg {
+    width: 304px;
+    height: 32px;
+  }
+}
