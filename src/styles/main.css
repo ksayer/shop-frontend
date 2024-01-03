@@ -1,8 +1,47 @@
 @import 'normalize.css';
 @import 'reset.css';
 
+:root {
+  --fonts: sans-serif;
+
+  --white: #fff;
+  --text: #333;
+  --grey-c6: #c6c6c6;
+  --grey-db: #dbdbdb;
+  --hover-light: #a3f6f6;
+  --hover: #0cc;
+}
+
 .container {
   padding: 0 15px;
   margin: auto;
   max-width: 1920px;
+}
+
+main {
+  padding: 1rem 0;
+}
+
+body {
+  font-family: var(--montserrat), var(--fonts);
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+@media (min-width: 768px) {
+  main {
+    padding: 2rem 0;
+  }
+  .container {
+    padding: 0 25px;
+  }
+}
+
+@media (min-width: 1920px) {
+  main {
+    padding: 4rem 0;
+  }
+  .container {
+    padding: 0 65px;
+  }
 }

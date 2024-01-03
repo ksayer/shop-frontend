@@ -1,5 +1,5 @@
 import React from 'react';
-import {TIcon} from "@/components/icons";
+import { TIcon } from '@/components/icons';
 
 export function Phone({ width = 24, height = 24, className }: TIcon) {
   return (

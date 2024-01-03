@@ -1,5 +1,9 @@
-import { Lato, Montserrat } from 'next/font/google';
+import { Lato, Montserrat, Raleway, Roboto } from 'next/font/google';
 
-export const montserrat = Montserrat({ subsets: ['latin'], variable: '--montserrat' });
+export const montserrat = Montserrat({ subsets: ['latin', 'cyrillic'], variable: '--montserrat' });
 
-export const lato = Lato({ subsets: ['latin'], variable: '--lato', weight: ['400'] });
+export const raleway = Raleway({
+  subsets: ['cyrillic', 'latin'],
+  variable: '--raleway',
+  weight: ['300'],
+});

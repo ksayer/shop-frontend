@@ -3,11 +3,10 @@
   align-items: center;
   gap: 13px;
   min-width: 128px;
-  font-family: var(--lato), var(--fonts);
+  white-space: nowrap;
   font-size: 13px;
   font-weight: 500;
 }
-
 
 @media (min-width: 768px) {
   .link {

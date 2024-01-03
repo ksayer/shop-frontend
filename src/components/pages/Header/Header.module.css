@@ -1,6 +1,15 @@
+.container {
+  padding: 0 15px;
+}
+
 .header {
-  padding: 24px 0;
+  position: sticky;
+  top: 0;
+  padding: 15px 0;
   border-bottom: var(--grey-db) solid 1px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.07);
+  background-color: var(--white);
+  z-index: 10;
 }
 
 .wrapper {
@@ -12,6 +21,12 @@
   display: flex;
   align-items: center;
   gap: 15px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    padding: 24px 0;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -34,4 +49,3 @@
     padding: 0 60px;
   }
 }
-
