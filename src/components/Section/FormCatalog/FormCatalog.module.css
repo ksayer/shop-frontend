@@ -1,0 +1,150 @@
+.wrapper {
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.bg {
+  display: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem
+}
+
+.input-wrapper {
+  position: relative;
+}
+
+.input {
+  width: 100%;
+  height: 45px;
+  padding: 1rem 1rem 1rem 4.5rem;
+  outline: none;
+  border-radius: 3px;
+  border: 1px solid var(--grey-c6);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+  font-size: 1.4rem;
+  color: var(--input);
+}
+
+.input:active,
+.input:focus {
+  background-color: var(--white);
+  border-color: var(--hover);
+}
+
+.btn {
+  border-radius: 3px;
+  border: 1px solid var(--grey-c6);
+  padding: 1.3rem;
+  font-family: var(--raleway), var(--fonts);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.icon {
+  position: absolute;
+  left: 0;
+  margin-left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.submit-icon {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .bg {
+    position: relative;
+    display: block;
+    height: 28vw;
+  }
+
+  .form {
+    grid-template-columns: 1fr 1fr 1fr auto;
+  }
+
+  .form-wrapper {
+    text-align: center;
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .header {
+    gap: 1rem;
+  }
+
+  .title {
+    color: var(--black);
+    font-size: 1.8rem;
+  }
+
+  .text {
+    color: var(--text);
+  }
+
+  .btn {
+    padding: 0 1rem;
+  }
+
+  .btn:hover {
+    background-color: var(--hover-light);
+  }
+
+  .btn span {
+    display: none;
+  }
+
+  .input:hover {
+    background-color: var(--hover-ultra-light);
+  }
+
+  .input:focus {
+    background-color: transparent;
+  }
+
+  .submit-icon {
+    display: block;
+  }
+
+}
+
+@media (min-width: 1920px) {
+  .form-wrapper {
+    padding: 3rem 20rem;
+  }
+
+  .form {
+    gap: 10rem
+  }
+
+  .title {
+    font-size: 3.2rem;
+  }
+
+  .input {
+    height: 50px;
+    font-size: 1.8rem;
+  }
+
+  .btn {
+    padding: 0 2.5rem;
+  }
+}

@@ -2,6 +2,7 @@ import {BannerBlock} from "@/components/Section/BannerBlock";
 import {ModelBlock} from "@/components/Section/ModelBlock";
 import {FormConsult} from "@/components/Section/FormConsult";
 import {IBanner} from "@/components/Section/BannerBlock/Banner";
+import {FormCatalog} from "@/components/Section/FormCatalog";
 
 const banners: IBanner[] = [
   {
@@ -90,6 +91,7 @@ export default function Home() {
       <ModelBlock/>
       <FormConsult/>
       <BannerBlock banners={banners2}/>
+      <FormCatalog/>
     </>
   );
 }

@@ -13,24 +13,7 @@
   z-index: -100;
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
 
-.title {
-  font-size: 1.8rem;
-  line-height: 3.2rem;
-  font-weight: 600;
-}
-
-.text {
-  font-family: var(--raleway), var(--fonts);
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-  color: var(--text);
-}
 
 .form {
   display: flex;
@@ -97,9 +80,6 @@
 }
 
 @media(min-width: 768px) {
-  .title {
-    font-size: 2.4rem;
-  }
   .inputs {
     flex-direction: row;
   }
@@ -121,17 +101,6 @@
   }
   .bg {
     display: block;
-  }
-  .header {
-    gap: 3rem;
-  }
-  .title {
-    font-size: 3.2rem;
-    color: var(--white);
-  }
-
-  .text {
-    color: var(--grey-ee)
   }
   .input {
     color: var(--grey-ee);
@@ -167,14 +136,6 @@
 }
 
 @media(min-width: 1920px) {
-  .title {
-    font-size: 4rem;
-  }
-
-  .text {
-    font-size: 1.8rem;
-    line-height: 3.2rem;
-  }
 
   .input {
     height: 70px;

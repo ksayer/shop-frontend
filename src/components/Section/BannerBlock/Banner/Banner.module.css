@@ -22,6 +22,7 @@
   font-size: 1.8rem;
   line-height: 3.2rem;
   font-weight: 600;
+  color: var(--black);
 }
 
 .text {
@@ -44,6 +45,7 @@
   font-family: var(--raleway), var(--fonts);
   font-weight: 400;
   font-size: 1.4rem;
+  color: var(--black);
 }
 
 @media (min-width: 768px) {

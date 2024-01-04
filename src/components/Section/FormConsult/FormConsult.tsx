@@ -2,6 +2,10 @@ import React from 'react';
 import styles from './FormConsult.module.css';
 import {Section} from "@/components/Section";
 import Image from 'next/image';
+import {FormHeader} from "@/components/FormHeader";
+
+const title = 'Подобрать светильники под проект'
+const text = "<p>Наши технические специалисты в срок подготовят для вас светотехнический расчет. </p><p>Приложите альбом проекта или чертеж помещения.</p>"
 
 export function FormConsult() {
   return (
@@ -13,18 +17,7 @@ export function FormConsult() {
           fill
           className={styles.bg}
         />
-        <div className={styles.header}>
-          <h2 className={styles.title}>Подобрать светильники под проект</h2>
-          <div className={styles.text}>
-            <p>
-              Наши технические специалисты в срок подготовят для вас
-              светотехнический расчет.
-            </p>
-            <p>
-              Приложите альбом проекта или чертеж помещения.
-            </p>
-          </div>
-        </div>
+        <FormHeader title={title} text={text}/>
         <form className={styles.form}>
           <div className={styles.inputs}>
             <div className={`${styles['input-wrapper']}`}>
