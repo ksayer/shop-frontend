@@ -10,13 +10,6 @@
   font-weight: 600;
 }
 
-.text {
-  font-family: var(--raleway), var(--fonts);
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-  color: var(--text);
-}
-
 @media(min-width: 768px) {
   .title {
     font-size: 2.4rem;
@@ -40,9 +33,5 @@
 @media(min-width: 1920px) {
   .title {
     font-size: 4rem;
-  }
-  .text {
-    font-size: 1.8rem;
-    line-height: 3.2rem;
   }
 }

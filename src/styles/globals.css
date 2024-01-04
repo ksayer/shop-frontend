@@ -6,6 +6,23 @@
   gap: 2rem;
 }
 
+.section__title {
+  font-size: 2.4rem;
+  font-weight: 600;
+  line-height: 3.5rem;
+}
+
+.volume {
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.1);;
+}
+
+.base-text {
+  font-family: var(--raleway), var(--fonts);
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  color: var(--text)
+}
+
 @media(min-width: 768px) {
   .flex-gap-title {
     gap: 3rem;
@@ -19,6 +36,9 @@
   .flex-gap-title {
     gap: 4rem;
   }
+  .section__title {
+    font-size: 3.2rem;
+  }
 }
 
 @media(min-width: 1920px) {
@@ -27,5 +47,12 @@
   }
   .flex-gap-title {
     gap: 6rem;
+  }
+  .section__title {
+    font-size: 4rem;
+  }
+  .base-text {
+    font-size: 1.8rem;
+    line-height: 3rem;
   }
 }

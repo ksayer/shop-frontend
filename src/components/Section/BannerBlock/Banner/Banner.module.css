@@ -1,7 +1,6 @@
 .article {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.1);
 }
 
 .first-block {
@@ -33,14 +32,6 @@
   line-height: 3.2rem;
   font-weight: 600;
   color: var(--black);
-}
-
-.text {
-  font-family: var(--raleway), var(--fonts);
-  font-size: 1.4rem;
-  line-height: 2.5rem;
-  font-weight: 300;
-  color: var(--text);
 }
 
 .image {
@@ -130,11 +121,6 @@
 
   .title {
     font-size: 3.2rem;
-  }
-
-  .text {
-    font-size: 1.8rem;
-    line-height: 3rem;
   }
 
   .btn {

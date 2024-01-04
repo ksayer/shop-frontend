@@ -3,6 +3,8 @@ import {CardBlock} from "@/components/Section/CardBlock";
 import {FormConsult} from "@/components/Section/FormConsult";
 import {IBanner} from "@/components/Section/BannerBlock/Banner";
 import {FormCatalog} from "@/components/Section/FormCatalog";
+import {ReviewBlock} from "@/components/Section/ReviewBlock";
+import {IReview} from "@/components/Section/ReviewBlock/Review";
 
 const banners: IBanner[] = [
   {
@@ -213,6 +215,41 @@ const howWork: IBanner[] = [
   },
 ]
 
+const reviews: IReview[] = [
+  {
+    id: 1,
+    link: '#',
+    imageUrl: 'https://ledmonster.ru/media/filer_public/4b/23/4b23d4a1-84fc-4ce5-9454-0b2db6fa0f7f/raisberg_mob.jpg',
+    title: 'Cэм Райсберг',
+    subtitle: 'ЖК Смольный, квартира Артема Тарасова',
+    text: 'Я уже много лет сотрудничаю с Ledmonster, и все интерьеры, где было использовано освещение этой компании, получались живыми, давая крутую, сочную картинку. А деньги, вложенные в проект, всегда того стоили!'
+  },
+  {
+    id: 2,
+    link: '#',
+    imageUrl: 'https://ledmonster.ru/media/filer_public/5e/98/5e988a4b-44d2-4f40-9353-d205d1f6d9ee/boris_li_2_mob.jpg',
+    title: 'Борис Ли',
+    subtitle: 'БЦ Земельный',
+    text: 'Команда Ledmonster c легкостью разработали такой сложный индивидуальный проект с габаритными моделями светильников. Сами все изготовили и протестировали, нам оставалось лишь расписаться.'
+  },
+  {
+    id: 3,
+    link: '#',
+    imageUrl: 'https://ledmonster.ru/media/filer_public/d6/ee/d6ee9a47-2bd1-4bb0-953c-f5e5a6f71262/irina_i_nadezhda_mob.jpeg',
+    title: 'Ирини Костерина и Надежда Ильиш',
+    subtitle: 'Автосалон BMW',
+    text: 'Мы неоднократно сотрудничали с компанией Ledmonster и все наши задумки легко реализовывались с помощью большого ассортимента. Желаем вашей команде побольше классных проектов!'
+  },
+  {
+    id: 4,
+    link: '#',
+    imageUrl: 'https://ledmonster.ru/media/filer_public/fa/88/fa88619b-776b-4692-a797-cd7773c5846f/photo_5258173648852859629_y_mob.jpeg',
+    title: 'Spacetime Studio',
+    subtitle: 'ЖК Green Park',
+    text: 'Всем дизайнерам и архитекторам, которые планируют сотрудничество с Ledmonster, мы бы хотели посоветовать расслабиться! Потому что с освещением у вас точно не будет проблем, а если и возникнут, то молниеносно решатся!'
+  },
+]
+
 export default function Home() {
   return (
     <>
@@ -223,6 +260,7 @@ export default function Home() {
       <FormCatalog/>
       <CardBlock title={'Проекты'} link={'#'} linkText={'Все проекты'} arrow={true} cards={projectCards}/>
       <BannerBlock title={'Как мы работаем'} banners={howWork} avoidMobileImage small/>
+      <ReviewBlock title={'Отзывы о нашей продукции'} cards={reviews}/>
     </>
   );
 }

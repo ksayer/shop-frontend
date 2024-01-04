@@ -17,7 +17,7 @@ export function CardBlock({title, linkText, link, arrow, cards}: ICardBlock) {
     <Section>
       <div className={`${styles.wrapper} flex-gap-title`}>
         <div className={styles.header}>
-          <h2 className={styles.title}>
+          <h2 className={'section__title'}>
             {title}
           </h2>
           <a className={styles.catalog} href={link}>{linkText}</a>

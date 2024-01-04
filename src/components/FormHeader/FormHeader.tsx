@@ -13,7 +13,7 @@ export function FormHeader({title, text, titleClass, textClass, headerClass}: IF
   return (
     <div className={`${styles.header} ${headerClass}`}>
       <h2 className={`${styles.title} ${titleClass}`}>{title}</h2>
-      <div className={`${styles.text} ${textClass}`} dangerouslySetInnerHTML={{__html: text}}></div>
+      <div className={`${styles.text} base-text ${textClass}`} dangerouslySetInnerHTML={{__html: text}}></div>
     </div>
   );
 }

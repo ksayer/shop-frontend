@@ -13,7 +13,7 @@ export interface ICard {
 
 export function Card({imageUrl, title, text, arrow}: ICard) {
   return (
-    <article className={styles.article}>
+    <article className={`${styles.article} volume`}>
       <a href='#' className={styles.button}>
         <div className={`${styles['first-block']}`}>
           <Image
@@ -28,7 +28,7 @@ export function Card({imageUrl, title, text, arrow}: ICard) {
         </div>
         <div className={`${styles['second-block']}`}>
           <h3 className={styles.title}>{title}</h3>
-          <p className={styles.text} dangerouslySetInnerHTML={{ __html: text }}></p>
+          <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>
           {arrow && <RightSimpleArrow className={styles.card__link}/>}
         </div>
       </a>

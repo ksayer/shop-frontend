@@ -34,7 +34,7 @@ export function Banner(
   }: IBanner
 ) {
   return (
-    <article className={`${styles.article} ${small && styles.small}`}>
+    <article className={`${styles.article} ${small && styles.small} volume`}>
       <div className={`${styles['first-block']} ${avoidMobileImage && styles['image-desktop-only']}`}>
         <Image
           src={imageUrl}
@@ -46,9 +46,9 @@ export function Banner(
         />
       </div>
       <div className={`${styles['second-block']} ${imageSecond && styles.imageSecond}`}>
-        {preTitle && <span className={styles.preTitle}>{preTitle}</span>}
+        {preTitle && <span className={'base-text'}>{preTitle}</span>}
         <h3 className={styles.title}>{title}</h3>
-        <p className={styles.text} dangerouslySetInnerHTML={{ __html: text }}></p>
+        <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>
         {button && <button className={styles.btn}>{button.text}</button>}
       </div>
     </article>
