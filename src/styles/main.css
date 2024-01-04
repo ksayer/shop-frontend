@@ -5,10 +5,13 @@
   --fonts: sans-serif;
 
   --white: #fff;
-  --text: #333;
+  --text: rgb(102, 102, 102);
   --grey-c6: #c6c6c6;
   --grey-db: #dbdbdb;
+  --grey-ed: #ededed;
   --hover-light: #a3f6f6;
+  --hover-semi-light: #b5e1e1;
+  --hover-ultra-light: #d9f5f5;
   --hover: #0cc;
 }
 
@@ -19,6 +22,9 @@
 }
 
 main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
   padding: 1rem 0;
 }
 
@@ -31,6 +37,7 @@ body {
 @media (min-width: 768px) {
   main {
     padding: 2rem 0;
+    gap: 4rem;
   }
   .container {
     padding: 0 25px;
@@ -40,6 +47,7 @@ body {
 @media (min-width: 1920px) {
   main {
     padding: 4rem 0;
+    gap: 6rem;
   }
   .container {
     padding: 0 65px;
