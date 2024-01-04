@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 }
 
 .header {
@@ -13,7 +12,6 @@
 .body {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 2rem;
 }
 
 .catalog {
@@ -32,16 +30,9 @@
   .body {
     grid-template-columns: 1fr 1fr;
   }
-
-  .wrapper {
-    gap: 3rem;
-  }
 }
 
 @media(min-width: 1024px) {
-  .wrapper {
-    gap: 4rem;
-  }
   .header {
     justify-content: space-between;
     align-items: center;
@@ -53,22 +44,13 @@
   .catalog {
     order: 1;
   }
-  .body {
-    gap: 3rem;
-  }
 }
 
 @media(min-width: 1920px) {
-  .wrapper {
-    gap: 6rem;
-  }
   .title {
     font-size: 4rem;
   }
   .catalog {
     font-size: 1.8rem;
-  }
-  .body {
-    gap: 5rem;
   }
 }

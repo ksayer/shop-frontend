@@ -16,7 +16,7 @@ interface IBannerBlock {
 export function BannerBlock({order, title, banners, avoidMobileImage = false, small = false}: IBannerBlock) {
   return (
     <Section>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} flex-gap-title`}>
         {title &&
           <div className={styles.header}>
             <h2 className={styles.title}>
@@ -24,7 +24,7 @@ export function BannerBlock({order, title, banners, avoidMobileImage = false, sm
             </h2>
           </div>
         }
-        <div className={styles.banners}>
+        <div className={`${styles.banners} flex-gap`}>
           {banners?.map((data, index) => (
             <Banner
               key={data.id}

@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import 'reset.css';
+@import 'globals.css';
 
 :root {
   --fonts: sans-serif;
@@ -54,7 +55,7 @@ body {
 @media (min-width: 1920px) {
   main {
     padding: 4rem 0;
-    gap: 6rem;
+    gap: 7rem;
   }
   .container {
     padding: 0 65px;

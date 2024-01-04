@@ -1,0 +1,31 @@
+.flex-gap {
+  gap: 2rem;
+}
+
+.flex-gap-title {
+  gap: 2rem;
+}
+
+@media(min-width: 768px) {
+  .flex-gap-title {
+    gap: 3rem;
+  }
+}
+
+@media(min-width: 1024px) {
+  .flex-gap {
+    gap: 3rem;
+  }
+  .flex-gap-title {
+    gap: 4rem;
+  }
+}
+
+@media(min-width: 1920px) {
+  .flex-gap{
+    gap: 4rem;
+  }
+  .flex-gap-title {
+    gap: 6rem;
+  }
+}
