@@ -1,5 +1,5 @@
 import {BannerBlock} from "@/components/Section/BannerBlock";
-import {ModelBlock} from "@/components/Section/ModelBlock";
+import {CardBlock} from "@/components/Section/CardBlock";
 import {FormConsult} from "@/components/Section/FormConsult";
 import {IBanner} from "@/components/Section/BannerBlock/Banner";
 import {FormCatalog} from "@/components/Section/FormCatalog";
@@ -84,14 +84,69 @@ const banners2: IBanner[] = [
   },
 ]
 
+const modelCards = [
+  {
+    id: 1,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/17/06/1706d346-1ef8-4db3-b418-887c9614d878/eva_mini_white_model4.png',
+    title: 'Серия Eva',
+    text: 'Светильник без видимых рамок идеально подходит как для общего освещения, так и для дополнительного.'
+  },
+  {
+    id: 2,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/56/b5/56b5e7bd-cb46-4f60-bd33-9b254674716a/spring-podves-white-main.png',
+    title: 'Серия Eva',
+    text: 'Светильник без видимых рамок идеально подходит как для общего освещения, так и для дополнительного.'
+  },
+  {
+    id: 3,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/92/6c/926cc4ab-0716-4875-9b8b-21097b9be861/extra_turn_white_main_desk.png',
+    title: 'Серия Eva',
+    text: 'Светильник без видимых рамок идеально подходит как для общего освещения, так и для дополнительного.'
+  },
+  {
+    id: 4,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/81/38/81382f69-c2c3-48d6-b58b-98f05deca9f9/fog-twm-1.png',
+    title: 'Серия Eva',
+    text: 'Светильник без видимых рамок идеально подходит как для общего освещения, так и для дополнительного.'
+  },
+]
+
+const projectCards = [
+  {
+    id: 1,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/14/15/141566e7-7aaf-4026-8ecf-ebc7fdc06c13/smolnii_main.jpg',
+    title: 'ЖК Смольный, квартира Артема Тарасова',
+    text: 'Петербург, Смольный пр-кт, д. 11'
+  },
+  {
+    id: 2,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/91/16/9116bd25-237f-4158-b77e-c6e3ba8b9d82/ma_studio_main.jpg',
+    title: 'MA СТУДИЯ',
+    text: 'Петербург, ул. Ушинского, 12М'
+  },
+  {
+    id: 3,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/ac/f1/acf10492-33a2-4004-b976-fd0839a7df20/moskovsky_eidis_housenik00033.jpg',
+    title: 'ЖК Новомосковский',
+    text: 'Петербург, Московский пр., 65/А'
+  },
+  {
+    id: 4,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/e7/2f/e72f748b-df96-408c-ab6f-19f65630b195/yit_main.jpeg',
+    title: 'ЖК Смольный проспект',
+    text: 'Петербург, Смольный пр-кт, д. 11,13,15'
+  },
+]
+
 export default function Home() {
   return (
     <>
       <BannerBlock banners={banners}/>
-      <ModelBlock/>
+      <CardBlock title={'Новые серии светильников'} link={'#'} linkText={'Все серии'} cards={modelCards}/>
       <FormConsult/>
       <BannerBlock banners={banners2}/>
       <FormCatalog/>
+      <CardBlock title={'Проекты'} link={'#'} linkText={'Все проекты'} arrow={true} cards={projectCards}/>
     </>
   );
 }

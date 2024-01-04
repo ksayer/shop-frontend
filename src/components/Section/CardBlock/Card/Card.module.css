@@ -9,6 +9,7 @@
 }
 
 .second-block {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -33,6 +34,12 @@
   line-height: 2.4rem;
 }
 
+.card__link {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 15px;
+}
 
 @media(min-width: 768px) {
   .article:hover {
@@ -45,6 +52,22 @@
 }
 
 
+@media(min-width: 1024px) {
+
+  .card__link {
+    width: 32px;
+    height: 32px;
+  }
+
+  .card__link path {
+    fill: var(--grey-c6)
+  }
+
+  article:hover .card__link path {
+    fill: currentColor;
+  }
+}
+
 @media(min-width: 1920px) {
   .second-block {
     padding: 3.5rem 2.6rem;
@@ -55,5 +78,10 @@
   .text {
     font-size: 1.8rem;
     line-height: 3.2rem;
+  }
+
+  .card__link {
+    width: 45px;
+    height: 45px;
   }
 }

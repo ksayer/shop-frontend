@@ -53,6 +53,9 @@
   .catalog {
     order: 1;
   }
+  .body {
+    gap: 3rem;
+  }
 }
 
 @media(min-width: 1920px) {
@@ -64,5 +67,8 @@
   }
   .catalog {
     font-size: 1.8rem;
+  }
+  .body {
+    gap: 5rem;
   }
 }
