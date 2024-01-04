@@ -138,15 +138,91 @@ const projectCards = [
   },
 ]
 
+const howWork: IBanner[] = [
+  {
+    id: 1,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/7e/ab/7eab2898-4ead-4e66-8af1-ead1f00c80c4/otpravit-proekt-main.png',
+    text: 'Заполните форму обратной связи, отправив свой дизайн-проект на расчет нашему специалисту.',
+    preTitle: 'Шаг 1',
+    title: 'Отправляйте проект',
+    imageSecond: false,
+    button: {
+      text: 'Отправить проект',
+      url: 'urlbutton',
+    },
+  },
+  {
+    id: 2,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/2b/d6/2bd67101-1101-42ea-a8e3-b35ce308f7ef/oksana_1k2_desk.jpg',
+    text:
+      'После рассмотрения проекта, персональный консультант свяжется с вами для уточнения всех деталей: пригласит вас в шоурум или же назначит онлайн-встречу, в ходе которой вы детально обсуждаете проект, рассматриваете всевозможные варианты освещения и ближе знакомитесь с ассортиментом компании.',
+    preTitle: 'Шаг 2',
+    title: 'Обратная связь',
+    imageSecond: true,
+  },
+  {
+    id: 3,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/ed/b8/edb8c91e-be76-463d-a7f9-f3a2e475b913/kp_1k2_desk.jpg',
+    text:
+      'По итогам встречи, персональный консультант сформирует для вас подробное коммерческое предложение, на основе которого будет строиться дальнейшее сотрудничество. Вам остается лишь согласовать его или внести необходимые правки.',
+    preTitle: 'Шаг 3',
+    title: 'Формирование предложения',
+    imageSecond: false,
+  },
+  {
+    id: 4,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/16/45/16459ce7-eac8-45d4-b7ce-fd0b027c697c/svetoraschet.jpg',
+    text:
+      'Как только вы согласовали проект, наши инженеры приступают к светотехническому расчету, который позволяет определить тип, число и мощность светильников, необходимых для вашего пространства. Вычисления производятся заранее в специализированной программе, поскольку от них зависят дальнейшие электротехнические работы.',
+    preTitle: 'Шаг 4',
+    title: 'Светотехнический расчет',
+    imageSecond: true,
+  },
+  {
+    id: 5,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/3b/33/3b3322c7-b6e9-4f48-a8bb-ed1ea243b627/demonstratsia.jpg',
+    text:
+      'При необходимости наш специалист всегда готов приехать с образцами на объект, осуществить замеры и примерку осветительных приборов. Выезд осуществляется абсолютно бесплатно.',
+    preTitle: 'Шаг 5',
+    title: 'Демонстрация',
+    imageSecond: false,
+  },
+  {
+    id: 6,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/8b/da/8bda8eeb-7521-4dcd-9b67-c47e2ae311aa/car_1k2_desk.jpg',
+    text:
+      'Доставка светильников по Москве и Санкт-Петребургу бесплатная, сроком до 2 дней. По вопросам доставки в другие города и страны, обращайтесь к персональному консультанту. Оплата производится любым удобным способом.',
+    preTitle: 'Шаг 6',
+    title: 'Оплата и доставка',
+    imageSecond: true,
+  },
+  {
+    id: 7,
+    imageUrl:
+      'https://ledmonster.ru/media/filer_public/55/73/55735f29-4f74-47ba-a92c-640bbc549c77/symbol_desk_color.png',
+    text:
+      'Гарантия на все световые решения составляет 5 лет. После окончания гарантии вам всегда будет доступно пост-гарантийное обслуживание. Кроме того, на центральном складе поддерживается постоянное наличие необходимых комплектующих, благодаря чему замена будет произведена оперативно и не займет много времени.',
+    title: 'Гарантия',
+    imageSecond: false,
+  },
+]
+
 export default function Home() {
   return (
     <>
-      <BannerBlock banners={banners}/>
+      <BannerBlock order={0} banners={banners}/>
       <CardBlock title={'Новые серии светильников'} link={'#'} linkText={'Все серии'} cards={modelCards}/>
       <FormConsult/>
       <BannerBlock banners={banners2}/>
       <FormCatalog/>
       <CardBlock title={'Проекты'} link={'#'} linkText={'Все проекты'} arrow={true} cards={projectCards}/>
+      <BannerBlock title={'Как мы работаем'} banners={howWork} avoidMobileImage small/>
     </>
   );
 }

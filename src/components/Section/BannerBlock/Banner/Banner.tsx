@@ -10,27 +10,43 @@ type IButton = {
 export interface IBanner {
   id?: string | number;
   imageUrl: string;
+  small?: boolean;
+  preTitle?: string;
   title: string;
   text: string;
   imageSecond: boolean;
+  avoidMobileImage?: boolean;
+  priority?: boolean;
   button?: IButton;
 }
 
-export function Banner({ imageUrl, title, text, imageSecond, button }: IBanner) {
+export function Banner(
+  {
+    imageUrl,
+    preTitle,
+    small,
+    title,
+    text,
+    imageSecond,
+    priority,
+    button,
+    avoidMobileImage,
+  }: IBanner
+) {
   return (
-    <article className={styles.article}>
-      <div className={`${styles['first-block']}`}>
+    <article className={`${styles.article} ${small && styles.small}`}>
+      <div className={`${styles['first-block']} ${avoidMobileImage && styles['image-desktop-only']}`}>
         <Image
           src={imageUrl}
           alt={'image'}
-          width={650}
-          height={350}
+          fill
           sizes="(max-width: 767px) 100vw, 50vw"
-          className={styles.image}
-          priority
+          priority={priority}
+          className={`${styles.image}`}
         />
       </div>
       <div className={`${styles['second-block']} ${imageSecond && styles.imageSecond}`}>
+        {preTitle && <span className={styles.preTitle}>{preTitle}</span>}
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.text} dangerouslySetInnerHTML={{ __html: text }}></p>
         {button && <button className={styles.btn}>{button.text}</button>}

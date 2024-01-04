@@ -18,9 +18,9 @@ export function FormCatalog() {
         <div className={styles.bg}>
           <Image
             src={'https://ledmonster.ru/media/filer_public/d2/cd/d2cd1822-0c30-4110-b1ad-d36e85e73f20/cat2020_desk.jpg'}
-            sizes={'100vw'}
             alt={'bg'}
             fill
+            sizes="(min-width: 1024px) 100vw"
           />
         </div>
         <div className={`${styles['form-wrapper']}`}>

@@ -11,6 +11,7 @@
 
 .bg {
   display: none;
+  position: relative;
 }
 
 .form {
