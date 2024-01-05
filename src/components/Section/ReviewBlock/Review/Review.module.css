@@ -17,7 +17,7 @@
 }
 
 .link::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: 0;
 }
@@ -40,13 +40,13 @@
   border-radius: 50%;
 }
 
-@media(min-width: 420px) {
+@media (min-width: 420px) {
   .image {
     display: flex;
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .image {
     width: 92px;
     height: 92px;
@@ -57,17 +57,15 @@
   }
 }
 
-@media(min-width: 1440px) {
+@media (min-width: 1440px) {
   .article {
     padding: 3.2rem;
   }
 }
 
-@media(min-width: 1920px) {
-
+@media (min-width: 1920px) {
   .title {
     font-size: 2.4rem;
     line-height: 4rem;
   }
-
 }

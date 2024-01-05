@@ -1,0 +1,12 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 1920px) {
+  .list {
+    column-gap: 6rem;
+  }
+}

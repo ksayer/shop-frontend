@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Review.module.css';
-import Image from 'next/image'
+import Image from 'next/image';
 
 export interface IReview {
   id?: string | number;
@@ -11,7 +11,7 @@ export interface IReview {
   link: string;
 }
 
-export function Review({title, subtitle, text, link, imageUrl}: IReview) {
+export function Review({ title, subtitle, text, link, imageUrl }: IReview) {
   return (
     <article className={`${styles.article} volume flex-gap`}>
       <a href={link} className={styles.link}>
@@ -29,9 +29,7 @@ export function Review({title, subtitle, text, link, imageUrl}: IReview) {
             <span className={'base-text'}>{subtitle}</span>
           </div>
         </div>
-        <p className={'base-text'}>
-          {text}
-        </p>
+        <p className={'base-text'}>{text}</p>
       </a>
     </article>
   );

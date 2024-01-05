@@ -1,21 +1,21 @@
 import React from 'react';
 import styles from './Card.module.css';
-import Image from "next/image";
-import {RightSimpleArrow} from "@/components/icons/RightSimpleArrow";
+import Image from 'next/image';
+import { RightSimpleArrow } from '@/components/icons/RightSimpleArrow';
 
 export interface ICard {
-  id?: string | number,
+  id?: string | number;
   imageUrl: string;
-  title: string,
-  text?: string,
-  arrow?: boolean,
-  type?: 'publication' | null
+  title: string;
+  text?: string;
+  arrow?: boolean;
+  type?: 'publication' | null;
 }
 
-export function Card({imageUrl, title, text, arrow, type = null}: ICard) {
+export function Card({ imageUrl, title, text, arrow, type = null }: ICard) {
   return (
     <article className={`${styles.article} volume`}>
-      <a href='#' className={styles.button}>
+      <a href="#" className={styles.button}>
         <div className={`${styles['first-block']}`}>
           <Image
             src={imageUrl}
@@ -30,7 +30,7 @@ export function Card({imageUrl, title, text, arrow, type = null}: ICard) {
         <div className={`${styles['second-block']}`}>
           <h3 className={styles.title}>{title}</h3>
           {text && <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>}
-          {arrow && <RightSimpleArrow className={styles.card__link}/>}
+          {arrow && <RightSimpleArrow className={styles.card__link} />}
         </div>
       </a>
     </article>

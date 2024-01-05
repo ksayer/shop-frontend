@@ -23,7 +23,7 @@
 }
 
 .bg-image {
-  height: 27vw;
+  height: 50vw;
   object-fit: cover;
 }
 
@@ -40,7 +40,7 @@
   right: 15px;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .article:hover {
     background-color: var(--hover-ultra-light);
   }
@@ -48,11 +48,12 @@
   .article:hover .first-block {
     background-color: var(--hover-semi-light);
   }
+  .bg-image {
+    height: 25vw;
+  }
 }
 
-
-@media(min-width: 1024px) {
-
+@media (min-width: 1024px) {
   .second-block {
     position: relative;
     display: flex;
@@ -67,7 +68,7 @@
   }
 
   .card__link path {
-    fill: var(--grey-c6)
+    fill: var(--grey-c6);
   }
 
   article:hover .card__link path {
@@ -75,7 +76,7 @@
   }
 }
 
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   .second-block {
     padding: 3.5rem 6rem 3.5rem 2.6rem;
   }

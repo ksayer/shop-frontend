@@ -20,22 +20,22 @@ export interface IBanner {
   button?: IButton;
 }
 
-export function Banner(
-  {
-    imageUrl,
-    preTitle,
-    small,
-    title,
-    text,
-    imageSecond,
-    priority,
-    button,
-    avoidMobileImage,
-  }: IBanner
-) {
+export function Banner({
+  imageUrl,
+  preTitle,
+  small,
+  title,
+  text,
+  imageSecond,
+  priority,
+  button,
+  avoidMobileImage,
+}: IBanner) {
   return (
     <article className={`${styles.article} ${small && styles.small} volume`}>
-      <div className={`${styles['first-block']} ${avoidMobileImage && styles['image-desktop-only']}`}>
+      <div
+        className={`${styles['first-block']} ${avoidMobileImage && styles['image-desktop-only']}`}
+      >
         <Image
           src={imageUrl}
           alt={'image'}

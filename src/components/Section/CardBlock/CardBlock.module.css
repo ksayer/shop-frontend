@@ -20,13 +20,13 @@
   font-weight: 400;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .body {
     grid-template-columns: 1fr 1fr;
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .header {
     justify-content: space-between;
     align-items: center;
@@ -40,7 +40,7 @@
   }
 }
 
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   .catalog {
     font-size: 1.8rem;
   }

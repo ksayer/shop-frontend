@@ -6,6 +6,7 @@
   --fonts: sans-serif;
 
   --white: #fff;
+  --white-dark: #f9f8f9;
   --black: #333;
   --text: rgb(102, 102, 102);
   --grey-ultra-light: rgb(249, 248, 249);
@@ -20,45 +21,4 @@
   --input: #555;
 
   --transperent-hover: rgba(38, 238, 238, 0.2);
-
-}
-
-.container {
-  padding: 0 15px;
-  margin: auto;
-  max-width: 1920px;
-}
-
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 3rem;
-  padding: 1rem 0;
-}
-
-body {
-  font-family: var(--montserrat), var(--fonts);
-  font-size: 1.6rem;
-  font-weight: 300;
-  color: var(--black);
-}
-
-@media (min-width: 768px) {
-  main {
-    padding: 2rem 0;
-    gap: 4rem;
-  }
-  .container {
-    padding: 0 25px;
-  }
-}
-
-@media (min-width: 1920px) {
-  main {
-    padding: 4rem 0;
-    gap: 7rem;
-  }
-  .container {
-    padding: 0 65px;
-  }
 }

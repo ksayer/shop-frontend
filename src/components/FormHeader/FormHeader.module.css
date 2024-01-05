@@ -10,13 +10,13 @@
   font-weight: 600;
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .title {
     font-size: 2.4rem;
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .header {
     gap: 3rem;
   }
@@ -26,11 +26,11 @@
   }
 
   .text {
-    color: var(--grey-ee)
+    color: var(--grey-ee);
   }
 }
 
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   .title {
     font-size: 4rem;
   }

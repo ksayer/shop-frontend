@@ -7,7 +7,7 @@ import { Control } from '@/components/pages/Header/Control';
 export function Header() {
   return (
     <header className={styles.header}>
-      <div className={`container ${styles.container}`}>
+      <div className={`container alt-container`}>
         <div className={styles.wrapper}>
           <Logo />
           <Menu />

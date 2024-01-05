@@ -2,6 +2,7 @@ import React from 'react';
 import '@/styles/main.css';
 import { Header } from '@/components/pages/Header';
 import { raleway, montserrat } from '@/app/fonts';
+import { Footer } from '@/components/pages/Footer';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       >
         <Header />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -24,7 +24,7 @@
 .preTitle {
   font-family: var(--raleway), var(--fonts);
   font-size: 1.4rem;
-  color: var(--text)
+  color: var(--text);
 }
 
 .title {
@@ -101,7 +101,8 @@
   }
 
   .btn:hover {
-    border-color: var(--hover);
+    box-shadow: 0 0 5px 1px #00d7c3;
+    border: 1px solid var(--hover);
   }
 
   .preTitle {

@@ -1,5 +1,5 @@
 .wrapper {
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
 }
 
 .form-wrapper {
@@ -17,7 +17,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 2rem
+  gap: 2rem;
 }
 
 .input-wrapper {
@@ -31,7 +31,7 @@
   outline: none;
   border-radius: 3px;
   border: 1px solid var(--grey-c6);
-  box-shadow: 0 0 5px 1px rgba(0, 0, 0, .1);
+  box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   font-size: 1.4rem;
   color: var(--input);
 }
@@ -124,7 +124,6 @@
   .submit-icon {
     display: block;
   }
-
 }
 
 @media (min-width: 1920px) {
@@ -133,7 +132,7 @@
   }
 
   .form {
-    gap: 10rem
+    gap: 10rem;
   }
 
   .title {
