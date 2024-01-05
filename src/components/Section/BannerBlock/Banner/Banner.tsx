@@ -1,8 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './Banner.module.css';
+import { MapPoint } from '@/components/icons/MapPoint';
+import { Mail } from '@/components/icons/Mail';
+import { PhoneSmall } from '@/components/icons/PhoneSmall';
 
 type IButton = {
+  id?: string | number;
   text: string;
   url: string;
 };
@@ -10,29 +14,33 @@ type IButton = {
 export interface IBanner {
   id?: string | number;
   imageUrl: string;
-  small?: boolean;
   preTitle?: string;
   title: string;
-  text: string;
+  text?: string;
   imageSecond: boolean;
   avoidMobileImage?: boolean;
   priority?: boolean;
-  button?: IButton;
+  phone?: string;
+  address?: string;
+  email?: string;
+  buttons?: IButton[];
 }
 
 export function Banner({
   imageUrl,
   preTitle,
-  small,
   title,
   text,
   imageSecond,
   priority,
-  button,
+  buttons,
+  phone,
+  address,
+  email,
   avoidMobileImage,
 }: IBanner) {
   return (
-    <article className={`${styles.article} ${small && styles.small} volume`}>
+    <article className={`${styles.article} ${avoidMobileImage && styles.small} volume`}>
       <div
         className={`${styles['first-block']} ${avoidMobileImage && styles['image-desktop-only']}`}
       >
@@ -49,8 +57,38 @@ export function Banner({
       <div className={`${styles['second-block']} ${imageSecond && styles.imageSecond}`}>
         {preTitle && <span className={'base-text'}>{preTitle}</span>}
         <h3 className={styles.title}>{title}</h3>
-        <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>
-        {button && <button className={styles.btn}>{button.text}</button>}
+
+        {text && <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>}
+
+        {phone && (
+          <p className={`base-text ${styles.contact}`}>
+            <PhoneSmall className={styles.contact__icon} />
+            <a href={`tel:${phone}`}>{phone}</a>
+          </p>
+        )}
+
+        {address && (
+          <p className={`base-text ${styles.contact}`}>
+            <MapPoint />
+            <span>{address}</span>
+          </p>
+        )}
+
+        {email && (
+          <p className={`base-text ${styles.contact}`}>
+            <Mail className={styles.contact__icon} />
+            <a href={`mailto:${email}`}>{email}</a>
+          </p>
+        )}
+
+        <div className={`${styles.buttons} flex-gap`}>
+          {buttons &&
+            buttons.map(data => (
+              <button key={data.id} className={styles.btn}>
+                {data.text}
+              </button>
+            ))}
+        </div>
       </div>
     </article>
   );

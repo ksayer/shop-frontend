@@ -8,11 +8,11 @@
   padding: 0 15px;
 }
 
-main {
+.main-page {
   display: flex;
   flex-direction: column;
   gap: 3rem;
-  padding: 1rem 0;
+  padding-top: 1rem;
 }
 
 body {
@@ -54,8 +54,8 @@ body {
 }
 
 @media (min-width: 1024px) {
-  main {
-    padding: 2rem 0;
+  .main-page {
+    padding-top: 2rem;
     gap: 4rem;
   }
   .container {
@@ -98,8 +98,8 @@ body {
 }
 
 @media (min-width: 1920px) {
-  main {
-    padding: 4rem 0;
+  .main-page {
+    padding-top: 4rem;
     gap: 7rem;
   }
   .container {

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Menu.module.css';
+import Link from 'next/link';
 
 export function Menu() {
   return (
@@ -31,9 +32,9 @@ export function Menu() {
           </a>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/contacts'} className={styles.link}>
             Контакты
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

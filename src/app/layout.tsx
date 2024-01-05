@@ -12,7 +12,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         style={{ fontFamily: 'var(--montserrat)' }}
       >
         <Header />
-        <main>{children}</main>
+        {children}
         <Footer />
       </body>
     </html>

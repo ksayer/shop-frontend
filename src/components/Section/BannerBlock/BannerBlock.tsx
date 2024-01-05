@@ -6,18 +6,10 @@ import styles from './BannerBlock.module.css';
 interface IBannerBlock {
   order?: number;
   title?: string;
-  avoidMobileImage?: boolean;
-  small?: boolean;
   banners?: IBanner[];
 }
 
-export function BannerBlock({
-  order,
-  title,
-  banners,
-  avoidMobileImage = false,
-  small = false,
-}: IBannerBlock) {
+export function BannerBlock({ order, title, banners }: IBannerBlock) {
   return (
     <Section>
       <div className={`${styles.wrapper} flex-gap-title`}>
@@ -30,14 +22,7 @@ export function BannerBlock({
           {banners?.map((data, index) => (
             <Banner
               key={data.id}
-              imageUrl={data.imageUrl}
-              preTitle={data.preTitle}
-              title={data.title}
-              text={data.text}
-              imageSecond={data.imageSecond}
-              button={data.button}
-              avoidMobileImage={avoidMobileImage}
-              small={small}
+              {...data}
               priority={order === 0 && (index === 0 || index === 1)}
             />
           ))}

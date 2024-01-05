@@ -40,10 +40,13 @@ const banners: IBanner[] = [
     text: 'Этот удобный и инновационный конструктор позволит вам создавать неповторимые сценарии освещения. Благодаря магнитному основанию светильников, вы сможете легко перемещать их по всей длине системы без лишних усилий.<br><br>Каждый светильник в системе Universe оснащен уникальной оптикой, которая обеспечивает равномерный и комфортный свет в помещении. Создавайте свой собственный дизайн освещения и наслаждайтесь уютной атмосферой!',
     title: 'Магнитная система Universe\n',
     imageSecond: false,
-    button: {
-      text: 'Подробнее',
-      url: 'urlbutton',
-    },
+    buttons: [
+      {
+        id: 1,
+        text: 'Подробнее',
+        url: 'urlbutton',
+      },
+    ],
   },
   {
     id: 4,
@@ -52,10 +55,13 @@ const banners: IBanner[] = [
     text: 'Наши интерактивные пространства позволят вам оценить все особенности света, такие как оттенок, интенсивность, возможности диммирования и создания световых сценариев. Вы получите реальные впечатления и научитесь правильно выбирать светильники для создания идеального освещения в вашем пространстве.',
     title: 'Лаборатории света Ledmonster',
     imageSecond: true,
-    button: {
-      text: 'Адреса',
-      url: 'urlbutton',
-    },
+    buttons: [
+      {
+        id: 1,
+        text: 'Адреса',
+        url: 'urlbutton',
+      },
+    ],
   },
 ];
 
@@ -67,10 +73,13 @@ const banners2: IBanner[] = [
     text: 'Надежный и гибкий поставщик светильников на заказ — важный фактор успеха любого проекта. Для реализации самых сложных и нестандартных задач предоставляем производственный потенциал и более 1000 модификаций светильников из нового каталога, которые могут быть специально адаптированы под ваши индивидуальные требования и потребности.',
     title: 'Контрактные поставки\n',
     imageSecond: false,
-    button: {
-      text: 'Подробнее',
-      url: 'urlbutton',
-    },
+    buttons: [
+      {
+        id: 1,
+        text: 'Подробнее',
+        url: 'urlbutton',
+      },
+    ],
   },
   {
     id: 2,
@@ -79,10 +88,13 @@ const banners2: IBanner[] = [
     text: 'Эксклюзивный светильник, созданный по авторскому эскизу из натуральных материалов, может стать уникальным элементом декора, подчеркивающим индивидуальность и стильность интерьера. Такое решение будет эстетично и функционально, обеспечивая оптимальное освещение проекта и создавая уютную атмосферу.',
     title: 'Уникальные решения',
     imageSecond: false,
-    button: {
-      text: 'Подробнее',
-      url: 'urlbutton',
-    },
+    buttons: [
+      {
+        id: 1,
+        text: 'Подробнее',
+        url: 'urlbutton',
+      },
+    ],
   },
 ];
 
@@ -157,10 +169,14 @@ const howWork: IBanner[] = [
     preTitle: 'Шаг 1',
     title: 'Отправляйте проект',
     imageSecond: false,
-    button: {
-      text: 'Отправить проект',
-      url: 'urlbutton',
-    },
+    avoidMobileImage: true,
+    buttons: [
+      {
+        id: 1,
+        text: 'Отправить проект',
+        url: 'urlbutton',
+      },
+    ],
   },
   {
     id: 2,
@@ -170,6 +186,7 @@ const howWork: IBanner[] = [
     preTitle: 'Шаг 2',
     title: 'Обратная связь',
     imageSecond: true,
+    avoidMobileImage: true,
   },
   {
     id: 3,
@@ -179,6 +196,7 @@ const howWork: IBanner[] = [
     preTitle: 'Шаг 3',
     title: 'Формирование предложения',
     imageSecond: false,
+    avoidMobileImage: true,
   },
   {
     id: 4,
@@ -188,6 +206,7 @@ const howWork: IBanner[] = [
     preTitle: 'Шаг 4',
     title: 'Светотехнический расчет',
     imageSecond: true,
+    avoidMobileImage: true,
   },
   {
     id: 5,
@@ -197,6 +216,7 @@ const howWork: IBanner[] = [
     preTitle: 'Шаг 5',
     title: 'Демонстрация',
     imageSecond: false,
+    avoidMobileImage: true,
   },
   {
     id: 6,
@@ -206,6 +226,7 @@ const howWork: IBanner[] = [
     preTitle: 'Шаг 6',
     title: 'Оплата и доставка',
     imageSecond: true,
+    avoidMobileImage: true,
   },
   {
     id: 7,
@@ -214,6 +235,7 @@ const howWork: IBanner[] = [
     text: 'Гарантия на все световые решения составляет 5 лет. После окончания гарантии вам всегда будет доступно пост-гарантийное обслуживание. Кроме того, на центральном складе поддерживается постоянное наличие необходимых комплектующих, благодаря чему замена будет произведена оперативно и не займет много времени.',
     title: 'Гарантия',
     imageSecond: false,
+    avoidMobileImage: true,
   },
 ];
 
@@ -303,7 +325,7 @@ const publications: ICard[] = [
 
 export default function Home() {
   return (
-    <>
+    <main className={'main-page'}>
       <BannerBlock order={0} banners={banners} />
       <CardBlock
         title={'Новые серии светильников'}
@@ -321,7 +343,7 @@ export default function Home() {
         arrow={true}
         cards={projectCards}
       />
-      <BannerBlock title={'Как мы работаем'} banners={howWork} avoidMobileImage small />
+      <BannerBlock title={'Как мы работаем'} banners={howWork} />
       <ReviewBlock title={'Отзывы о нашей продукции'} cards={reviews} />
       <CardBlock
         title={'Публикации'}
@@ -330,6 +352,6 @@ export default function Home() {
         arrow={true}
         cards={publications}
       />
-    </>
+    </main>
   );
 }
