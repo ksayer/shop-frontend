@@ -7,7 +7,7 @@ const nextConfig = {
 
       },
     ],
-    deviceSizes: [480, 768, 1024, 1920]
+    deviceSizes: [480, 768, 1024, 1920],
   }
 };
 

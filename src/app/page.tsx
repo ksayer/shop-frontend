@@ -5,6 +5,7 @@ import {IBanner} from "@/components/Section/BannerBlock/Banner";
 import {FormCatalog} from "@/components/Section/FormCatalog";
 import {ReviewBlock} from "@/components/Section/ReviewBlock";
 import {IReview} from "@/components/Section/ReviewBlock/Review";
+import {ICard} from "@/components/Section/CardBlock/Card";
 
 const banners: IBanner[] = [
   {
@@ -86,7 +87,7 @@ const banners2: IBanner[] = [
   },
 ]
 
-const modelCards = [
+const modelCards: ICard[] = [
   {
     id: 1,
     imageUrl: 'https://ledmonster.ru/media/filer_public/17/06/1706d346-1ef8-4db3-b418-887c9614d878/eva_mini_white_model4.png',
@@ -113,7 +114,7 @@ const modelCards = [
   },
 ]
 
-const projectCards = [
+const projectCards: ICard[] = [
   {
     id: 1,
     imageUrl: 'https://ledmonster.ru/media/filer_public/14/15/141566e7-7aaf-4026-8ecf-ebc7fdc06c13/smolnii_main.jpg',
@@ -250,6 +251,45 @@ const reviews: IReview[] = [
   },
 ]
 
+const publications: ICard[] = [
+  {
+    id: 1,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/cf/4e/cf4ea0ee-8ed4-4409-a9a2-9b9981857129/2022_porter_2_mob.jpg',
+    title: 'Сезон дождей: освещение',
+    type: 'publication',
+  },
+  {
+    id: 2,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/06/e9/06e92932-d291-4261-a398-05b95d4cc697/wake_up_mob.jpg',
+    title: 'Популярные решения в освещении',
+    type: 'publication',
+  },
+  {
+    id: 3,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/0c/c2/0cc297ba-e66f-4000-8f25-0bee57fbcf6c/dlia_rozy__1_mob.jpg',
+    title: '7 причин купить подвесной светильник',
+    type: 'publication',
+  },
+  {
+    id: 4,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/d9/1d/d91df506-4041-401a-a4d2-bf08d89890ad/vybor_svetilnika_mob.jpg',
+    title: 'Выбираем светильник премиум качества',
+    type: 'publication',
+  },
+  {
+    id: 5,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/50/92/50924a0a-8bb8-4bf1-9a6d-6817d32c5042/magnitnaia_radiusnaia_sistema_mob.jpg',
+    title: 'Магнитная система освещения',
+    type: 'publication',
+  },
+  {
+    id: 6,
+    imageUrl: 'https://ledmonster.ru/media/filer_public/53/5a/535a80e7-1925-457d-8378-a0e7553948b0/svetoraschet_mob.jpg',
+    title: 'Планировка освещения',
+    type: 'publication',
+  },
+]
+
 export default function Home() {
   return (
     <>
@@ -261,6 +301,7 @@ export default function Home() {
       <CardBlock title={'Проекты'} link={'#'} linkText={'Все проекты'} arrow={true} cards={projectCards}/>
       <BannerBlock title={'Как мы работаем'} banners={howWork} avoidMobileImage small/>
       <ReviewBlock title={'Отзывы о нашей продукции'} cards={reviews}/>
+      <CardBlock title={'Публикации'} link={'#'} linkText={'Все публикации'} arrow={true} cards={publications}/>
     </>
   );
 }

@@ -22,8 +22,8 @@ export function CardBlock({title, linkText, link, arrow, cards}: ICardBlock) {
           </h2>
           <a className={styles.catalog} href={link}>{linkText}</a>
         </div>
-        <div className={`${styles.body} flex-gap`}>
-          {cards.map(data => <Card key={data.id} imageUrl={data.imageUrl} title={data.title} text={data.text} arrow={arrow}/>)}
+        <div className={`${styles.body} flex-gap ${cards[0].type === 'publication' && styles.publications}`}>
+          {cards.map(data => <Card key={data.id} imageUrl={data.imageUrl} type={data.type} title={data.title} text={data.text} arrow={arrow}/>)}
         </div>
       </div>
     </Section>

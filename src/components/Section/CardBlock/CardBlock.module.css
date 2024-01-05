@@ -35,6 +35,9 @@
   .catalog {
     order: 1;
   }
+  .publications {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 @media(min-width: 1920px) {

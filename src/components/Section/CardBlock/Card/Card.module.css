@@ -1,3 +1,8 @@
+.button {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 .first-block {
   background-color: var(--grey-ed);
   line-height: 0;
@@ -7,12 +12,19 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  height: 100%;
   gap: 2rem;
-  padding: 2.5rem 1.6rem;
+  padding: 2.5rem 4rem 2.5rem 2.5rem;
 }
 
 .image {
   height: auto;
+}
+
+.bg-image {
+  height: 27vw;
+  object-fit: cover;
 }
 
 .title {
@@ -41,6 +53,14 @@
 
 @media(min-width: 1024px) {
 
+  .second-block {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 5rem;
+  }
+
   .card__link {
     width: 32px;
     height: 32px;
@@ -57,7 +77,7 @@
 
 @media(min-width: 1920px) {
   .second-block {
-    padding: 3.5rem 2.6rem;
+    padding: 3.5rem 6rem 3.5rem 2.6rem;
   }
   .title {
     font-size: 2.4rem;

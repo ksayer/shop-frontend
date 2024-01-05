@@ -39,7 +39,8 @@ export function Banner(
         <Image
           src={imageUrl}
           alt={'image'}
-          fill
+          width={500}
+          height={500}
           sizes="(max-width: 767px) 100vw, 50vw"
           priority={priority}
           className={`${styles.image}`}
