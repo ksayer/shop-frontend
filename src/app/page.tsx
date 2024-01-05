@@ -325,7 +325,7 @@ const publications: ICard[] = [
 
 export default function Home() {
   return (
-    <main className={'main-page'}>
+    <main className={'main-page main-flex'}>
       <BannerBlock order={0} banners={banners} />
       <CardBlock
         title={'Новые серии светильников'}

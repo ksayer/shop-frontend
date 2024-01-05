@@ -75,7 +75,7 @@ const contacts: IBanner[] = [
 
 export default function Contacts() {
   return (
-    <main>
+    <main className={'main-flex'}>
       <BannerBlock banners={contacts} />
     </main>
   );

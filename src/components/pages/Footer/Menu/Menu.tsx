@@ -26,12 +26,12 @@ export function Menu() {
           </a>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <a href="/contacts" className={styles.link}>
             Контакты
           </a>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <a href="/about" className={styles.link}>
             О компании
           </a>
         </li>

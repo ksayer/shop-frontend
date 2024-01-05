@@ -1,0 +1,8 @@
+.wrapper {
+  position: relative;
+  height: 60vh;
+}
+
+.image {
+  object-fit: cover;
+}
