@@ -1,23 +1,25 @@
 import React from 'react';
 import styles from './Review.module.css';
 import Image from 'next/image';
+import {ImageType} from "@/api/types";
 
 export interface IReview {
   id?: string | number;
+  image: ImageType;
+  slug?: string;
   title: string;
-  subtitle: string;
-  text: string;
-  imageUrl: string;
-  link: string;
+  subtitle?: string;
+  text?: string;
+  arrow?: boolean;
 }
 
-export function Review({ title, subtitle, text, link, imageUrl }: IReview) {
+export function Review({ title, subtitle, text, slug, image }: IReview) {
   return (
     <article className={`${styles.article} volume flex-gap`}>
-      <a href={link} className={styles.link}>
+      <a href={slug} className={styles.link}>
         <div className={styles.top}>
           <Image
-            src={imageUrl}
+            src={image?.absolute_url}
             alt={title}
             width={76}
             height={76}

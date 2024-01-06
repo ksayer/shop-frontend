@@ -4,21 +4,22 @@ import styles from './Banner.module.css';
 import { MapPoint } from '@/components/icons/MapPoint';
 import { Mail } from '@/components/icons/Mail';
 import { PhoneSmall } from '@/components/icons/PhoneSmall';
+import {ImageType} from "@/api/types";
 
 type IButton = {
   id?: string | number;
   text: string;
-  url: string;
+  link: string;
 };
 
 export interface IBanner {
   id?: string | number;
-  imageUrl: string;
-  preTitle?: string;
+  image: ImageType;
+  pre_title?: string;
   title: string;
-  text?: string;
-  imageSecond: boolean;
-  avoidMobileImage?: boolean;
+  description?: string;
+  image_position: 'left' | 'right' | 'bottom' | 'top';
+  mobile_image?: boolean;
   priority?: boolean;
   phone?: string;
   address?: string;
@@ -27,38 +28,39 @@ export interface IBanner {
 }
 
 export function Banner({
-  imageUrl,
-  preTitle,
+  image,
+  pre_title,
   title,
-  text,
-  imageSecond,
+  description,
+  image_position,
   priority,
   buttons,
   phone,
   address,
   email,
-  avoidMobileImage,
+  mobile_image,
 }: IBanner) {
   return (
-    <article className={`${styles.article} ${avoidMobileImage && styles.small} volume`}>
+    <article className={`${styles.article} ${!mobile_image && styles.small} volume`}>
       <div
-        className={`${styles['first-block']} ${avoidMobileImage && styles['image-desktop-only']}`}
+        className={`${styles['first-block']} ${!mobile_image && styles['image-desktop-only']}`}
       >
         <Image
-          src={imageUrl}
+          src={image?.absolute_url}
           alt={'image'}
-          width={500}
-          height={500}
+          width={image.width}
+          height={image.height}
           sizes="(max-width: 767px) 100vw, 50vw"
+          quality={image.optimized ? 100 : 75}
           priority={priority}
           className={`${styles.image}`}
         />
       </div>
-      <div className={`${styles['second-block']} ${imageSecond && styles.imageSecond}`}>
-        {preTitle && <span className={'base-text'}>{preTitle}</span>}
+      <div className={`${styles['second-block']} ${image_position === 'right' && styles.imageSecond}`}>
+        {pre_title && <span className={'base-text'}>{pre_title}</span>}
         <h3 className={styles.title}>{title}</h3>
 
-        {text && <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>}
+        {description && <p className={'base-text'} dangerouslySetInnerHTML={{ __html: description }}></p>}
 
         {phone && (
           <p className={`base-text ${styles.contact}`}>
@@ -84,9 +86,9 @@ export function Banner({
         <div className={`${styles.buttons} flex-gap`}>
           {buttons &&
             buttons.map(data => (
-              <button key={data.id} className={styles.btn}>
+              <a href={data.link} key={data.id} className={styles.btn}>
                 {data.text}
-              </button>
+              </a>
             ))}
         </div>
       </div>

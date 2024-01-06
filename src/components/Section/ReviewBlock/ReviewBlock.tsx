@@ -19,11 +19,7 @@ export function ReviewBlock({ title, cards }: IReviewBlock) {
           {cards.map(data => (
             <Review
               key={data.id}
-              imageUrl={data.imageUrl}
-              link={data.link}
-              title={data.title}
-              subtitle={data.subtitle}
-              text={data.text}
+              {...data}
             />
           ))}
         </div>

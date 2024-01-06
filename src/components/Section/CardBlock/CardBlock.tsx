@@ -3,22 +3,21 @@ import { Section } from '@/components/Section';
 import styles from './CardBlock.module.css';
 import { Card, ICard } from './Card';
 
-interface ICardBlock {
+export interface ICardBlock {
   title: string;
-  linkText: string;
+  link_text: string;
   link: string;
-  arrow?: boolean;
   cards: ICard[];
 }
 
-export function CardBlock({ title, linkText, link, arrow, cards }: ICardBlock) {
+export function CardBlock({ title, link_text, link, cards }: ICardBlock) {
   return (
     <Section>
       <div className={`${styles.wrapper} flex-gap-title`}>
         <div className={styles.header}>
           <h2 className={'section__title'}>{title}</h2>
           <a className={styles.catalog} href={link}>
-            {linkText}
+            {link_text}
           </a>
         </div>
         <div
@@ -29,11 +28,7 @@ export function CardBlock({ title, linkText, link, arrow, cards }: ICardBlock) {
           {cards.map(data => (
             <Card
               key={data.id}
-              imageUrl={data.imageUrl}
-              type={data.type}
-              title={data.title}
-              text={data.text}
-              arrow={arrow}
+              {...data}
             />
           ))}
         </div>

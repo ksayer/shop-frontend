@@ -2,26 +2,37 @@ import React from 'react';
 import styles from './Card.module.css';
 import Image from 'next/image';
 import { RightSimpleArrow } from '@/components/icons/RightSimpleArrow';
+import {ImageType} from "@/api/types";
+
+
+type CardType = 'publication' | 'model' | 'feedback' |null
 
 export interface ICard {
   id?: string | number;
-  imageUrl: string;
+  image: ImageType;
+  slug?: string;
   title: string;
   text?: string;
   arrow?: boolean;
-  type?: 'publication' | null;
+  type?: CardType
 }
 
-export function Card({ imageUrl, title, text, arrow, type = null }: ICard) {
+function getUrl(type: CardType): string {
+  if (type === 'model') return '/catalog/models/'
+  if (type === 'publication') return '/publications/'
+  return '/'
+}
+
+export function Card({ image, title, text, arrow, slug, type = null }: ICard) {
   return (
     <article className={`${styles.article} volume`}>
-      <a href="#" className={styles.button}>
+      <a href={`${getUrl(type)}${slug}`} className={styles.button}>
         <div className={`${styles['first-block']}`}>
           <Image
-            src={imageUrl}
+            src={image?.absolute_url}
             alt={'image'}
-            width={500}
-            height={500}
+            width={image.width}
+            height={image.height}
             sizes="(max-width: 767px) 100vw, 50vw"
             className={`${styles.image} ${type === 'publication' && styles['bg-image']}`}
             priority

@@ -3,13 +3,14 @@ import { Section } from '@/components/Section';
 import { Banner, IBanner } from '@/components/Section/BannerBlock/Banner';
 import styles from './BannerBlock.module.css';
 
-interface IBannerBlock {
-  order?: number;
+export interface IBannerBlock {
+  id?: number | string;
+  ordering?: number;
   title?: string;
   banners?: IBanner[];
 }
 
-export function BannerBlock({ order, title, banners }: IBannerBlock) {
+export function BannerBlock({ ordering, title, banners }: IBannerBlock) {
   return (
     <Section>
       <div className={`${styles.wrapper} flex-gap-title`}>
@@ -23,7 +24,7 @@ export function BannerBlock({ order, title, banners }: IBannerBlock) {
             <Banner
               key={data.id}
               {...data}
-              priority={order === 0 && (index === 0 || index === 1)}
+              priority={ordering === 0 && (index === 0 || index === 1)}
             />
           ))}
         </div>
