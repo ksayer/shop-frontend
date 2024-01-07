@@ -24,6 +24,7 @@ export interface IBanner {
   phone?: string;
   address?: string;
   email?: string;
+  type: 'SIMPLE' | 'HERO' | 'TAB';
   buttons?: IButton[];
 }
 

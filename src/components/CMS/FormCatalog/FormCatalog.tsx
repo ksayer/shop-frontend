@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './FormCatalog.module.css';
-import { Section } from '@/components/Section';
-import { FormHeader } from '@/components/FormHeader';
+import { Section } from '../Section';
+import { FormHeader } from '../FormHeader';
 import { Profile } from '@/components/icons/Profile';
 import { Mail } from '@/components/icons/Mail';
 import { Phone } from '@/components/icons/Phone';

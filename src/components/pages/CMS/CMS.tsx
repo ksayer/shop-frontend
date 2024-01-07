@@ -1,11 +1,11 @@
 import React from 'react';
 import { ContentBlock } from '@/api/types';
-import { Hero } from '@/components/Section/Hero';
-import { BannerBlock } from '@/components/Section/BannerBlock';
-import { ReviewBlock } from '@/components/Section/ReviewBlock';
-import { CardBlock } from '@/components/Section/CardBlock';
-import { FormConsult } from '@/components/Section/FormConsult';
-import { FormCatalog } from '@/components/Section/FormCatalog';
+import { BannerBlock } from '../../CMS/BannerBlock';
+import { ReviewBlock } from '../../CMS/ReviewBlock';
+import { CardBlock } from '../../CMS/CardBlock';
+import { FormConsult } from '../../CMS/FormConsult';
+import { FormCatalog } from '../../CMS/FormCatalog';
+import { Section } from '@/components/CMS/Section';
 
 export function CMS({ blocks }: { blocks: ContentBlock[] }) {
   return (
@@ -13,9 +13,17 @@ export function CMS({ blocks }: { blocks: ContentBlock[] }) {
       {blocks.map((block: ContentBlock) => {
         if (block.banners.length > 0) {
           if (block.type === 'WIDE_BANNERS') {
-            return <Hero key={block.id} imageUrl={block.banners[0].image.absolute_url} />;
+            return (
+              <section key={block.id}>
+                <BannerBlock {...block} />
+              </section>
+            );
           }
-          return <BannerBlock key={block.id} {...block} />;
+          return (
+            <Section key={block.id}>
+              <BannerBlock {...block} />
+            </Section>
+          );
         }
         if (block.cards.length > 0) {
           if (block.cards[0].type === 'feedback') {

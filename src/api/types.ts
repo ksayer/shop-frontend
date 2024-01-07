@@ -1,5 +1,5 @@
-import { ICard } from '@/components/Section/CardBlock/Card';
-import { IBanner } from '@/components/Section/BannerBlock/Banner';
+import { ICard } from '@/components/CMS/CardBlock/Card';
+import { IBanner } from '@/components/CMS/BannerBlock/Banner';
 
 export type ImageType = {
   id: string | number;

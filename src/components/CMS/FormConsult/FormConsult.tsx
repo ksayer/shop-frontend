@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './FormConsult.module.css';
-import { Section } from '@/components/Section';
+import { Section } from '../Section';
 import Image from 'next/image';
-import { FormHeader } from '@/components/FormHeader';
+import { FormHeader } from '../FormHeader';
 
 const title = 'Подобрать светильники под проект';
 const text =
