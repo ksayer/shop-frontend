@@ -26,10 +26,7 @@ export function CardBlock({ title, link_text, link, cards }: ICardBlock) {
           }`}
         >
           {cards.map(data => (
-            <Card
-              key={data.id}
-              {...data}
-            />
+            <Card key={data.id} {...data} />
           ))}
         </div>
       </div>

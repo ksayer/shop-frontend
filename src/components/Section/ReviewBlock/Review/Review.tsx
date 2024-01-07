@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Review.module.css';
 import Image from 'next/image';
-import {ImageType} from "@/api/types";
+import { ImageType } from '@/api/types';
 
 export interface IReview {
   id?: string | number;

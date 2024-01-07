@@ -2,10 +2,9 @@ import React from 'react';
 import styles from './Card.module.css';
 import Image from 'next/image';
 import { RightSimpleArrow } from '@/components/icons/RightSimpleArrow';
-import {ImageType} from "@/api/types";
+import { ImageType } from '@/api/types';
 
-
-type CardType = 'publication' | 'model' | 'feedback' |null
+type CardType = 'publication' | 'model' | 'feedback' | null;
 
 export interface ICard {
   id?: string | number;
@@ -14,13 +13,13 @@ export interface ICard {
   title: string;
   text?: string;
   arrow?: boolean;
-  type?: CardType
+  type?: CardType;
 }
 
 function getUrl(type: CardType): string {
-  if (type === 'model') return '/catalog/models/'
-  if (type === 'publication') return '/publications/'
-  return '/'
+  if (type === 'model') return '/catalog/models/';
+  if (type === 'publication') return '/publications/';
+  return '/';
 }
 
 export function Card({ image, title, text, arrow, slug, type = null }: ICard) {

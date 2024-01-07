@@ -17,10 +17,7 @@ export function ReviewBlock({ title, cards }: IReviewBlock) {
         </div>
         <div className={`${styles.body} flex-gap`}>
           {cards.map(data => (
-            <Review
-              key={data.id}
-              {...data}
-            />
+            <Review key={data.id} {...data} />
           ))}
         </div>
       </div>

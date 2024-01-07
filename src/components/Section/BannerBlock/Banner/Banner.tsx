@@ -4,7 +4,7 @@ import styles from './Banner.module.css';
 import { MapPoint } from '@/components/icons/MapPoint';
 import { Mail } from '@/components/icons/Mail';
 import { PhoneSmall } from '@/components/icons/PhoneSmall';
-import {ImageType} from "@/api/types";
+import { ImageType } from '@/api/types';
 
 type IButton = {
   id?: string | number;
@@ -42,9 +42,7 @@ export function Banner({
 }: IBanner) {
   return (
     <article className={`${styles.article} ${!mobile_image && styles.small} volume`}>
-      <div
-        className={`${styles['first-block']} ${!mobile_image && styles['image-desktop-only']}`}
-      >
+      <div className={`${styles['first-block']} ${!mobile_image && styles['image-desktop-only']}`}>
         <Image
           src={image?.absolute_url}
           alt={'image'}
@@ -56,11 +54,15 @@ export function Banner({
           className={`${styles.image}`}
         />
       </div>
-      <div className={`${styles['second-block']} ${image_position === 'right' && styles.imageSecond}`}>
+      <div
+        className={`${styles['second-block']} ${image_position === 'right' && styles.imageSecond}`}
+      >
         {pre_title && <span className={'base-text'}>{pre_title}</span>}
         <h3 className={styles.title}>{title}</h3>
 
-        {description && <p className={'base-text'} dangerouslySetInnerHTML={{ __html: description }}></p>}
+        {description && (
+          <p className={'base-text'} dangerouslySetInnerHTML={{ __html: description }}></p>
+        )}
 
         {phone && (
           <p className={`base-text ${styles.contact}`}>
