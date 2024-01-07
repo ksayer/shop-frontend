@@ -24,7 +24,7 @@ export interface IBanner {
   phone?: string;
   address?: string;
   email?: string;
-  type: 'SIMPLE' | 'HERO' | 'TAB';
+  type: 'SIMPLE' | 'HERO' | 'TAB' | 'CONSULTANT';
   buttons?: IButton[];
 }
 
@@ -39,10 +39,13 @@ export function Banner({
   phone,
   address,
   email,
+  type,
   mobile_image,
 }: IBanner) {
   return (
-    <article className={`${styles.article} ${!mobile_image && styles.small} volume`}>
+    <article
+      className={`${styles.article} ${!mobile_image && styles.small} volume ${type === 'CONSULTANT' && styles.consultant}`}
+    >
       <div className={`${styles['first-block']} ${!mobile_image && styles['image-desktop-only']}`}>
         <Image
           src={image?.absolute_url}

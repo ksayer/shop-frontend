@@ -3,6 +3,10 @@
   flex-direction: column;
 }
 
+.consultant  .first-block {
+  order: 10;
+}
+
 .first-block {
   display: flex;
   position: relative;
@@ -72,6 +76,12 @@
     min-height: 40vw;
   }
 
+  .consultant {
+    min-height: 30vw;
+  }
+  .consultant  .first-block {
+    order: -1;
+  }
   .small {
     min-height: 25vw;
   }

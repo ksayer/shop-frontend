@@ -1,8 +1,54 @@
-.wrapper {
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.image-wrapper {
   position: relative;
   height: 60vh;
 }
 
 .image {
   object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title {
+  font-size: 1.8rem;
+}
+
+@media(min-width: 1024px) {
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .content {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 30px;
+    z-index: 10;
+    background-color: var(--white);
+    width: 580px;
+  }
+
+}
+
+@media(min-width: 1920px) {
+  .content {
+    bottom: 60px;
+    left: 60px;
+    padding: 60px;
+    gap: 2rem;
+  }
+
+  .title {
+    font-size: 3rem;
+  }
 }

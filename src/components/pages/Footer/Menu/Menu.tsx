@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Menu.module.css';
+import Link from "next/link";
 
 export function Menu() {
   return (
@@ -11,9 +12,9 @@ export function Menu() {
           </a>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/solutions'} className={styles.link}>
             Уникальные решения
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
           <a href="#" className={styles.link}>
@@ -26,14 +27,14 @@ export function Menu() {
           </a>
         </li>
         <li className={'link'}>
-          <a href="/contacts" className={styles.link}>
+          <Link href={'/contacts'} className={styles.link}>
             Контакты
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
-          <a href="/about" className={styles.link}>
+          <Link href={'/about'} className={styles.link}>
             О компании
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>

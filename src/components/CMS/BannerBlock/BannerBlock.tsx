@@ -20,7 +20,7 @@ export function BannerBlock({ ordering, title, banners }: IBannerBlock) {
       )}
       <div className={`${styles.banners} flex-gap`}>
         {banners?.map((data, index) => {
-          if (data.type === 'SIMPLE') {
+          if (data.type === 'SIMPLE' || data.type === 'CONSULTANT') {
             return (
               <Banner
                 key={data.id}

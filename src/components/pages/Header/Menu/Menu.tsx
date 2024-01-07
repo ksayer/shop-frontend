@@ -17,9 +17,9 @@ export function Menu() {
           </a>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/solutions'} className={styles.link}>
             Уникальные решения
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
           <a href="#" className={styles.link}>
