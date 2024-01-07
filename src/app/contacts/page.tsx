@@ -1,9 +1,4 @@
-import { BannerBlock } from '@/components/Section/BannerBlock';
-import {ContentBlock} from "@/api/types";
-import {ReviewBlock} from "@/components/Section/ReviewBlock";
-import {CardBlock} from "@/components/Section/CardBlock";
-import {FormConsult} from "@/components/Section/FormConsult";
-import {FormCatalog} from "@/components/Section/FormCatalog";
+import {CMS} from "@/components/pages/CMS";
 
 
 
@@ -23,19 +18,7 @@ export default async function Contacts() {
   console.dir(blocks, {depth: null})
   return (
     <main className={'main-flex'}>
-      {
-        blocks.map((block: ContentBlock) => {
-          if (block.banners.length > 0) return <BannerBlock key={block.id} {...block}/>
-          if (block.cards.length > 0) {
-            if (block.cards[0].type === 'feedback') {
-              return <ReviewBlock key={block.id} {...block}/>
-            }
-            return <CardBlock key={block.id} {...block}/>
-          }
-          if (block.form === 'CONSULT') return <FormConsult />
-          if (block.form === 'CATALOG') return  <FormCatalog/>
-        })
-      }
+      <CMS blocks={blocks}/>
     </main>
   );
 }

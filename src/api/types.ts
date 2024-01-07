@@ -14,7 +14,7 @@ export type ContentBlock = {
   title: string;
   link_text: string;
   link: string;
-  form: 'CONSULT' | 'CATALOG' | null,
+  type: 'CONSULT_FORM' | 'CATALOG_FORM' | 'SIMPLE_BANNERS' | 'WIDE_BANNERS',
   cards: ICard[];
   banners: IBanner[]
 }
