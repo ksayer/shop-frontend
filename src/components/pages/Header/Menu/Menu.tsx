@@ -22,9 +22,9 @@ export function Menu() {
           </Link>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/contracts'} className={styles.link}>
             Контрактные поставки
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
           <a href="#" className={styles.link}>

@@ -11,7 +11,7 @@ export interface ICard {
   image: ImageType;
   slug?: string;
   title: string;
-  text?: string;
+  description?: string;
   arrow?: boolean;
   type?: CardType;
 }
@@ -22,7 +22,7 @@ function getUrl(type: CardType): string {
   return '/';
 }
 
-export function Card({ image, title, text, arrow, slug, type = null }: ICard) {
+export function Card({ image, title, description, arrow, slug, type = null }: ICard) {
   return (
     <article className={`${styles.article} volume`}>
       <a href={`${getUrl(type)}${slug}`} className={styles.button}>
@@ -39,7 +39,9 @@ export function Card({ image, title, text, arrow, slug, type = null }: ICard) {
         </div>
         <div className={`${styles['second-block']}`}>
           <h3 className={styles.title}>{title}</h3>
-          {text && <p className={'base-text'} dangerouslySetInnerHTML={{ __html: text }}></p>}
+          {description && (
+            <p className={'base-text'} dangerouslySetInnerHTML={{ __html: description }}></p>
+          )}
           {arrow && <RightSimpleArrow className={styles.card__link} />}
         </div>
       </a>

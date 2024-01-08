@@ -13,6 +13,7 @@
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
+    "react-transition-group": "^4.4.5",
     "sharp": "^0.33.1"
   },
   "devDependencies": {
@@ -20,6 +21,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-transition-group": "^4.4.10",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "prettier": "^3.1.1",

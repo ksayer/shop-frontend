@@ -1,3 +1,14 @@
+*,
+*::after,
+*::before {
+  transition:
+    transform var(--transition),
+    background-color var(--transition),
+    color var(--transition),
+    opacity var(--transition),
+    box-shadow var(--transition);
+}
+
 .container {
   padding: 0 15px;
   margin: auto;
@@ -60,21 +71,27 @@ body {
   .main-page {
     padding-top: 2rem;
   }
+
   .main-flex {
     gap: 4rem;
   }
+
   .container {
     padding: 0 25px;
   }
+
   .alt-container {
     padding: 0 20px;
   }
+
   .flex-gap {
     gap: 3rem;
   }
+
   .flex-gap-title {
     gap: 4rem;
   }
+
   .section__title {
     font-size: 3.2rem;
   }
@@ -106,24 +123,31 @@ body {
   .main-page {
     padding-top: 4rem;
   }
+
   .main-flex {
     gap: 5rem;
   }
+
   .container {
     padding: 0 65px;
   }
+
   .alt-container {
     padding: 0 55px;
   }
+
   .flex-gap {
     gap: 4rem;
   }
+
   .flex-gap-title {
     gap: 6rem;
   }
+
   .section__title {
     font-size: 4rem;
   }
+
   .base-text {
     font-size: 1.8rem;
     line-height: 3rem;

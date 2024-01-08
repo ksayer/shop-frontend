@@ -32,7 +32,7 @@ export function CMS({ blocks }: { blocks: ContentBlock[] }) {
           return <CardBlock key={block.id} {...block} />;
         }
         if (block.type === 'CONSULT_FORM') return <FormConsult key={block.id} />;
-        if (block.type === 'CATALOG_FORM') return <FormCatalog key={block.id}/>;
+        if (block.type === 'CATALOG_FORM') return <FormCatalog key={block.id} />;
       })}
     </>
   );

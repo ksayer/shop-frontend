@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Menu.module.css';
-import Link from "next/link";
+import Link from 'next/link';
 
 export function Menu() {
   return (
@@ -17,9 +17,9 @@ export function Menu() {
           </Link>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/contracts'} className={styles.link}>
             Контрактные поставки
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
           <a href="#" className={styles.link}>

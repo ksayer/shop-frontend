@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import Image from 'next/image';
-import {ImageType} from '@/api/types';
+import { ImageType } from '@/api/types';
 
 interface IHero {
-  title?: string,
+  title?: string;
   description?: string;
   image: ImageType;
 }
 
-export function Hero({image, title, description}: IHero) {
+export function Hero({ image, title, description }: IHero) {
   return (
     <div className={`flex-gap ${styles.hero}`}>
       <div className={`${styles['image-wrapper']}`}>

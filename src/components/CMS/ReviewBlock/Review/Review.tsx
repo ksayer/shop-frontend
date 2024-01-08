@@ -9,11 +9,11 @@ export interface IReview {
   slug?: string;
   title: string;
   subtitle?: string;
-  text?: string;
+  description?: string;
   arrow?: boolean;
 }
 
-export function Review({ title, subtitle, text, slug, image }: IReview) {
+export function Review({ title, subtitle, description, slug, image }: IReview) {
   return (
     <article className={`${styles.article} volume flex-gap`}>
       <a href={slug} className={styles.link}>
@@ -31,7 +31,7 @@ export function Review({ title, subtitle, text, slug, image }: IReview) {
             <span className={'base-text'}>{subtitle}</span>
           </div>
         </div>
-        <p className={'base-text'}>{text}</p>
+        <p className={'base-text'}>{description}</p>
       </a>
     </article>
   );

@@ -3,7 +3,7 @@
   flex-direction: column;
 }
 
-.consultant  .first-block {
+.consultant .first-block {
   order: 10;
 }
 
@@ -79,7 +79,7 @@
   .consultant {
     min-height: 30vw;
   }
-  .consultant  .first-block {
+  .consultant .first-block {
     order: -1;
   }
   .small {

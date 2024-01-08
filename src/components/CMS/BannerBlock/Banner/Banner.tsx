@@ -8,8 +8,15 @@ import { ImageType } from '@/api/types';
 
 type IButton = {
   id?: string | number;
-  text: string;
+  title: string;
   link: string;
+};
+
+export type TabType = {
+  id: string | number;
+  title: string;
+  description: string;
+  image: ImageType;
 };
 
 export interface IBanner {
@@ -26,6 +33,7 @@ export interface IBanner {
   email?: string;
   type: 'SIMPLE' | 'HERO' | 'TAB' | 'CONSULTANT';
   buttons?: IButton[];
+  tabs?: TabType[];
 }
 
 export function Banner({
@@ -44,7 +52,9 @@ export function Banner({
 }: IBanner) {
   return (
     <article
-      className={`${styles.article} ${!mobile_image && styles.small} volume ${type === 'CONSULTANT' && styles.consultant}`}
+      className={`${styles.article} ${!mobile_image && styles.small} volume ${
+        type === 'CONSULTANT' && styles.consultant
+      }`}
     >
       <div className={`${styles['first-block']} ${!mobile_image && styles['image-desktop-only']}`}>
         <Image
@@ -93,7 +103,7 @@ export function Banner({
           {buttons &&
             buttons.map(data => (
               <a href={data.link} key={data.id} className={styles.btn}>
-                {data.text}
+                {data.title}
               </a>
             ))}
         </div>

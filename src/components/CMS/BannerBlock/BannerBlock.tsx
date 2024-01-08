@@ -2,6 +2,7 @@ import React from 'react';
 import { Banner, IBanner } from '@/components/CMS/BannerBlock/Banner';
 import styles from './BannerBlock.module.css';
 import { Hero } from '@/components/CMS/Hero';
+import { TabPanel } from '@/components/CMS/BannerBlock/TabPanel';
 
 export interface IBannerBlock {
   id?: number | string;
@@ -30,6 +31,8 @@ export function BannerBlock({ ordering, title, banners }: IBannerBlock) {
             );
           } else if (data.type === 'HERO') {
             return <Hero key={data.id} {...data} />;
+          } else if (data.type === 'TAB') {
+            return <TabPanel key={data.id} {...data} />;
           }
         })}
       </div>

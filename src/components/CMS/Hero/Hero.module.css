@@ -23,7 +23,7 @@
   font-size: 1.8rem;
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .title {
     font-size: 2.4rem;
   }
@@ -37,10 +37,9 @@
     background-color: var(--white);
     width: 580px;
   }
-
 }
 
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   .content {
     bottom: 60px;
     left: 60px;

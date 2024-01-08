@@ -1,24 +1,4 @@
 @import 'normalize.css';
+@import 'variables.css';
 @import 'reset.css';
 @import 'globals.css';
-
-:root {
-  --fonts: sans-serif;
-
-  --white: #fff;
-  --white-dark: #f9f8f9;
-  --black: #333;
-  --text: rgb(102, 102, 102);
-  --grey-ultra-light: rgb(249, 248, 249);
-  --grey-c6: #c6c6c6;
-  --grey-db: #dbdbdb;
-  --grey-ed: #ededed;
-  --grey-ee: #eee;
-  --hover-light: #a3f6f6;
-  --hover-semi-light: #b5e1e1;
-  --hover-ultra-light: #d9f5f5;
-  --hover: #0cc;
-  --input: #555;
-
-  --transperent-hover: rgba(38, 238, 238, 0.2);
-}
