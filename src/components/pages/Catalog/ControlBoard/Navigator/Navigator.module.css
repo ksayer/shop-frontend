@@ -1,0 +1,21 @@
+.selector {
+  position: relative;
+  display: flex;
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid var(--grey-ed);
+  border-radius: 5px;
+}
+
+.selector__title {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.icon {
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  transform: rotate(-45deg);
+}

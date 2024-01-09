@@ -1,0 +1,23 @@
+.catalog {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media(min-width: 768px) {
+  .catalog {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(min-width: 1400px) {
+  .catalog {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(min-width: 1920px) {
+  .catalog {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

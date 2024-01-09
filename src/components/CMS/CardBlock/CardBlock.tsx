@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from '../Section';
+import { Section } from '../../Section';
 import styles from './CardBlock.module.css';
 import { Card, ICard } from './Card';
 

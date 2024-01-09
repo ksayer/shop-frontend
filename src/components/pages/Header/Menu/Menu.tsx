@@ -7,9 +7,9 @@ export function Menu() {
     <nav className={styles.nav}>
       <ul className={styles.list}>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/catalog'} className={styles.link}>
             Каталог
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
           <a href="#" className={styles.link}>

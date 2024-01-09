@@ -5,7 +5,7 @@ import { ReviewBlock } from '../../CMS/ReviewBlock';
 import { CardBlock } from '../../CMS/CardBlock';
 import { FormConsult } from '../../CMS/FormConsult';
 import { FormCatalog } from '../../CMS/FormCatalog';
-import { Section } from '@/components/CMS/Section';
+import { Section } from '../../Section';
 
 export function CMS({ blocks }: { blocks: ContentBlock[] }) {
   return (

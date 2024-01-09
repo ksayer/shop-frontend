@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ReviewBlock.module.css';
-import { Section } from '../Section';
+import { Section } from '../../Section';
 import { IReview, Review } from '@/components/CMS/ReviewBlock/Review';
 
 interface IReviewBlock {
