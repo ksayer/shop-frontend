@@ -1,6 +1,6 @@
 import { CMS } from '@/components/pages/CMS';
 
-export const revalidate = 0;
+export const revalidate = 60;
 
 async function getContent() {
   const res = await fetch('http://localhost:8000/api/content/content_blocks/?page__slug=root');

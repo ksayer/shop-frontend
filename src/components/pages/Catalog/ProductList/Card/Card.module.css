@@ -9,9 +9,10 @@
 }
 
 .image-wrapper::after {
-  content: "";
+  content: '';
   display: block;
   padding-top: 56.3%;
+  z-index: -10;
 }
 
 .image {
@@ -39,7 +40,7 @@
 .price {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--orange)
+  color: var(--orange);
 }
 
 .options {
@@ -63,14 +64,14 @@
   border: 1px solid var(--black);
 }
 
-@media(min-width: 380px) {
+@media (min-width: 380px) {
   .info {
     flex-direction: row;
     gap: 0.5rem;
   }
 }
 
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .title {
     font-size: 1.4rem;
   }
@@ -82,13 +83,13 @@
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .card:hover {
     background-color: var(--hover-ultra-light);
   }
 }
 
-@media(min-width: 1400px) {
+@media (min-width: 1400px) {
   .info {
     gap: 1rem;
   }

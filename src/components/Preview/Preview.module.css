@@ -7,11 +7,10 @@
   font-weight: 600;
   line-height: 3.2rem;
   margin-bottom: 0.8rem;
-  color: var(--black)
+  color: var(--black);
 }
 
-
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .article {
     padding-top: 40px;
   }
@@ -21,7 +20,7 @@
   }
 }
 
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   .article {
     padding-top: 50px;
   }
