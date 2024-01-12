@@ -20,29 +20,29 @@ export function Navigator({ zIndex, title, items }: Navigator) {
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
-  let flag = false
+  let flag = false;
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
   const resetSelect = () => {
-    setSelectedItem('')
-    setIsOpened(!isOpened)
-    setTimeout(() => setInputValue(''), 200)
-  }
+    setSelectedItem('');
+    setIsOpened(!isOpened);
+    setTimeout(() => setInputValue(''), 200);
+  };
 
   const closeDropdown = () => {
-    console.log('closeDropdown')
-    setIsOpened(false)
-  }
+    console.log('closeDropdown');
+    setIsOpened(false);
+  };
 
   const openDropdown = () => {
-    console.log('openDropdown')
-    setIsOpened(true)
-  }
+    console.log('openDropdown');
+    setIsOpened(true);
+  };
 
   return (
-    <div style={{zIndex: zIndex}} className={`${styles.wrapper} ${commonStyles.control__item}`}>
+    <div style={{ zIndex: zIndex }} className={`${styles.wrapper} ${commonStyles.control__item}`}>
       <Dropdown
         isOpened={isOpened}
         handleClick={resetSelect}
@@ -56,12 +56,12 @@ export function Navigator({ zIndex, title, items }: Navigator) {
                     key={item.id}
                     className={`${styles.item}`}
                     onClick={() => {
-                      setSelectedItem(item.title)
-                      closeDropdown()
-                      setTimeout(() => setInputValue(''), 200)
+                      setSelectedItem(item.title);
+                      closeDropdown();
+                      setTimeout(() => setInputValue(''), 200);
                     }}
                     onBlur={() => {
-                      isLastItem ? closeDropdown() : null
+                      isLastItem ? closeDropdown() : null;
                     }}
                   >
                     {item.title}
@@ -96,8 +96,8 @@ export function Navigator({ zIndex, title, items }: Navigator) {
           <button
             tabIndex={-1}
             onClick={() => {
-              resetSelect()
-              !isOpened && inputRef.current?.focus()
+              resetSelect();
+              !isOpened && inputRef.current?.focus();
             }}
             className={`${commonStyles.control__icon} ${styles.icon}`}
           ></button>

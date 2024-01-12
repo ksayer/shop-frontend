@@ -7,16 +7,17 @@ interface IDropdown {
   isOpened: boolean;
   children: React.ReactNode;
   menu: React.ReactNode;
+  wrapperClass?: string;
 }
 
-export function Dropdown({ isOpened, handleClick, children, menu }: IDropdown) {
+export function Dropdown({ isOpened, wrapperClass, handleClick, children, menu }: IDropdown) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target as HTMLElement)) {
-        console.log('outside click')
+        console.log('outside click');
         handleClick();
       }
     }
@@ -27,8 +28,8 @@ export function Dropdown({ isOpened, handleClick, children, menu }: IDropdown) {
   }, [wrapperRef, handleClick, isOpened]);
 
   return (
-    <div ref={wrapperRef}>
-      <div>{children}</div>
+    <div className={wrapperClass} ref={wrapperRef}>
+      <>{children}</>
       <CSSTransition in={isOpened} timeout={200} classNames="dropdown-transition" nodeRef={menuRef}>
         <div ref={menuRef} className={'dropdown-transition'}>
           {menu}

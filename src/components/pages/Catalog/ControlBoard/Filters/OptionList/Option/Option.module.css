@@ -1,0 +1,54 @@
+.title {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.list {
+  display: flex;
+  gap: 2rem;
+}
+
+.value {
+  position: relative;
+  font-size: 1.5rem;
+  font-weight: 300;
+  transition: color 0s;
+}
+
+.value--active {
+  padding-left: 12px;
+  color: var(--hover);
+}
+
+.value::before {
+  position: absolute;
+  content: '';
+  top: 4px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid var(--hover);
+  transform: translateY(-5px) rotate(-45deg);
+  opacity: 0;
+  transition: all 0s;
+}
+
+.value::after {
+  position: absolute;
+  content: '';
+  top: 1px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  border-left: 2px solid var(--hover);
+  transform: translateY(5px) rotate(45deg);
+  opacity: 0;
+  transition: all 0s;
+}
+
+.value--active::after,
+.value--active::before {
+  opacity: 1;
+}

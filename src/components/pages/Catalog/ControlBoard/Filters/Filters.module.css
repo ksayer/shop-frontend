@@ -1,0 +1,45 @@
+.wrapper {
+  width: 100%;
+  border: 1px solid var(--grey-ed);
+  border-radius: 5px;
+  transition: all var(--transition);
+  height: 45px;
+  overflow: hidden;
+}
+
+.wrapper:has(.control:hover) {
+  border-color: var(--hover);
+}
+
+.dropdown {
+  width: 100%;
+}
+
+.control {
+  position: relative;
+  width: 100%;
+  display: block;
+  padding: 14px 20px;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 500;
+  width: 100%;
+}
+
+.wrapper--opened .icon {
+  transform: translateY(-4px) rotate(-180deg);
+}
+
+.list-wrapper {
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+}
+
+.wrapper--opened .list-wrapper {
+  transform: scaleY(1);
+  opacity: 1;
+}

@@ -15,7 +15,6 @@ const categories = [
   { title: 'Распродажа', id: 9 },
 ];
 
-
 const groups = [
   { title: 'Система Universe', id: 1 },
   { title: 'Встраиваемые', id: 2 },
