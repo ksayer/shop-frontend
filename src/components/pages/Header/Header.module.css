@@ -21,7 +21,7 @@
 
 @media (min-width: 768px) {
   .header {
-    padding: 24px 0;
+    padding: 20px 0;
   }
 }
 
@@ -31,11 +31,5 @@
   }
   .buttons {
     margin-right: 0;
-  }
-}
-
-@media (min-width: 1920px) {
-  .header {
-    padding: 32px 0;
   }
 }

@@ -24,7 +24,9 @@ export function Option({ id, title, values }: IOption) {
               onClick={() => {
                 index === clicked ? setClicked(undefined) : setClicked(index);
               }}
-              className={`${styles.value} ${index === clicked && styles['value--active']}`}
+              className={`${styles.value} ${
+                index === clicked && styles['value--active']
+              } filter-item`}
               key={value.id}
             >
               {value.title}

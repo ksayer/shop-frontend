@@ -8,13 +8,12 @@ import { FormCatalog } from '../../CMS/FormCatalog';
 import { Section } from '../../Section';
 
 async function getContent(path: string) {
-  const res = await fetch(path, {next: {revalidate: 30}});
+  const res = await fetch(path, { next: { revalidate: 30 } });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
   return res.json();
 }
-
 
 export async function CMS({ path }: { path: string }) {
   const content = await getContent(path);

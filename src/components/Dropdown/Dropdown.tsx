@@ -7,10 +7,9 @@ interface IDropdown {
   isOpened: boolean;
   children: React.ReactNode;
   menu: React.ReactNode;
-  wrapperClass?: string;
 }
 
-export function Dropdown({ isOpened, wrapperClass, handleClick, children, menu }: IDropdown) {
+export function Dropdown({ isOpened, handleClick, children, menu }: IDropdown) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -28,7 +27,7 @@ export function Dropdown({ isOpened, wrapperClass, handleClick, children, menu }
   }, [wrapperRef, handleClick, isOpened]);
 
   return (
-    <div className={wrapperClass} ref={wrapperRef}>
+    <div ref={wrapperRef}>
       <>{children}</>
       <CSSTransition in={isOpened} timeout={200} classNames="dropdown-transition" nodeRef={menuRef}>
         <div ref={menuRef} className={'dropdown-transition'}>

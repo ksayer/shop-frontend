@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './OptionList.module.css';
-import { IOption, Option } from '@/components/pages/Catalog/ControlBoard/Filters/OptionList/Option';
+import { IOption, Option } from '@/components/pages/Catalog/Filters/OptionList/Option';
 
 interface IMenu {
   items: IOption[];

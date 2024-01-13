@@ -1,9 +1,8 @@
 'use client';
 import React, { useRef, useState } from 'react';
 import styles from './Filters.module.css';
-import commonStyles from '@/components/pages/Catalog/ControlBoard/ControlBoard.module.css';
 import { Filter } from '@/components/icons/Filter';
-import { OptionList } from '@/components/pages/Catalog/ControlBoard/Filters/OptionList';
+import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
 
 const menu = [
   {
@@ -74,7 +73,7 @@ export function Filters() {
     >
       <div onClick={() => setIsOpened(!isOpened)} className={`${styles.control}`}>
         <span className={`${styles.title}`}>Фильтры</span>
-        <span className={`${commonStyles.control__icon} ${styles.icon}`}>
+        <span className={`${styles.icon}`}>
           <Filter />
         </span>
       </div>

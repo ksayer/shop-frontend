@@ -29,6 +29,11 @@
   width: 100%;
 }
 
+.icon {
+  position: absolute;
+  right: 20px;
+}
+
 .wrapper--opened .icon {
   transform: translateY(-4px) rotate(-180deg);
 }

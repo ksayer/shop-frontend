@@ -1,6 +1,5 @@
 import { CMS } from '@/components/pages/CMS';
 
-
 export default async function Solutions() {
   return (
     <main className={'main-flex'}>

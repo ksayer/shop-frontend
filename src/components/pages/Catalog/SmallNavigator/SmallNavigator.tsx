@@ -1,7 +1,6 @@
 'use client';
 import React, { ChangeEvent, useRef, useState } from 'react';
-import styles from './Navigator.module.css';
-import commonStyles from '@/components/pages/Catalog/ControlBoard/ControlBoard.module.css';
+import styles from './SmallNavigator.module.css';
 import { Dropdown } from '@/components/Dropdown';
 
 type ItemType = {
@@ -9,13 +8,13 @@ type ItemType = {
   id: number | string;
 };
 
-interface Navigator {
+interface SmallNavigator {
   title: string;
   zIndex: number;
   items: ItemType[];
 }
 
-export function Navigator({ zIndex, title, items }: Navigator) {
+export function SmallNavigator({ zIndex, title, items }: SmallNavigator) {
   const [isOpened, setIsOpened] = useState(false);
   const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
@@ -32,17 +31,15 @@ export function Navigator({ zIndex, title, items }: Navigator) {
   };
 
   const closeDropdown = () => {
-    console.log('closeDropdown');
     setIsOpened(false);
   };
 
   const openDropdown = () => {
-    console.log('openDropdown');
     setIsOpened(true);
   };
 
   return (
-    <div style={{ zIndex: zIndex }} className={`${styles.wrapper} ${commonStyles.control__item}`}>
+    <div style={{ zIndex: zIndex }} className={`${styles.wrapper}`}>
       <Dropdown
         isOpened={isOpened}
         handleClick={resetSelect}
@@ -54,7 +51,7 @@ export function Navigator({ zIndex, title, items }: Navigator) {
                 (item.title.toLowerCase().includes(inputValue.toLowerCase()) || !inputValue) && (
                   <button
                     key={item.id}
-                    className={`${styles.item}`}
+                    className={`${styles.item} filter-item  `}
                     onClick={() => {
                       setSelectedItem(item.title);
                       closeDropdown();
@@ -80,6 +77,7 @@ export function Navigator({ zIndex, title, items }: Navigator) {
             onFocus={openDropdown}
             className={`${styles.input} ${!isOpened && styles['input--hidden']}`}
             type="text"
+            name={title}
           />
           <span
             className={`${styles.placeholder} ${
@@ -99,7 +97,7 @@ export function Navigator({ zIndex, title, items }: Navigator) {
               resetSelect();
               !isOpened && inputRef.current?.focus();
             }}
-            className={`${commonStyles.control__icon} ${styles.icon}`}
+            className={`${styles.icon}`}
           ></button>
         </div>
       </Dropdown>
