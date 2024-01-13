@@ -2,8 +2,8 @@ import React from 'react';
 import styles from './Catalog.module.css';
 import { ProductList } from '@/components/pages/Catalog/ProductList';
 import { Filters } from '@/components/pages/Catalog/Filters';
-import { SmallNavigator } from '@/components/pages/Catalog/SmallNavigator';
 import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
+import { InputDropdown } from '@/components/pages/Catalog/InputDropdown';
 
 const categories = [
   { title: 'Трековые', id: 1 },
@@ -48,12 +48,66 @@ const largeCategories = [
       { id: 4, title: 'Система Muse' },
     ],
   },
-  // { title: 'Экстерьерные', id: 4, elements: [{id: 1, title: 'Система Universe'}, {id: 2, title: 'Евротрек'}, {id: 3, title: 'Система Track One'}, {id: 4, title: 'Система Muse'}] },
-  // { title: 'Светодиондная лента', id: 5, elements: [{id: 1, title: 'Система Universe'}, {id: 2, title: 'Евротрек'}, {id: 3, title: 'Система Track One'}, {id: 4, title: 'Система Muse'}] },
-  // { title: 'Управление светом', id: 6, elements: [{id: 1, title: 'Система Universe'}, {id: 2, title: 'Евротрек'}, {id: 3, title: 'Система Track One'}, {id: 4, title: 'Система Muse'}] },
-  // { title: 'Дизайнерские', id: 7, elements: [{id: 1, title: 'Система Universe'}, {id: 2, title: 'Евротрек'}, {id: 3, title: 'Система Track One'}, {id: 4, title: 'Система Muse'}] },
-  // { title: 'Акустические', id: 8, elements: [{id: 1, title: 'Система Universe'}, {id: 2, title: 'Евротрек'}, {id: 3, title: 'Система Track One'}, {id: 4, title: 'Система Muse'}] },
-  // { title: 'Распродажа', id: 9, elements: [{id: 1, title: 'Система Universe'}, {id: 2, title: 'Евротрек'}, {id: 3, title: 'Система Track One'}, {id: 4, title: 'Система Muse'}] },
+  {
+    title: 'Экстерьерные',
+    id: 4,
+    elements: [
+      { id: 1, title: 'Система Universe' },
+      { id: 2, title: 'Евротрек' },
+      { id: 3, title: 'Система Track One' },
+      { id: 4, title: 'Система Muse' },
+    ],
+  },
+  {
+    title: 'Светодиондная лента',
+    id: 5,
+    elements: [
+      { id: 1, title: 'Система Universe' },
+      { id: 2, title: 'Евротрек' },
+      { id: 3, title: 'Система Track One' },
+      { id: 4, title: 'Система Muse' },
+    ],
+  },
+  {
+    title: 'Управление светом',
+    id: 6,
+    elements: [
+      { id: 1, title: 'Система Universe' },
+      { id: 2, title: 'Евротрек' },
+      { id: 3, title: 'Система Track One' },
+      { id: 4, title: 'Система Muse' },
+    ],
+  },
+  {
+    title: 'Дизайнерские',
+    id: 7,
+    elements: [
+      { id: 1, title: 'Система Universe' },
+      { id: 2, title: 'Евротрек' },
+      { id: 3, title: 'Система Track One' },
+      { id: 4, title: 'Система Muse' },
+    ],
+  },
+  {
+    title: 'Акустические',
+    id: 8,
+    elements: [
+      { id: 1, title: 'Система Universe' },
+      { id: 2, title: 'Евротрек' },
+      { id: 3, title: 'Система Track One' },
+      { id: 4, title: 'Система Muse' },
+    ],
+  },
+  {
+    title: 'Распродажа',
+    id: 9,
+    elements: [
+      { id: 1, title: 'Система Universe' },
+      { id: 2, title: 'Евротрек' },
+      { id: 3, title: 'Система Track One' },
+      { id: 4, title: 'Система Muse' },
+    ],
+  },
 ];
 
 const groups = [
@@ -83,14 +137,14 @@ export function Catalog() {
   return (
     <div className={`container ${styles.container}`}>
       <div className={styles.wrapper}>
-        <div className={`${styles['left-side--mobile']}`}>
+        <div className={`${styles['left-side--desktop']}`}>
           <button className={styles.btn}>Убрать все фильтры</button>
           <LargeNavigator items={largeCategories} />
         </div>
         <div className={`${styles['left-side']}`}>
-          <SmallNavigator zIndex={2} items={categories} title={'Категории'} />
+          <InputDropdown zIndex={4} items={categories} title={'Категории'} />
         </div>
-        <SmallNavigator zIndex={1} items={groups} title={'Группы'} />
+        <InputDropdown zIndex={3} items={groups} title={'Группы'} />
         <Filters />
         <ProductList />
       </div>

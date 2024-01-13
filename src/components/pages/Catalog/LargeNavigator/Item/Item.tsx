@@ -10,9 +10,9 @@ export interface IItem {
   id?: string | number;
   title: string;
   elements: IElement[];
-  isOpened: boolean;
-  setIsOpened: () => void;
-  setIsClosed: () => void;
+  isOpened?: boolean;
+  setIsOpened?: () => void;
+  setIsClosed?: () => void;
 }
 
 export function Item({ title, elements, isOpened, setIsOpened, setIsClosed }: IItem) {
@@ -25,6 +25,7 @@ export function Item({ title, elements, isOpened, setIsOpened, setIsClosed }: II
     >
       <button onClick={isOpened ? setIsClosed : setIsOpened} className={`${styles['item__btn']}`}>
         {title}
+        <span className={`icon ${isOpened && 'icon--rotate'}`}></span>
       </button>
       <ul className={`${styles.elements} ${isOpened && styles['elements--opened']}`}>
         {elements.map(element => (

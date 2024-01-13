@@ -69,6 +69,31 @@ body {
   color: var(--text);
 }
 
+.icon {
+  position: absolute;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-left: 1px solid var(--black);
+  border-bottom: 1px solid var(--black);
+  transform: rotate(-45deg);
+  z-index: 100;
+}
+
+.icon::after {
+  content: '';
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  transform: rotate(45deg);
+}
+
+.icon--rotate {
+  transform: rotate(135deg);
+}
+
 @media (min-width: 768px) {
   .flex-gap-title {
     gap: 3rem;

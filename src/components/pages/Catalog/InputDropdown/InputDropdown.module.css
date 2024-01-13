@@ -73,31 +73,6 @@
   outline: none;
 }
 
-.icon {
-  position: absolute;
-  right: 20px;
-  width: 10px;
-  height: 10px;
-  border-left: 1px solid var(--black);
-  border-bottom: 1px solid var(--black);
-  transform: rotate(-45deg);
-  z-index: 100;
-}
-
-.icon::after {
-  content: '';
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
-  transform: rotate(45deg);
-}
-
-.selector--opened .icon {
-  transform: rotate(135deg);
-}
-
 .menu {
   position: absolute;
   margin-top: -1px;
@@ -114,6 +89,15 @@
   border-left: 1px solid var(--hover);
   border-right: 1px solid var(--hover);
   border-radius: 0 0 5px 5px;
+
+  opacity: 0;
+  transform-origin: top;
+  transform: scaleY(0);
+}
+
+.menu--opened {
+  opacity: 1;
+  transform: scaleY(1);
 }
 
 .item {

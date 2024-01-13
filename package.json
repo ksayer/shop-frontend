@@ -9,14 +9,17 @@
     "lint": "next lint; npx prettier src --write"
   },
   "dependencies": {
+    "immer": "^10.0.3",
     "next": "14.0.4",
     "normalize.css": "^8.0.1",
     "react": "^18",
     "react-dom": "^18",
     "react-transition-group": "^4.4.5",
-    "sharp": "^0.33.1"
+    "sharp": "^0.33.1",
+    "zustand": "^4.4.7"
   },
   "devDependencies": {
+    "@redux-devtools/extension": "^3.3.0",
     "@svgr/webpack": "^8.1.0",
     "@types/node": "^20",
     "@types/react": "^18",

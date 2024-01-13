@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
@@ -13,6 +14,7 @@
 @media (min-width: 1400px) {
   .catalog {
     grid-template-columns: repeat(3, 1fr);
+    grid-column: 2 span;
   }
 }
 
