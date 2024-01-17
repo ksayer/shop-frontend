@@ -58,6 +58,7 @@
   .wrapper {
     display: grid;
     grid-template-columns: 300px 1fr;
+    grid-template-rows: auto auto 1fr;
   }
   .left-side {
     display: none;
@@ -72,9 +73,6 @@
     position: sticky;
     top: 100px;
   }
-}
-
-@media (min-width: 1024px) {
 }
 
 @media (min-width: 1400px) {

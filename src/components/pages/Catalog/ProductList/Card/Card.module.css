@@ -1,4 +1,6 @@
 .card {
+  height: fit-content;
+
   border-radius: 5px;
   border: 1px solid var(--grey-ed);
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
@@ -62,6 +64,7 @@
   height: 15px;
   border-radius: 50%;
   border: 1px solid var(--black);
+  z-index: 100;
 }
 
 @media (min-width: 380px) {

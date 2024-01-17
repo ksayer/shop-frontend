@@ -1,5 +1,7 @@
+'use client';
 import { Catalog } from '@/components/pages/Catalog';
 import { Preview } from '@/components/Preview';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 
 const preview = {
   title: 'Полный каталог',
@@ -9,7 +11,7 @@ const preview = {
     'Наша цель – помочь вам выбрать лучшие светильники и рассказать об их преимуществах и особенностях использования. Мы считаем, что правильное освещение – это ключевой фактор для создания уютной атмосферы в доме или офисе. У нас вы найдете широкий выбор светильников и умные решения. ',
 };
 
-export default async function CatalogPage() {
+export default function CatalogPage() {
   return (
     <main className={'main-flex'}>
       <Preview {...preview} />
