@@ -3,7 +3,7 @@ import '@/styles/main.css';
 import { Header } from '@/components/pages/Header';
 import { raleway, montserrat } from '@/app/fonts';
 import { Footer } from '@/components/pages/Footer';
-import ReactQueryProvider from '@/api/queryClient';
+import Providers from '@/app/providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -12,11 +12,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className={`${montserrat.variable} ${raleway.variable}`}
         style={{ fontFamily: 'var(--montserrat)' }}
       >
-        <ReactQueryProvider>
+        <Providers>
           <Header />
           {children}
           <Footer />
-        </ReactQueryProvider>
+        </Providers>
       </body>
     </html>
   );

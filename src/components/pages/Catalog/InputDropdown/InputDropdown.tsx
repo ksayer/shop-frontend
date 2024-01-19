@@ -3,10 +3,10 @@ import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './InputDropdown.module.css';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
-type ItemType = {
+export interface ItemType {
+  id?: number | string;
   title: string;
-  id: number | string;
-};
+}
 
 interface InputDropdown {
   title: string;

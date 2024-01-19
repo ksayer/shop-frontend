@@ -18,7 +18,7 @@ export function LargeNavigator({ items }: ILargeNavigator) {
           isOpened={index === openedItem}
           setIsOpened={() => setOpenedItem(index)}
           setIsClosed={() => setOpenedItem(null)}
-          elements={item.elements}
+          categories={item.categories}
         />
       ))}
     </ul>

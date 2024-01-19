@@ -9,9 +9,7 @@ interface IUseClickOutside {
 export const useClickOutside = ({ ref, setIsOpened, isOpened }: IUseClickOutside) => {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      console.log(ref.current, event.target);
       if (ref.current && !ref.current.contains(event.target as HTMLElement)) {
-        console.log('click outside');
         setIsOpened(false);
       }
     }

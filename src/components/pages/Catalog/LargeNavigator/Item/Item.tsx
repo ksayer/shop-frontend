@@ -8,14 +8,15 @@ interface IElement {
 
 export interface IItem {
   id?: string | number;
+  slug?: string;
   title: string;
-  elements: IElement[];
+  categories: IElement[];
   isOpened?: boolean;
   setIsOpened?: () => void;
   setIsClosed?: () => void;
 }
 
-export function Item({ title, elements, isOpened, setIsOpened, setIsClosed }: IItem) {
+export function Item({ title, categories, isOpened, setIsOpened, setIsClosed }: IItem) {
   const wrapperRef = useRef<HTMLLIElement>(null);
   return (
     <li
@@ -28,9 +29,9 @@ export function Item({ title, elements, isOpened, setIsOpened, setIsClosed }: II
         <span className={`icon ${isOpened && 'icon--rotate'}`}></span>
       </button>
       <ul className={`${styles.elements} ${isOpened && styles['elements--opened']}`}>
-        {elements.map(element => (
-          <button key={element.id} className={`filter-item ${styles.element__item}`}>
-            {element.title}
+        {categories.map(category => (
+          <button key={category.id} className={`filter-item ${styles.element__item}`}>
+            {category.title}
           </button>
         ))}
       </ul>
