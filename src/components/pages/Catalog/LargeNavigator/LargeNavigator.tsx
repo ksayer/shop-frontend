@@ -1,34 +1,36 @@
-'use client';
 import React from 'react';
 import styles from './LargeNavigator.module.css';
 import { IItem, Item } from '@/components/pages/Catalog/LargeNavigator/Item';
-import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 
 interface ILargeNavigator {
-  slug?: string;
   items: IItem[];
+  setSlug: (slug: string) => void;
+  setCategorySlug: (slug: string) => void;
+  clearCategorySlug: () => void;
+  groupSlug: string;
+  categorySlug: string;
 }
 
-export function LargeNavigator({ items, slug }: ILargeNavigator) {
-  const groupSlug = usePathFiltersContext(state => state?.groupSlug);
-  const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
-
+export function LargeNavigator({
+  items,
+  setSlug,
+  groupSlug,
+  categorySlug,
+  clearCategorySlug,
+  setCategorySlug,
+}: ILargeNavigator) {
   return (
     <ul className={styles.wrapper}>
-      {items.map((item, index) => (
+      {items.map(item => (
         <Item
           key={item.id}
           title={item.title}
           isOpened={item.slug === groupSlug}
-          setIsOpened={slug => {
-            updateGroupSlug(item.slug);
-            window.history.pushState(null, '', `/catalog/${slug}`);
-          }}
+          setSlug={setSlug}
           slug={item.slug}
-          setIsClosed={() => {
-            updateGroupSlug('');
-            window.history.pushState(null, '', `/catalog`);
-          }}
+          categorySlug={categorySlug}
+          setCategorySlug={setCategorySlug}
+          clearCategorySlug={clearCategorySlug}
           categories={item.categories}
         />
       ))}

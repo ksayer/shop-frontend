@@ -4,19 +4,31 @@ import styles from './Item.module.css';
 interface IElement {
   id: string | number;
   title: string;
+  slug: string;
 }
 
 export interface IItem {
   id?: string | number;
   slug: string;
+  categorySlug: string;
   title: string;
   categories: IElement[];
   isOpened?: boolean;
-  setIsOpened: (slug: string) => void;
-  setIsClosed: () => void;
+  setSlug: (slug: string) => void;
+  setCategorySlug: (slug: string) => void;
+  clearCategorySlug: () => void;
 }
 
-export function Item({ title, slug, categories, isOpened, setIsOpened, setIsClosed }: IItem) {
+export function Item({
+  title,
+  slug,
+  categories,
+  categorySlug,
+  setCategorySlug,
+  isOpened,
+  setSlug,
+  clearCategorySlug,
+}: IItem) {
   const wrapperRef = useRef<HTMLLIElement>(null);
   return (
     <li
@@ -25,7 +37,7 @@ export function Item({ title, slug, categories, isOpened, setIsOpened, setIsClos
       style={isOpened ? { height: wrapperRef.current?.scrollHeight } : { height: '45px' }}
     >
       <button
-        onClick={isOpened ? () => setIsClosed() : () => setIsOpened(slug)}
+        onClick={isOpened ? () => setSlug('') : () => setSlug(slug)}
         className={`${styles['item__btn']}`}
       >
         {title}
@@ -33,7 +45,15 @@ export function Item({ title, slug, categories, isOpened, setIsOpened, setIsClos
       </button>
       <ul className={`${styles.elements} ${isOpened && styles['elements--opened']}`}>
         {categories.map(category => (
-          <button key={category.id} className={`filter-item ${styles.element__item}`}>
+          <button
+            key={category.id}
+            className={`filter-item ${styles.element__item} ${
+              category.slug === categorySlug ? styles['element__item--selected'] : ''
+            }`}
+            onClick={() =>
+              categorySlug === category.slug ? clearCategorySlug() : setCategorySlug(category.slug)
+            }
+          >
             {category.title}
           </button>
         ))}

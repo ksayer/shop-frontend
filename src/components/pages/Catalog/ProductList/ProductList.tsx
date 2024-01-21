@@ -6,12 +6,11 @@ import { useQuery } from '@tanstack/react-query';
 import { usePathname } from 'next/navigation';
 import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 
-async function getContent(group?: string) {
+async function getContent(groupSlug?: string, categorySlug?: string) {
   const filters = [];
-  if (group) {
-    filters.push(`group=${group}`);
-  }
-  const res = await fetch(`http://127.0.0.1:8000/api/catalog/models/?${filters}`);
+  if (groupSlug) filters.push(`group=${groupSlug}`);
+  if (categorySlug) filters.push(`category=${categorySlug}`);
+  const res = await fetch(`http://127.0.0.1:8000/api/catalog/models/?${filters.join('&')}`);
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }
@@ -20,9 +19,10 @@ async function getContent(group?: string) {
 
 export function ProductList() {
   const groupSlug = usePathFiltersContext(state => state.groupSlug);
+  const categorySlug = usePathFiltersContext(state => state.categorySlug);
   const { data, isSuccess } = useQuery({
-    queryKey: ['models', groupSlug],
-    queryFn: () => getContent(groupSlug),
+    queryKey: ['models', groupSlug, categorySlug],
+    queryFn: () => getContent(groupSlug, categorySlug),
   });
 
   return (

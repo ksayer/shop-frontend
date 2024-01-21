@@ -33,6 +33,27 @@
   opacity: 1;
 }
 
+.element__item {
+  position: relative;
+}
+
+.element__item::after {
+  position: absolute;
+  content: '';
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  border-bottom: 1px solid var(--hover);
+  transform-origin: right;
+  transform: scaleX(0);
+}
+
 .element__item:hover {
   color: black;
+}
+
+.element__item--selected:after {
+  transform: scaleX(1);
+  transform-origin: left;
 }

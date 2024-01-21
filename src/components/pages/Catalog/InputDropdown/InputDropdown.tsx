@@ -1,23 +1,26 @@
-'use client';
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { ChangeEvent, useMemo, useRef, useState } from 'react';
 import styles from './InputDropdown.module.css';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
 export interface ItemType {
   id?: number | string;
   title: string;
+  slug: string;
 }
 
 interface InputDropdown {
   title: string;
   zIndex: number;
   items: ItemType[];
+  setSlug: (slug: string) => void;
+  clearSlug: (slug?: string) => void;
+  slug: string;
 }
 
-export function InputDropdown({ zIndex, title, items }: InputDropdown) {
+export function InputDropdown({ zIndex, title, items, setSlug, clearSlug, slug }: InputDropdown) {
   const [isOpened, setIsOpened] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('');
   const [inputValue, setInputValue] = useState('');
+  const selectedItem = useMemo(() => items.find(item => item.slug === slug), [items, slug]);
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -26,13 +29,12 @@ export function InputDropdown({ zIndex, title, items }: InputDropdown) {
   };
 
   const resetSelect = () => {
-    setSelectedItem('');
+    clearSlug('');
     setIsOpened(!isOpened);
     setTimeout(() => setInputValue(''), 200);
   };
 
   useClickOutside({ setIsOpened: resetSelect, ref: wrapperRef, isOpened: isOpened });
-
   return (
     <div ref={wrapperRef} style={{ zIndex: zIndex }} className={`${styles.wrapper}`}>
       <div className={`${styles.selector} ${isOpened && styles['selector--opened']}`}>
@@ -47,15 +49,13 @@ export function InputDropdown({ zIndex, title, items }: InputDropdown) {
         />
         <span
           className={`${styles.placeholder} ${
-            (isOpened || !!selectedItem) && styles['placeholder--moved']
+            (isOpened || !!slug) && styles['placeholder--moved']
           }`}
         >
           {title}
         </span>
-        <span
-          className={`${styles.title} ${selectedItem && !isOpened && styles['title--selected']}`}
-        >
-          {selectedItem}
+        <span className={`${styles.title} ${!!slug && !isOpened && styles['title--selected']}`}>
+          {selectedItem?.title}
         </span>
         <button
           tabIndex={-1}
@@ -76,7 +76,7 @@ export function InputDropdown({ zIndex, title, items }: InputDropdown) {
                 key={item.id}
                 className={`${styles.item} filter-item  `}
                 onClick={() => {
-                  setSelectedItem(item.title);
+                  setSlug(item.slug);
                   setIsOpened(false);
                   setTimeout(() => setInputValue(''), 200);
                 }}

@@ -9,14 +9,16 @@ interface IUseClickOutside {
 export const useClickOutside = ({ ref, setIsOpened, isOpened }: IUseClickOutside) => {
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
+      console.log('CLICK OUTSIDE HANDLE');
       if (ref.current && !ref.current.contains(event.target as HTMLElement)) {
+        console.log('CLICK OUTSIDE WORKED');
         setIsOpened(false);
       }
     }
 
-    if (isOpened) document.addEventListener('click', handleClickOutside);
+    if (isOpened) window.addEventListener('click', handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener('click', handleClickOutside);
     };
   }, [ref, isOpened, setIsOpened]);
 };
