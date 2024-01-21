@@ -3,7 +3,7 @@ import '@/styles/main.css';
 import { Header } from '@/components/pages/Header';
 import { raleway, montserrat } from '@/app/fonts';
 import { Footer } from '@/components/pages/Footer';
-import Providers from '@/app/providers';
+import Providers from '@/providers/providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

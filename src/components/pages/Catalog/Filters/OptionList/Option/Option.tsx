@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Option.module.css';
-import { useFilterStore } from '@/store/filters';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 
 export interface IOptionValue {
   id: string | number;
@@ -16,7 +16,8 @@ export interface IOption {
 }
 
 export function Option({ id, title, variable, values }: IOption) {
-  const { updateFilter } = useFilterStore();
+  const updateFilter = usePathFiltersContext(state => state.updateFilter);
+
   const [clicked, setClicked] = useState<number>();
   return (
     <li className={`${styles['option']}`} key={id}>

@@ -1,5 +1,6 @@
 import { Catalog } from '@/components/pages/Catalog';
 import { Preview } from '@/components/Preview';
+import { getCategories, getGroups } from '@/api/catalog';
 
 const preview = {
   title: 'Полный каталог',
@@ -10,10 +11,12 @@ const preview = {
 };
 
 export default async function CatalogPage() {
+  const groups = await getGroups();
+  const categories = await getCategories();
   return (
     <main className={'main-flex'}>
       <Preview {...preview} />
-      <Catalog />
+      <Catalog groups={groups} categories={categories} />
     </main>
   );
 }

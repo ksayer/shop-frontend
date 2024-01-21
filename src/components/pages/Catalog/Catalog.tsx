@@ -3,22 +3,27 @@ import styles from './Catalog.module.css';
 import { ProductList } from '@/components/pages/Catalog/ProductList';
 import { Filters } from '@/components/pages/Catalog/Filters';
 import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
-import { InputDropdown, ItemType } from '@/components/pages/Catalog/InputDropdown';
-import { getCategories, getGroups } from '@/api/catalog';
+import { InputDropdown } from '@/components/pages/Catalog/InputDropdown';
 
-export async function Catalog() {
-  const data = await getGroups();
-  const categories = await getCategories();
+interface ICatalog {
+  groups: any;
+  categories: any;
+}
 
+export function Catalog({ groups, categories }: ICatalog) {
   return (
     <div className={`container ${styles.container}`}>
       <div className={styles.wrapper}>
         <div className={`${styles['left-side--desktop']}`}>
           <button className={styles.btn}>Убрать все фильтры</button>
-          {data ? <LargeNavigator items={data.results} /> : 'Loading...'}
+          {groups ? <LargeNavigator items={groups.results} /> : 'Loading...'}
         </div>
         <div className={`${styles['left-side']}`}>
-          {data ? <InputDropdown zIndex={4} items={data.results} title={'Группы'} /> : 'Loading...'}
+          {groups ? (
+            <InputDropdown zIndex={4} items={groups.results} title={'Группы'} />
+          ) : (
+            'Loading...'
+          )}
         </div>
         <InputDropdown zIndex={3} items={categories} title={'Категории'} />
         <Filters />

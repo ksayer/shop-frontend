@@ -1,10 +1,10 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './Filters.module.css';
 import { Filter } from '@/components/icons/Filter';
 import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
 import { useClickOutside } from '@/hooks/useClickOutside';
-import { useFilterStore } from '@/store/filters';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 
 const menu = [
   {
@@ -69,7 +69,7 @@ const menu = [
 ];
 
 export function Filters() {
-  const { filters, updateFilter } = useFilterStore(state => state);
+  const { filters, updateFilter } = usePathFiltersContext(state => state);
   const [isOpened, setIsOpened] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
