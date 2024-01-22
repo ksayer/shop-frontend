@@ -94,7 +94,7 @@ export function InputDropdown({
                   setTimeout(() => setInputValue(''), 200);
                 }}
                 onBlur={() => {
-                  isLastItem ? setIsOpened(true) : null;
+                  isLastItem ? setIsOpened(false) : null;
                 }}
                 disabled={disableItem(item)}
               >

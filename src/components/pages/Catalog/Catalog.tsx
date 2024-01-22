@@ -14,12 +14,23 @@ interface ICatalog {
 }
 
 const url = '/catalog/';
+const allGroups = 'all-groups';
+
+function sortByGroupSlug(groupSlug: string, data: ICategory[]) {
+  const filteredArray = data.filter(obj => obj.groupSlugArray.includes(groupSlug));
+  const remainingArray = data.filter(obj => !obj.groupSlugArray.includes(groupSlug));
+  return filteredArray.concat(remainingArray);
+}
 
 export function Catalog({ groups, categories }: ICatalog) {
   const groupSlug = usePathFiltersContext(state => state?.groupSlug);
   const categorySlug = usePathFiltersContext(state => state?.categorySlug);
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
+  const sortedCategories = useMemo(
+    () => sortByGroupSlug(groupSlug, categories),
+    [groupSlug, categories],
+  );
   const selectedCategory = useMemo(
     () => categories.find((item: ICategory) => item.slugArray?.includes(categorySlug)),
     [categories, categorySlug],
@@ -28,17 +39,15 @@ export function Catalog({ groups, categories }: ICatalog) {
     () => groups.results.find((item: ItemType) => item.slug === groupSlug),
     [groups, groupSlug],
   );
-
   const setGroupSlug = (slug?: string) => {
     updateCategorySlug('');
     updateGroupSlug(slug || '');
     window.history.pushState(null, '', `${url}${slug}`);
   };
-
   const clearCategorySlug = () => {
     updateCategorySlug('');
     let fullUrl = url;
-    if (groupSlug === 'all-groups') {
+    if (groupSlug === allGroups) {
       updateGroupSlug('');
     } else {
       fullUrl += groupSlug;
@@ -48,12 +57,12 @@ export function Catalog({ groups, categories }: ICatalog) {
 
   const setCategorySlug = (slug: string) => {
     updateCategorySlug(slug);
-    if (!groupSlug) updateGroupSlug('all-groups');
-    window.history.pushState(null, '', `${url}${groupSlug || 'all-groups'}/${slug}`);
+    if (!groupSlug) updateGroupSlug(allGroups);
+    window.history.pushState(null, '', `${url}${groupSlug || allGroups}/${slug}`);
   };
 
   const categoryDisabled = (item: ItemType): boolean => {
-    return !!(groupSlug && groupSlug !== 'all-groups' && !item.groupSlugArray?.includes(groupSlug));
+    return !!(groupSlug && groupSlug !== allGroups && !item.groupSlugArray?.includes(groupSlug));
   };
 
   return (
@@ -77,7 +86,7 @@ export function Catalog({ groups, categories }: ICatalog) {
         <div className={`${styles['left-side']}`}>
           {groups ? (
             <InputDropdown
-              slug={groupSlug}
+              slug={groupSlug !== allGroups ? groupSlug : ''}
               clearSlug={setGroupSlug}
               setSlug={setGroupSlug}
               zIndex={4}
@@ -94,7 +103,7 @@ export function Catalog({ groups, categories }: ICatalog) {
           clearSlug={clearCategorySlug}
           setSlug={setCategorySlug}
           zIndex={3}
-          items={categories}
+          items={sortedCategories}
           title={'Категории'}
           selectedItem={selectedCategory}
           disableItem={categoryDisabled}
