@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useMemo, useRef, useState } from 'react';
+import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './InputDropdown.module.css';
 import { useClickOutside } from '@/hooks/useClickOutside';
 
@@ -6,21 +6,32 @@ export interface ItemType {
   id?: number | string;
   title: string;
   slug: string;
+  groupSlugArray?: string[];
 }
 
 interface InputDropdown {
   title: string;
   zIndex: number;
   items: ItemType[];
+  selectedItem?: ItemType;
   setSlug: (slug: string) => void;
   clearSlug: (slug?: string) => void;
   slug: string;
+  disableItem?: (item: ItemType) => boolean;
 }
 
-export function InputDropdown({ zIndex, title, items, setSlug, clearSlug, slug }: InputDropdown) {
+export function InputDropdown({
+  zIndex,
+  title,
+  items,
+  selectedItem,
+  setSlug,
+  clearSlug,
+  slug,
+  disableItem = () => false,
+}: InputDropdown) {
   const [isOpened, setIsOpened] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const selectedItem = useMemo(() => items.find(item => item.slug === slug), [items, slug]);
   const inputRef = useRef<HTMLInputElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
@@ -74,7 +85,9 @@ export function InputDropdown({ zIndex, title, items, setSlug, clearSlug, slug }
             (item.title.toLowerCase().includes(inputValue.toLowerCase()) || !inputValue) && (
               <button
                 key={item.id}
-                className={`${styles.item} filter-item  `}
+                className={`${styles.item} filter-item ${
+                  disableItem(item) && styles['item--disabled']
+                } `}
                 onClick={() => {
                   setSlug(item.slug);
                   setIsOpened(false);
@@ -83,6 +96,7 @@ export function InputDropdown({ zIndex, title, items, setSlug, clearSlug, slug }
                 onBlur={() => {
                   isLastItem ? setIsOpened(true) : null;
                 }}
+                disabled={disableItem(item)}
               >
                 {item.title}
               </button>

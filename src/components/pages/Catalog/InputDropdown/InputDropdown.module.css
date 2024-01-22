@@ -110,6 +110,10 @@
   transition: background-color 0s;
 }
 
+.item--disabled {
+  opacity: 0.5;
+}
+
 .item:focus {
   outline: none;
   background-color: var(--hover-lightest);

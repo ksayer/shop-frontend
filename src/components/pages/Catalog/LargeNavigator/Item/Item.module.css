@@ -46,6 +46,7 @@
   height: 1px;
   border-bottom: 1px solid var(--hover);
   transform-origin: right;
+  opacity: 0;
   transform: scaleX(0);
 }
 
@@ -54,6 +55,7 @@
 }
 
 .element__item--selected:after {
+  opacity: 1;
   transform: scaleX(1);
   transform-origin: left;
 }

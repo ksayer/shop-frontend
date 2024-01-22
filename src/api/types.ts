@@ -1,6 +1,13 @@
 import { ICard } from '@/components/CMS/CardBlock/Card';
 import { IBanner } from '@/components/CMS/BannerBlock/Banner';
 
+export interface PaginatedAPIResponse<T> {
+  count: number;
+  next: string | null;
+  previous: string | null;
+  results: Array<T>;
+}
+
 export type ImageType = {
   id: string | number;
   absolute_url: string;

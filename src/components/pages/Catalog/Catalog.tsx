@@ -1,15 +1,16 @@
 'use client';
-import React from 'react';
+import React, { useMemo } from 'react';
 import styles from './Catalog.module.css';
 import { ProductList } from '@/components/pages/Catalog/ProductList';
 import { Filters } from '@/components/pages/Catalog/Filters';
 import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
-import { InputDropdown } from '@/components/pages/Catalog/InputDropdown';
+import { InputDropdown, ItemType } from '@/components/pages/Catalog/InputDropdown';
 import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
+import { ICategory } from '@/api/catalog';
 
 interface ICatalog {
   groups: any;
-  categories: any;
+  categories: ICategory[];
 }
 
 const url = '/catalog/';
@@ -19,6 +20,14 @@ export function Catalog({ groups, categories }: ICatalog) {
   const categorySlug = usePathFiltersContext(state => state?.categorySlug);
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
+  const selectedCategory = useMemo(
+    () => categories.find((item: ICategory) => item.slugArray?.includes(categorySlug)),
+    [categories, categorySlug],
+  );
+  const selectedGroup = useMemo(
+    () => groups.results.find((item: ItemType) => item.slug === groupSlug),
+    [groups, groupSlug],
+  );
 
   const setGroupSlug = (slug?: string) => {
     updateCategorySlug('');
@@ -41,6 +50,10 @@ export function Catalog({ groups, categories }: ICatalog) {
     updateCategorySlug(slug);
     if (!groupSlug) updateGroupSlug('all-groups');
     window.history.pushState(null, '', `${url}${groupSlug || 'all-groups'}/${slug}`);
+  };
+
+  const categoryDisabled = (item: ItemType): boolean => {
+    return !!(groupSlug && groupSlug !== 'all-groups' && !item.groupSlugArray?.includes(groupSlug));
   };
 
   return (
@@ -70,6 +83,7 @@ export function Catalog({ groups, categories }: ICatalog) {
               zIndex={4}
               items={groups.results}
               title={'Группы'}
+              selectedItem={selectedGroup}
             />
           ) : (
             'Loading...'
@@ -82,6 +96,8 @@ export function Catalog({ groups, categories }: ICatalog) {
           zIndex={3}
           items={categories}
           title={'Категории'}
+          selectedItem={selectedCategory}
+          disableItem={categoryDisabled}
         />
         <Filters />
         <ProductList />

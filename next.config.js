@@ -6,7 +6,7 @@ const nextConfig = {
     ],
     deviceSizes: [480, 768, 1024, 1920],
   },
-  reactStrictMode: true
+  reactStrictMode: false
 };
 
 module.exports = nextConfig;
