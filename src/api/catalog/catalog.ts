@@ -1,4 +1,5 @@
 import { PaginatedAPIResponse } from '@/api/types';
+import { API_URL } from '@/features/constants';
 
 export interface ICategory {
   id?: number | string;
@@ -35,7 +36,7 @@ export const collapseGroupSlug = (array: ICategory[]) => {
 };
 
 export async function getGroups(): Promise<PaginatedAPIResponse<IGroup>> {
-  const res = await fetch('http://127.0.0.1:8000/api/catalog/groups/?active=true');
+  const res = await fetch(`${API_URL}/catalog/groups/?active=true`, { next: { revalidate: 0 } });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }

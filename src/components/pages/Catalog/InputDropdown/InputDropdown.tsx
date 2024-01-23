@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from 'react';
 import styles from './InputDropdown.module.css';
-import { useClickOutside } from '@/hooks/useClickOutside';
+import { useClickOutside } from '@/features/hooks/useClickOutside';
 
 export interface ItemType {
   id?: number | string;

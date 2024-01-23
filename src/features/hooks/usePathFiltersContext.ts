@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useStore } from 'zustand';
-import { PathFilterState } from '@/store/catalog/pathFilters';
-import { PathFiltersContext } from '@/store/catalog/pathFiltersContext';
+import { PathFilterState } from '@/features/store/catalog/pathFilters';
+import { PathFiltersContext } from '@/features/store/catalog/pathFiltersContext';
 
 export function usePathFiltersContext<T>(selector: (state: PathFilterState) => T): T {
   const store = useContext(PathFiltersContext);

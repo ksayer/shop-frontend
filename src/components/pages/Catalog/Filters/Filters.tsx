@@ -3,8 +3,8 @@ import React, { useRef, useState } from 'react';
 import styles from './Filters.module.css';
 import { Filter } from '@/components/icons/Filter';
 import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
-import { useClickOutside } from '@/hooks/useClickOutside';
-import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
+import { useClickOutside } from '@/features/hooks/useClickOutside';
+import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
 
 const menu = [
   {

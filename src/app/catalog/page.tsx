@@ -1,6 +1,6 @@
 import { Catalog } from '@/components/pages/Catalog';
 import { Preview } from '@/components/Preview';
-import { getCategories, getGroups } from '@/api/catalog';
+import { getCategories, getGroups } from '@/api/catalog/catalog';
 
 const preview = {
   title: 'Полный каталог',

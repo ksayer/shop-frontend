@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Option.module.css';
-import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
+import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
 
 export interface IOptionValue {
   id: string | number;

@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { usePathname } from 'next/navigation';
-import { createPathFilterStore } from '@/store/catalog/pathFilters';
-import { PathFiltersContext } from '@/store/catalog/pathFiltersContext';
+import { createPathFilterStore } from '@/features/store/catalog/pathFilters';
+import { PathFiltersContext } from '@/features/store/catalog/pathFiltersContext';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
 export default function PathFilterProvider({ children }: { children: React.ReactNode }) {

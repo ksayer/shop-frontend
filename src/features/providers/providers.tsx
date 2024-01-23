@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import PathFilterProvider from '@/providers/PathFilterProvider';
-import QueryClientProviderCustom from '@/providers/QueryClientProviderCustom';
+import PathFilterProvider from '@/features/providers/PathFilterProvider';
+import QueryClientProviderCustom from '@/features/providers/QueryClientProviderCustom';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (

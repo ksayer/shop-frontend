@@ -6,17 +6,10 @@ import { CardBlock } from '../../CMS/CardBlock';
 import { FormConsult } from '../../CMS/FormConsult';
 import { FormCatalog } from '../../CMS/FormCatalog';
 import { Section } from '../../Section';
-
-async function getContent(path: string) {
-  const res = await fetch(path, { next: { revalidate: 30 } });
-  if (!res.ok) {
-    throw new Error('Failed to fetch data');
-  }
-  return res.json();
-}
+import { getCMSContent } from '@/api/cms';
 
 export async function CMS({ path }: { path: string }) {
-  const content = await getContent(path);
+  const content = await getCMSContent(path);
   const blocks = content.results;
   return (
     <>

@@ -5,8 +5,8 @@ import { ProductList } from '@/components/pages/Catalog/ProductList';
 import { Filters } from '@/components/pages/Catalog/Filters';
 import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
 import { InputDropdown, ItemType } from '@/components/pages/Catalog/InputDropdown';
-import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
-import { ICategory } from '@/api/catalog';
+import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { ICategory } from '@/api/catalog/catalog';
 
 interface ICatalog {
   groups: any;
