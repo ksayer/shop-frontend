@@ -19,7 +19,7 @@ interface IPathFilterStore {
 export interface PathFilterState extends IPathFilterStore {
   updateGroupSlug: (groupSlug: string) => void;
   updateCategorySlug: (categorySlug: string) => void;
-  updateFilter: ({ variable, value }: { variable: StringNumber; value: Value }) => void;
+  updateFilter: ({ slug, value }: { slug: StringNumber; value: Value }) => void;
 }
 
 export type PathFilterStore = ReturnType<typeof createPathFilterStore>;
@@ -45,12 +45,12 @@ export const createPathFilterStore = (initProps?: Partial<IPathFilterStore>) => 
             state.categorySlug = categorySlug;
           });
         },
-        updateFilter: ({ variable, value }) =>
+        updateFilter: ({ slug, value }) =>
           set(state => {
-            if (value.id === state.filters[variable]?.id) {
-              delete state.filters[variable];
+            if (value.id === state.filters[slug]?.id) {
+              delete state.filters[slug];
             } else {
-              state.filters[variable] = value;
+              state.filters[slug] = value;
             }
           }),
       })),

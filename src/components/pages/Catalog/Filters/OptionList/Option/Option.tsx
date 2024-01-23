@@ -5,17 +5,16 @@ import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
 export interface IOptionValue {
   id: string | number;
   title: string;
-  value: string | number;
 }
 
 export interface IOption {
   id: string | number;
   title: string;
-  variable: string;
-  values: IOptionValue[];
+  slug: string;
+  properties: IOptionValue[];
 }
 
-export function Option({ id, title, variable, values }: IOption) {
+export function Option({ id, title, slug, properties }: IOption) {
   const updateFilter = usePathFiltersContext(state => state.updateFilter);
 
   const [clicked, setClicked] = useState<number>();
@@ -23,12 +22,12 @@ export function Option({ id, title, variable, values }: IOption) {
     <li className={`${styles['option']}`} key={id}>
       <span className={`${styles['title']}`}>{title}</span>
       <ul className={`${styles['list']}`}>
-        {values.map((value, index) => {
+        {properties.map((value, index) => {
           return (
             <button
               onClick={() => {
                 index === clicked ? setClicked(undefined) : setClicked(index);
-                updateFilter({ variable: variable, value: { id: value.id, title: value.title } });
+                updateFilter({ slug: slug, value: { id: value.id, title: value.title } });
               }}
               className={`${styles.value} ${
                 index === clicked && styles['value--active']

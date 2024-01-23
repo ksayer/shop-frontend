@@ -10,11 +10,20 @@ export interface ICategory {
   slugArray: string[];
 }
 
+export interface IFilter {
+  id: number | string;
+  slug: string;
+  title: string;
+  property: string;
+  properties: { id: number | string; title: string; groupSlugArray: string[] }[];
+}
+
 export interface IGroup {
   id: number;
   slug: string;
   title: string;
   categories: ICategory[];
+  filters: IFilter[];
 }
 
 export const collapseGroupSlug = (array: ICategory[]) => {

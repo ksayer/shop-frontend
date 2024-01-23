@@ -1,74 +1,49 @@
 'use client';
-import React, { useRef, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import styles from './Filters.module.css';
 import { Filter } from '@/components/icons/Filter';
 import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
 import { useClickOutside } from '@/features/hooks/useClickOutside';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { IFilter, IGroup } from '@/api/catalog/catalog';
 
-const menu = [
-  {
-    id: 1,
-    title: 'Мощность',
-    variable: 'power',
-    values: [
-      { id: 1, title: 'Более 23 Вт', value: 1 },
-      { id: 2, title: 'Менее 10 Вт', value: 2 },
-      { id: 3, title: '10-22 Вт', value: 3 },
-    ],
-  },
-  {
-    id: 2,
-    title: 'Температура, K',
-    variable: 'temperature',
-    values: [
-      { id: 1, title: '3000K', value: 1 },
-      { id: 2, title: '1800-3000K', value: 2 },
-    ],
-  },
-  {
-    id: 3,
-    title: 'Угол рассеивания',
-    variable: 'dimension',
-    values: [
-      { id: 1, title: 'Средний', value: 1 },
-      { id: 2, title: 'Широкий', value: 2 },
-      { id: 3, title: 'Узкий', value: 3 },
-      { id: 4, title: 'Регулируемый', value: 4 },
-    ],
-  },
-  {
-    id: 4,
-    title: 'Световой поток',
-    variable: 'beam',
-    values: [
-      { id: 1, title: 'Средний', value: 1 },
-      { id: 2, title: 'Основной', value: 2 },
-      { id: 3, title: 'Очень яркий', value: 3 },
-    ],
-  },
-  {
-    id: 5,
-    title: 'Диммирование',
-    variable: 'dimming',
-    values: [
-      { id: 1, title: 'RLC(TRIAC)', value: 1 },
-      { id: 2, title: 'Нет', value: 2 },
-      { id: 3, title: '1-10', value: 3 },
-    ],
-  },
-  {
-    id: 6,
-    title: 'Влагозащита',
-    variable: 'protection',
-    values: [
-      { id: 1, title: 'IP20', value: 1 },
-      { id: 2, title: 'IP44', value: 2 },
-    ],
-  },
-];
+const SHOW_FILTERS = ['power', 'temperature', 'beam', 'beam_angle', 'dimming', 'protection'];
 
-export function Filters() {
+interface IFilterComponent {
+  groups: IGroup[];
+}
+
+const collapseFilters = (groups: IGroup[], groupSlug: string) => {
+  const filters: Record<string, IFilter> = {};
+  groups.forEach(group => {
+    if (!groupSlug || group.slug === groupSlug) {
+      group.filters.forEach(filter => {
+        if (!filters[filter.title]) {
+          filters[filter.title] = {
+            ...filter,
+            properties: [{ id: filter.id, title: filter.property, groupSlugArray: [group.slug] }],
+          };
+        } else {
+          const sameProperty = filters[filter.title].properties.find(prop => prop.id == filter.id);
+          if (sameProperty) {
+            sameProperty.groupSlugArray.push(group.slug);
+          } else {
+            filters[filter.title].properties.push({
+              id: filter.id,
+              title: filter.property,
+              groupSlugArray: [group.slug],
+            });
+          }
+        }
+      });
+    }
+  });
+  return Object.values(filters).filter(filter => SHOW_FILTERS.includes(filter.slug));
+};
+
+export function Filters({ groups }: IFilterComponent) {
+  const groupSlug = usePathFiltersContext(state => state?.groupSlug);
+  const initFilters = useMemo(() => collapseFilters(groups, groupSlug), [groups, groupSlug]);
   const { filters, updateFilter } = usePathFiltersContext(state => state);
   const [isOpened, setIsOpened] = useState(false);
   const listRef = useRef<HTMLDivElement>(null);
@@ -97,7 +72,7 @@ export function Filters() {
                 key={key}
                 className={`filter-item ${styles['active-selectors__btn']}`}
                 onClick={() =>
-                  setTimeout(() => updateFilter({ variable: key, value: { ...filters[key] } }), 1)
+                  setTimeout(() => updateFilter({ slug: key, value: { ...filters[key] } }), 1)
                 }
               >
                 {filters[key].title}
@@ -109,7 +84,7 @@ export function Filters() {
           </span>
         </div>
         <div ref={listRef} className={styles['list-wrapper']}>
-          <OptionList items={menu} />
+          <OptionList items={initFilters} />
         </div>
       </div>
     </div>

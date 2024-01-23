@@ -16,7 +16,7 @@ export default async function CatalogPage() {
   return (
     <main className={'main-flex'}>
       <Preview {...preview} />
-      <Catalog groups={groups} categories={categories} />
+      <Catalog groups={groups.results} categories={categories} />
     </main>
   );
 }

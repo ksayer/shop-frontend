@@ -6,10 +6,10 @@ import { Filters } from '@/components/pages/Catalog/Filters';
 import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
 import { InputDropdown, ItemType } from '@/components/pages/Catalog/InputDropdown';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
-import { ICategory } from '@/api/catalog/catalog';
+import { ICategory, IGroup } from '@/api/catalog/catalog';
 
 interface ICatalog {
-  groups: any;
+  groups: IGroup[];
   categories: ICategory[];
 }
 
@@ -36,7 +36,7 @@ export function Catalog({ groups, categories }: ICatalog) {
     [categories, categorySlug],
   );
   const selectedGroup = useMemo(
-    () => groups.results.find((item: ItemType) => item.slug === groupSlug),
+    () => groups.find((item: ItemType) => item.slug === groupSlug),
     [groups, groupSlug],
   );
   const setGroupSlug = (slug?: string) => {
@@ -74,7 +74,7 @@ export function Catalog({ groups, categories }: ICatalog) {
             <LargeNavigator
               setSlug={setGroupSlug}
               groupSlug={groupSlug}
-              items={groups.results}
+              items={groups}
               categorySlug={categorySlug}
               setCategorySlug={setCategorySlug}
               clearCategorySlug={clearCategorySlug}
@@ -90,7 +90,7 @@ export function Catalog({ groups, categories }: ICatalog) {
               clearSlug={setGroupSlug}
               setSlug={setGroupSlug}
               zIndex={4}
-              items={groups.results}
+              items={groups}
               title={'Группы'}
               selectedItem={selectedGroup}
             />
@@ -108,7 +108,7 @@ export function Catalog({ groups, categories }: ICatalog) {
           selectedItem={selectedCategory}
           disableItem={categoryDisabled}
         />
-        <Filters />
+        <Filters groups={groups} />
         <ProductList />
       </div>
     </div>

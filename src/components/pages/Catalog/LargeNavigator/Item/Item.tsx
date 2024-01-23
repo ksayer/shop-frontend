@@ -1,18 +1,13 @@
 import React, { useRef } from 'react';
 import styles from './Item.module.css';
-
-interface IElement {
-  id: string | number;
-  title: string;
-  slug: string;
-}
+import { ICategory } from '@/api/catalog/catalog';
 
 export interface IItem {
   id?: string | number;
   slug: string;
   categorySlug: string;
   title: string;
-  categories: IElement[];
+  categories: ICategory[];
   isOpened?: boolean;
   setSlug: (slug: string) => void;
   setCategorySlug: (slug: string) => void;

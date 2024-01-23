@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './LargeNavigator.module.css';
-import { IItem, Item } from '@/components/pages/Catalog/LargeNavigator/Item';
+import { Item } from '@/components/pages/Catalog/LargeNavigator/Item';
+import { IGroup } from '@/api/catalog/catalog';
 
 interface ILargeNavigator {
-  items: IItem[];
+  items: IGroup[];
   setSlug: (slug: string) => void;
   setCategorySlug: (slug: string) => void;
   clearCategorySlug: () => void;
