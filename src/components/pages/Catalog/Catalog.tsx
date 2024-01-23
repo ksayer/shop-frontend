@@ -43,6 +43,7 @@ export function Catalog({ groups, categories }: ICatalog) {
   const setGroupSlug = (slug?: string) => {
     updateCategorySlug('');
     updateGroupSlug(slug || '');
+    resetFilter();
     window.history.pushState(null, '', `${url}${slug}`);
   };
   const clearCategorySlug = () => {

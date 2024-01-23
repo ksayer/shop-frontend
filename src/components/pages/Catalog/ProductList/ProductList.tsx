@@ -9,7 +9,12 @@ export function ProductList() {
   const groupSlug = usePathFiltersContext(state => state.groupSlug);
   const categorySlug = usePathFiltersContext(state => state.categorySlug);
   const filters = usePathFiltersContext(state => state.filters);
-  const { data, isSuccess } = useModels({ groupSlug, categorySlug });
+  console.log(Object.values(filters).map(f => f.id));
+  const { data, isSuccess } = useModels({
+    groupSlug,
+    categorySlug,
+    filterIds: Object.values(filters).map(f => f.id),
+  });
 
   return (
     isSuccess && (
