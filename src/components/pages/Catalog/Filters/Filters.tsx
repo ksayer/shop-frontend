@@ -6,6 +6,7 @@ import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
 import { useClickOutside } from '@/features/hooks/useClickOutside';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
 import { IFilter, IGroup } from '@/api/catalog/catalog';
+import { ALL_GROUPS } from '@/components/pages/Catalog';
 
 const SHOW_FILTERS = ['power', 'temperature', 'beam', 'beam_angle', 'dimming', 'protection'];
 
@@ -16,7 +17,7 @@ interface IFilterComponent {
 const collapseFilters = (groups: IGroup[], groupSlug: string) => {
   const filters: Record<string, IFilter> = {};
   groups.forEach(group => {
-    if (!groupSlug || group.slug === groupSlug) {
+    if (!groupSlug || group.slug === groupSlug || groupSlug == ALL_GROUPS) {
       group.filters.forEach(filter => {
         if (!filters[filter.title]) {
           filters[filter.title] = {
@@ -51,7 +52,6 @@ export function Filters({ groups }: IFilterComponent) {
   const activeSelectorsRef = useRef<HTMLDivElement>(null);
   const height = (listRef.current?.scrollHeight || 0) + 45;
   useClickOutside({ isOpened: isOpened, ref: wrapperRef, setIsOpened: setIsOpened });
-
   return (
     <div ref={wrapperRef} className={styles.container}>
       <div

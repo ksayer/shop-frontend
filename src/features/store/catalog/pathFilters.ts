@@ -20,6 +20,7 @@ export interface PathFilterState extends IPathFilterStore {
   updateGroupSlug: (groupSlug: string) => void;
   updateCategorySlug: (categorySlug: string) => void;
   updateFilter: ({ slug, value }: { slug: StringNumber; value: Value }) => void;
+  resetFilter: () => void;
 }
 
 export type PathFilterStore = ReturnType<typeof createPathFilterStore>;
@@ -53,6 +54,11 @@ export const createPathFilterStore = (initProps?: Partial<IPathFilterStore>) => 
               state.filters[slug] = value;
             }
           }),
+        resetFilter: () => {
+          set(state => {
+            state.filters = {};
+          });
+        },
       })),
     ),
   );

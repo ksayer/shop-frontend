@@ -14,7 +14,7 @@ interface ICatalog {
 }
 
 const url = '/catalog/';
-const allGroups = 'all-groups';
+export const ALL_GROUPS = 'all-groups';
 
 function sortByGroupSlug(groupSlug: string, data: ICategory[]) {
   const filteredArray = data.filter(obj => obj.groupSlugArray.includes(groupSlug));
@@ -25,6 +25,7 @@ function sortByGroupSlug(groupSlug: string, data: ICategory[]) {
 export function Catalog({ groups, categories }: ICatalog) {
   const groupSlug = usePathFiltersContext(state => state?.groupSlug);
   const categorySlug = usePathFiltersContext(state => state?.categorySlug);
+  const resetFilter = usePathFiltersContext(state => state.resetFilter);
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
   const sortedCategories = useMemo(
@@ -47,7 +48,7 @@ export function Catalog({ groups, categories }: ICatalog) {
   const clearCategorySlug = () => {
     updateCategorySlug('');
     let fullUrl = url;
-    if (groupSlug === allGroups) {
+    if (groupSlug === ALL_GROUPS) {
       updateGroupSlug('');
     } else {
       fullUrl += groupSlug;
@@ -57,19 +58,28 @@ export function Catalog({ groups, categories }: ICatalog) {
 
   const setCategorySlug = (slug: string) => {
     updateCategorySlug(slug);
-    if (!groupSlug) updateGroupSlug(allGroups);
-    window.history.pushState(null, '', `${url}${groupSlug || allGroups}/${slug}`);
+    if (!groupSlug) updateGroupSlug(ALL_GROUPS);
+    window.history.pushState(null, '', `${url}${groupSlug || ALL_GROUPS}/${slug}`);
   };
 
   const categoryDisabled = (item: ItemType): boolean => {
-    return !!(groupSlug && groupSlug !== allGroups && !item.groupSlugArray?.includes(groupSlug));
+    return !!(groupSlug && groupSlug !== ALL_GROUPS && !item.groupSlugArray?.includes(groupSlug));
+  };
+
+  const resetAllFilters = () => {
+    updateCategorySlug('');
+    updateGroupSlug('');
+    window.history.pushState(null, '', `${url}`);
+    resetFilter();
   };
 
   return (
     <div className={`container ${styles.container}`}>
       <div className={styles.wrapper}>
         <div className={`${styles['left-side--desktop']}`}>
-          <button className={styles.btn}>Убрать все фильтры</button>
+          <button onClick={resetAllFilters} className={styles.btn}>
+            Убрать все фильтры
+          </button>
           {groups ? (
             <LargeNavigator
               setSlug={setGroupSlug}
@@ -86,7 +96,7 @@ export function Catalog({ groups, categories }: ICatalog) {
         <div className={`${styles['left-side']}`}>
           {groups ? (
             <InputDropdown
-              slug={groupSlug !== allGroups ? groupSlug : ''}
+              slug={groupSlug !== ALL_GROUPS ? groupSlug : ''}
               clearSlug={setGroupSlug}
               setSlug={setGroupSlug}
               zIndex={4}

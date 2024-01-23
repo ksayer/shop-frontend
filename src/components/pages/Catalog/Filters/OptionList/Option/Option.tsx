@@ -16,8 +16,7 @@ export interface IOption {
 
 export function Option({ id, title, slug, properties }: IOption) {
   const updateFilter = usePathFiltersContext(state => state.updateFilter);
-
-  const [clicked, setClicked] = useState<number>();
+  const filters = usePathFiltersContext(state => state.filters);
   return (
     <li className={`${styles['option']}`} key={id}>
       <span className={`${styles['title']}`}>{title}</span>
@@ -26,11 +25,10 @@ export function Option({ id, title, slug, properties }: IOption) {
           return (
             <button
               onClick={() => {
-                index === clicked ? setClicked(undefined) : setClicked(index);
                 updateFilter({ slug: slug, value: { id: value.id, title: value.title } });
               }}
               className={`${styles.value} ${
-                index === clicked && styles['value--active']
+                filters[slug]?.id == value.id && styles['value--active']
               } filter-item`}
               key={value.id}
             >
