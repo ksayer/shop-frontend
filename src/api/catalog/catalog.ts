@@ -27,7 +27,9 @@ export interface IGroup {
 }
 
 export const collapseGroupSlug = (array: ICategory[]) => {
-  // Убираем дублирующие объекты с одинаковым title, их groupSlug объединяем в массив groupSlugArray
+  // remove duplicated title property in object
+  // slug collapse into slugArray -
+  // groupSlug collapse into groupSlugArray
   const processedData: Record<string, ICategory> = {};
   array.forEach(item => {
     if (!processedData[item.title]) {

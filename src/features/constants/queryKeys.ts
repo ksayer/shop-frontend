@@ -1,0 +1,1 @@
+export const QUERY_KEY_MODELS = 'QUERY_KEY_MODELS';

@@ -7,14 +7,13 @@ import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
 import { InputDropdown, ItemType } from '@/components/pages/Catalog/InputDropdown';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
 import { ICategory, IGroup } from '@/api/catalog/catalog';
+import { useModels } from '@/api/hooks/useModels';
+import { CATALOG, ALL_GROUPS } from '@/features/constants/urls';
 
 interface ICatalog {
   groups: IGroup[];
   categories: ICategory[];
 }
-
-const url = '/catalog/';
-export const ALL_GROUPS = 'all-groups';
 
 function sortByGroupSlug(groupSlug: string, data: ICategory[]) {
   const filteredArray = data.filter(obj => obj.groupSlugArray.includes(groupSlug));
@@ -28,27 +27,39 @@ export function Catalog({ groups, categories }: ICatalog) {
   const resetFilter = usePathFiltersContext(state => state.resetFilter);
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
+  const filters = usePathFiltersContext(state => state.filters);
+
+  const { data } = useModels({
+    groupSlug,
+    categorySlugs: categories.filter(c => c.slugArray.includes(categorySlug))[0]?.slugArray,
+    filterIds: Object.values(filters).map(f => f.id),
+  });
+
   const sortedCategories = useMemo(
     () => sortByGroupSlug(groupSlug, categories),
     [groupSlug, categories],
   );
+
   const selectedCategory = useMemo(
     () => categories.find((item: ICategory) => item.slugArray?.includes(categorySlug)),
     [categories, categorySlug],
   );
+
   const selectedGroup = useMemo(
     () => groups.find((item: ItemType) => item.slug === groupSlug),
     [groups, groupSlug],
   );
+
   const setGroupSlug = (slug?: string) => {
     updateCategorySlug('');
     updateGroupSlug(slug || '');
     resetFilter();
-    window.history.pushState(null, '', `${url}${slug}`);
+    window.history.pushState(null, '', `${CATALOG}${slug}`);
   };
+
   const clearCategorySlug = () => {
     updateCategorySlug('');
-    let fullUrl = url;
+    let fullUrl = CATALOG;
     if (groupSlug === ALL_GROUPS) {
       updateGroupSlug('');
     } else {
@@ -60,7 +71,7 @@ export function Catalog({ groups, categories }: ICatalog) {
   const setCategorySlug = (slug: string) => {
     updateCategorySlug(slug);
     if (!groupSlug) updateGroupSlug(ALL_GROUPS);
-    window.history.pushState(null, '', `${url}${groupSlug || ALL_GROUPS}/${slug}`);
+    window.history.pushState(null, '', `${CATALOG}${groupSlug || ALL_GROUPS}/${slug}`);
   };
 
   const categoryDisabled = (item: ItemType): boolean => {
@@ -70,7 +81,7 @@ export function Catalog({ groups, categories }: ICatalog) {
   const resetAllFilters = () => {
     updateCategorySlug('');
     updateGroupSlug('');
-    window.history.pushState(null, '', `${url}`);
+    window.history.pushState(null, '', `${CATALOG}`);
     resetFilter();
   };
 
@@ -120,7 +131,7 @@ export function Catalog({ groups, categories }: ICatalog) {
           disableItem={categoryDisabled}
         />
         <Filters groups={groups} />
-        <ProductList />
+        <ProductList models={data?.results} />
       </div>
     </div>
   );
