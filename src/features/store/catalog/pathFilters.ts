@@ -1,25 +1,40 @@
 import { createStore } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { devtools } from 'zustand/middleware';
-type StringNumber = string | number;
 
-interface Value {
-  id: StringNumber;
-  title: StringNumber;
+export type FilterType =
+  | 'beam'
+  | 'power'
+  | 'beam_angle'
+  | 'color_temperature'
+  | 'protection'
+  | 'dimming';
+
+export interface IFilter {
+  name: string;
+  ids?: number[];
 }
 
 interface IPathFilterStore {
   groupSlug: string;
   categorySlug: string;
   filters: {
-    [v: StringNumber]: Value;
+    [key in FilterType as string]: IFilter;
   };
 }
 
 export interface PathFilterState extends IPathFilterStore {
   updateGroupSlug: (groupSlug: string) => void;
   updateCategorySlug: (categorySlug: string) => void;
-  updateFilter: ({ slug, value }: { slug: StringNumber; value: Value }) => void;
+  updateFilter: ({
+    filter,
+    name,
+    ids,
+  }: {
+    filter: FilterType;
+    name: string;
+    ids?: number[];
+  }) => void;
   resetFilter: () => void;
 }
 
@@ -46,12 +61,12 @@ export const createPathFilterStore = (initProps?: Partial<IPathFilterStore>) => 
             state.categorySlug = categorySlug;
           });
         },
-        updateFilter: ({ slug, value }) =>
+        updateFilter: ({ filter, name, ids = [] }) =>
           set(state => {
-            if (value.id === state.filters[slug]?.id) {
-              delete state.filters[slug];
+            if (state.filters[filter]?.name == name) {
+              delete state.filters[filter];
             } else {
-              state.filters[slug] = value;
+              state.filters[filter] = { name: name, ids: ids };
             }
           }),
         resetFilter: () => {

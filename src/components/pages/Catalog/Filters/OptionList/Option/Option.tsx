@@ -1,38 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './Option.module.css';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { FilterType } from '@/features/store/catalog/pathFilters';
 
 export interface IOptionValue {
-  id: string | number;
-  title: string;
+  ids: number[];
+  group_title: string;
 }
 
 export interface IOption {
-  id: string | number;
   title: string;
-  slug: string;
+  filterName: FilterType;
   properties: IOptionValue[];
 }
 
-export function Option({ id, title, slug, properties }: IOption) {
+export function Option({ properties, title, filterName }: IOption) {
   const updateFilter = usePathFiltersContext(state => state.updateFilter);
   const filters = usePathFiltersContext(state => state.filters);
   return (
-    <li className={`${styles['option']}`} key={id}>
+    <li className={`${styles['option']}`} key={title}>
       <span className={`${styles['title']}`}>{title}</span>
       <ul className={`${styles['list']}`}>
-        {properties.map((value, index) => {
+        {properties?.map(value => {
           return (
             <button
               onClick={() => {
-                updateFilter({ slug: slug, value: { id: value.id, title: value.title } });
+                updateFilter({ filter: filterName, name: value.group_title, ids: value['ids'] });
               }}
               className={`${styles.value} ${
-                filters[slug]?.id == value.id && styles['value--active']
+                filters[filterName]?.name == value.group_title && styles['value--active']
               } filter-item`}
-              key={value.id}
+              key={value.group_title}
             >
-              {value.title}
+              {value.group_title}
             </button>
           );
         })}

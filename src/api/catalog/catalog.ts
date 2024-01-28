@@ -11,11 +11,17 @@ export interface ICategory {
 }
 
 export interface IFilter {
-  id: number | string;
-  slug: string;
-  title: string;
-  property: string;
-  properties: { id: number | string; title: string; groupSlugArray: string[] }[];
+  ids: number[];
+  group_title: string;
+}
+
+export interface IFilterStorage {
+  beam?: IFilter[];
+  power: IFilter[];
+  dimming?: IFilter[];
+  beam_angle?: IFilter[];
+  protection?: IFilter[];
+  color_temperature?: IFilter[];
 }
 
 export interface IGroup {
@@ -23,7 +29,7 @@ export interface IGroup {
   slug: string;
   title: string;
   categories: ICategory[];
-  filters: IFilter[];
+  filters: IFilterStorage;
 }
 
 export const collapseGroupSlug = (array: ICategory[]) => {

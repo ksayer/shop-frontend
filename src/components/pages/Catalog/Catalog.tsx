@@ -28,11 +28,10 @@ export function Catalog({ groups, categories }: ICatalog) {
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
   const filters = usePathFiltersContext(state => state.filters);
-
   const { data } = useModels({
     groupSlug,
     categorySlugs: categories.filter(c => c.slugArray.includes(categorySlug))[0]?.slugArray,
-    filterIds: Object.values(filters).map(f => f.id),
+    filters,
   });
 
   const sortedCategories = useMemo(

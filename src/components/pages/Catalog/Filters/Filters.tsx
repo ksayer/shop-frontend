@@ -5,42 +5,13 @@ import { Filter } from '@/components/icons/Filter';
 import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
 import { useClickOutside } from '@/features/hooks/useClickOutside';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
-import { IFilter, IGroup } from '@/api/catalog/catalog';
-import { ALL_GROUPS } from '@/components/pages/Catalog';
-
-const SHOW_FILTERS = ['power', 'temperature', 'beam', 'beam_angle', 'dimming', 'protection'];
+import { IGroup } from '@/api/catalog/catalog';
+import { collapseFilters } from '@/components/pages/Catalog/Filters/collapseFilters';
+import { FilterType } from '@/features/store/catalog/pathFilters';
 
 interface IFilterComponent {
   groups: IGroup[];
 }
-
-const collapseFilters = (groups: IGroup[], groupSlug: string) => {
-  const filters: Record<string, IFilter> = {};
-  groups.forEach(group => {
-    if (!groupSlug || group.slug === groupSlug || groupSlug == ALL_GROUPS) {
-      group.filters.forEach(filter => {
-        if (!filters[filter.title]) {
-          filters[filter.title] = {
-            ...filter,
-            properties: [{ id: filter.id, title: filter.property, groupSlugArray: [group.slug] }],
-          };
-        } else {
-          const sameProperty = filters[filter.title].properties.find(prop => prop.id == filter.id);
-          if (sameProperty) {
-            sameProperty.groupSlugArray.push(group.slug);
-          } else {
-            filters[filter.title].properties.push({
-              id: filter.id,
-              title: filter.property,
-              groupSlugArray: [group.slug],
-            });
-          }
-        }
-      });
-    }
-  });
-  return Object.values(filters).filter(filter => SHOW_FILTERS.includes(filter.slug));
-};
 
 export function Filters({ groups }: IFilterComponent) {
   const groupSlug = usePathFiltersContext(state => state?.groupSlug);
@@ -67,15 +38,22 @@ export function Filters({ groups }: IFilterComponent) {
         >
           <span className={`${styles.title}`}>Фильтры</span>
           <div ref={activeSelectorsRef} className={`${styles['active-selectors']}`}>
-            {Object.keys(filters).map(key => (
+            {Object.keys(filters).map((key: string) => (
               <button
                 key={key}
                 className={`filter-item ${styles['active-selectors__btn']}`}
-                onClick={() =>
-                  setTimeout(() => updateFilter({ slug: key, value: { ...filters[key] } }), 1)
-                }
+                onClick={() => {
+                  setTimeout(
+                    () =>
+                      updateFilter({
+                        filter: key as FilterType,
+                        name: filters[key]?.name,
+                      }),
+                    1,
+                  );
+                }}
               >
-                {filters[key].title}
+                {filters[key].name}
               </button>
             ))}
           </div>
@@ -84,7 +62,7 @@ export function Filters({ groups }: IFilterComponent) {
           </span>
         </div>
         <div ref={listRef} className={styles['list-wrapper']}>
-          <OptionList items={initFilters} />
+          <OptionList filters={initFilters} />
         </div>
       </div>
     </div>
