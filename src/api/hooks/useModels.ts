@@ -19,6 +19,6 @@ export const useModels = ({
     queryFn: async ({ pageParam }) => getModels(pageParam, groupSlug, categorySlugs, filters),
     initialPageParam: '',
     getNextPageParam: lastPage => lastPage.next,
-    placeholderData: (previousData) => previousData
+    placeholderData: previousData => previousData,
   });
 };

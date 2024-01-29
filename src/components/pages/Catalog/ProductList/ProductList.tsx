@@ -16,12 +16,11 @@ export function ProductList({ categories }: IProductList) {
   const groupSlug = usePathFiltersContext(state => state?.groupSlug);
   const categorySlug = usePathFiltersContext(state => state?.categorySlug);
   const loadMoreElement = useRef<HTMLDivElement>(null);
-  const { data, fetchNextPage, hasNextPage, isFetching, isLoading } = useModels({
+  const { data, fetchNextPage, hasNextPage, isFetching } = useModels({
     groupSlug,
     categorySlugs: categories.filter(c => c.slugArray.includes(categorySlug))[0]?.slugArray,
     filters,
   });
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       async entry => {
@@ -38,8 +37,7 @@ export function ProductList({ categories }: IProductList) {
   }, [loadMoreElement, fetchNextPage, data, hasNextPage, isFetching]);
 
   return (
-    ( !isLoading &&
-      <div className={styles.catalog}>
+    <div className={styles.catalog}>
       {data?.pages?.map(
         (page: PaginatedAPIResponse<ICard>, pageIndex) =>
           page?.results?.map((product, productIndex) => {
@@ -57,6 +55,6 @@ export function ProductList({ categories }: IProductList) {
             );
           }),
       )}
-    </div>)
+    </div>
   );
 }
