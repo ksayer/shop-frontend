@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { RefObject, useState } from 'react';
 import styles from './Card.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -15,14 +15,15 @@ export interface ICard {
   id?: string | number;
   title: string;
   min_price: number;
+  innerRef: RefObject<HTMLDivElement> | null;
   images: IImage[];
 }
 
-export function Card({ id, title, min_price, images }: ICard) {
+export function Card({ innerRef, title, min_price, images }: ICard) {
   const [imageIndex, setImageIndex] = useState(0);
   return (
     <Link href={'/contacts'} className={styles.card}>
-      <div className={`${styles['image-wrapper']}`}>
+      <div ref={innerRef} className={`${styles['image-wrapper']}`}>
         <Image
           src={images[imageIndex].file}
           alt={'card'}

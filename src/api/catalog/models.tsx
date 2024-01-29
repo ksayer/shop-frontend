@@ -3,6 +3,7 @@ import { ALL_GROUPS } from '@/features/constants/urls';
 import { FilterType, IFilter } from '@/features/store/catalog/pathFilters';
 
 export async function getModels(
+  pageParam?: string,
   groupSlug?: string,
   categorySlugs?: string[],
   filters?: {
@@ -18,10 +19,10 @@ export async function getModels(
       urlParams.push(`modifications__products__property__${key}__id__in=${filters[key].ids}`);
     }
   }
-  console.log(urlParams);
-  const res = await fetch(
-    `${API_URL}/catalog/models/?category__group__active=true&${urlParams.join('&')}`,
-  );
+  const url =
+    pageParam ||
+    `${API_URL}/catalog/models/?limit=24&category__group__active=true&${urlParams.join('&')}`;
+  const res = await fetch(url);
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }

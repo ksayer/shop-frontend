@@ -27,12 +27,6 @@ export function Catalog({ groups, categories }: ICatalog) {
   const resetFilter = usePathFiltersContext(state => state.resetFilter);
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
-  const filters = usePathFiltersContext(state => state.filters);
-  const { data } = useModels({
-    groupSlug,
-    categorySlugs: categories.filter(c => c.slugArray.includes(categorySlug))[0]?.slugArray,
-    filters,
-  });
 
   const sortedCategories = useMemo(
     () => sortByGroupSlug(groupSlug, categories),
@@ -130,7 +124,7 @@ export function Catalog({ groups, categories }: ICatalog) {
           disableItem={categoryDisabled}
         />
         <Filters groups={groups} />
-        <ProductList models={data?.results} />
+        <ProductList categories={categories} />
       </div>
     </div>
   );
