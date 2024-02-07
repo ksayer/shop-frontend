@@ -8,8 +8,8 @@ export default function PathFilterProvider({ children }: { children: React.React
   const pathname = usePathname();
   const store = useRef(
     createPathFilterStore({
-      groupSlug: pathname.split('/')[2],
-      categorySlug: pathname.split('/')[3],
+      groupSlug: pathname.split('/')[2] === 'models' ? '' : pathname.split('/')[2],
+      categorySlug: pathname.split('/')[2] === 'models' ? '' : pathname.split('/')[3],
     }),
   ).current;
 

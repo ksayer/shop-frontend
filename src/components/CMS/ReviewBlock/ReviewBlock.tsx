@@ -3,7 +3,8 @@ import styles from './ReviewBlock.module.css';
 import { Section } from '../../Section';
 import { IReview, Review } from '@/components/CMS/ReviewBlock/Review';
 
-interface IReviewBlock {
+export interface IReviewBlock {
+  id: string | number;
   title: string;
   cards: IReview[];
 }
