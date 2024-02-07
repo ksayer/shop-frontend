@@ -27,7 +27,6 @@
   transform: scale(1);
 }
 
-
 @media (min-width: 1024px) {
   .wrapper {
     padding-top: 15px;
