@@ -448,7 +448,7 @@ const modifications = [
 export function ProductDetail({ reviewBlock }: { reviewBlock: IReviewBlock }) {
   return (
     <>
-      <BreadCrumbs title={card.title} links={breadCrumbs} />
+      {/*<BreadCrumbs title={card.title} links={breadCrumbs} />*/}
       <InfoBlock
         image={card.image}
         title={card.title}
@@ -457,7 +457,7 @@ export function ProductDetail({ reviewBlock }: { reviewBlock: IReviewBlock }) {
         text={card.text}
       />
       <Features title={card.title} features={features} />
-      {/*<Gallery title={'Решения в интерьере'} images={interiors} />*/}
+      <Gallery title={'Решения в интерьере'} images={interiors} />
       {/*<ModificationList modifications={modifications} />*/}
       {/*<Modification*/}
       {/*  key={modifications[0].id}*/}

@@ -1,9 +1,92 @@
-.image-wrapper {
+.wrapper {
   position: relative;
-  height: 40vw;
 }
+
+.swiper {
+  display: none;
+  cursor: pointer;
+}
+
+.images-container {
+  overflow: hidden;
+}
+
+.title {
+  margin-bottom: 2rem;
+}
+
+.buttons {
+  display: none;
+  position: absolute;
+}
+
+.images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-wrapper {
+  flex-shrink: 0;
+  position: relative;
+  padding-top: 39%;
+  width: 100%;
+}
+
 .image {
   object-fit: cover;
-  height: 100%;
-  width: 100%;
+}
+
+.disabled path {
+  stroke: var(--grey-c6);
+}
+
+.disabled {
+  cursor: auto;
+}
+
+@media (hover: hover) {
+  .arrow path {
+    transition: var(--transition);
+  }
+
+  .left-button:not(.disabled):hover .arrow path,
+  .right-button:not(.disabled):hover .arrow path {
+    stroke: var(--hover);
+  }
+}
+
+@media (min-width: 768px) {
+  .title {
+    margin-bottom: 3rem;
+  }
+  .images {
+    flex-direction: row;
+    gap: 0;
+    transform: translateX(0%);
+    display: none;
+  }
+  .swiper {
+    display: flex;
+  }
+  .buttons {
+    display: flex;
+    top: 15px;
+    right: 40px;
+  }
+
+  .left-button {
+    transform: translateX(-20px);
+  }
+}
+
+@media (min-width: 1920px) {
+  .buttons {
+    top: 10px;
+    right: 80px;
+  }
+  .arrow {
+    width: 30px;
+    height: 30px;
+  }
 }
