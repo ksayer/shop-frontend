@@ -1,16 +1,16 @@
 import React from 'react';
 import styles from './Modification.module.css';
 import { ImageType } from '@/api/types';
-import { Visual } from '@/components/pages/ProductDetail/Modification/Visual';
-import { ShoppingBlock } from '@/components/pages/ProductDetail/Modification/ShoppingBlock';
-import { Features } from '@/components/pages/ProductDetail/Modification/Features';
+import { Visual } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual';
+import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock';
+import { Features } from '@/components/pages/ProductDetail/ModificationList/Modification/Features';
 
 interface IFile {
   title: string;
   link: string;
 }
 
-interface IProduct {
+export interface IProduct {
   color: string;
   link: string;
   image: ImageType;
@@ -35,7 +35,7 @@ interface IModification {
 export function Modification({ title, products }: IModification) {
   return (
     <div>
-      <h3>Опции {title}</h3>
+      <h3 className={styles.title}>Опции {title}</h3>
       <div>
         <Visual />
         <Features />

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './ShoppingBlock.module.css';
-import { Purchasing } from '@/components/pages/ProductDetail/Modification/ShoppingBlock/Purchasing';
+import { Purchasing } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock/Purchasing';
 
 export function ShoppingBlock() {
   return (

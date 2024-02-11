@@ -1,0 +1,51 @@
+.title {
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.selector {
+  position: relative;
+  cursor: pointer;
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  text-align: left;
+  border: 1px solid var(--grey-db);
+  border-radius: 10px;
+  background-color: var(--white-dark);
+}
+
+.list {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--grey-db);
+  border-radius: 10px;
+  color: var(--light-black);
+  background-color: var(--white);
+
+  transform: scaleY(0);
+  transform-origin: top;
+  z-index: 10;
+  opacity: 0;
+  overflow: hidden;
+}
+
+.list--active {
+  opacity: 1;
+  transform: scaleY(1) translateY(15px);
+}
+
+.item {
+  padding: 1rem 1.5rem;
+}
+
+.item--selected {
+  background-color: var(--grey-ee);
+}

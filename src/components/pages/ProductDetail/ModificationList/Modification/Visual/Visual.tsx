@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Visual.module.css';
-import { ColorSelector } from '@/components/pages/ProductDetail/Modification/Visual/ColorSelector';
+import { ColorSelector } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual/ColorSelector';
 import Image from 'next/image';
 import { ImageType } from '@/api/types';
 
@@ -11,7 +11,7 @@ interface IVisual {
 
 export function Visual({ image, scheme }: IVisual) {
   return (
-    <div>
+    <div className={`volume ${styles.wrapper}`}>
       <ColorSelector />
       {/*<div>*/}
       {/*  <Image*/}

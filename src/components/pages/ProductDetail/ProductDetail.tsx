@@ -8,7 +8,6 @@ import { InfoBlock } from '@/components/pages/ProductDetail/InfoBlock';
 import { Features } from '@/components/pages/ProductDetail/Features';
 import { Gallery } from '@/components/pages/ProductDetail/Gallery';
 import { ModificationList } from '@/components/pages/ProductDetail/ModificationList';
-import { Modification } from '@/components/pages/ProductDetail/Modification';
 
 const breadCrumbs = [
   { title: 'Интерьерные', url: '/catalog' },
@@ -458,12 +457,8 @@ export function ProductDetail({ reviewBlock }: { reviewBlock: IReviewBlock }) {
       />
       <Features title={card.title} features={features} />
       <Gallery title={'Решения в интерьере'} images={interiors} />
-      {/*<ModificationList modifications={modifications} />*/}
-      {/*<Modification*/}
-      {/*  key={modifications[0].id}*/}
-      {/*  title={modifications[0].title}*/}
-      {/*  products={modifications[0].products}*/}
-      {/*/>*/}
+      <ModificationList modifications={modifications} />
+
       {/*<FormConsult />*/}
       {/*<ReviewBlock key={reviewBlock.id} {...reviewBlock} />*/}
     </>
