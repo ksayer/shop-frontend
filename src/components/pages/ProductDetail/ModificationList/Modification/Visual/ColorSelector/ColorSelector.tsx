@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import styles from './ColorSelector.module.css';
-import { set } from 'immutable';
 import { useClickOutside } from '@/features/hooks/useClickOutside';
 
 export function ColorSelector() {

@@ -33,7 +33,6 @@ interface IModification {
 }
 
 export function Modification({ title, products }: IModification) {
-  console.log(products);
   return (
     <div>
       <h3 className={styles.title}>Опции {title}</h3>
