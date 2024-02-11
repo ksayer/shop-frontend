@@ -4,12 +4,12 @@ import { Counter } from '@/components/pages/ProductDetail/ModificationList/Modif
 
 export function Purchasing() {
   return (
-    <div>
-      <div>12910₽</div>
-      <div>
+    <div className={styles.wrapper}>
+      <div className={styles.price}>12910₽</div>
+      <div className={styles.counter}>
         <Counter />
       </div>
-      <button>В корзину</button>
+      <button className={styles.btn}>В корзину</button>
     </div>
   );
 }

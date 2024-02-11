@@ -1,0 +1,31 @@
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.price {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  border: 1px solid var(--grey-db);
+  border-radius: 8px;
+  background-color: var(--white-dark);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--dark-orange);
+}
+
+.btn {
+  grid-column: span 2;
+  padding: 1rem;
+  border: 1px solid var(--black);
+  border-radius: 8px;
+  transition: var(--transition);
+}
+
+@media (hover: hover) {
+  .btn:hover {
+    border-color: var(--hover);
+  }
+}

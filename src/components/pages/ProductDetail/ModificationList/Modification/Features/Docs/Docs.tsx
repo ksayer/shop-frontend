@@ -6,7 +6,7 @@ import { File } from '@/components/icons/File';
 
 export function Docs() {
   return (
-    <div className={featureStyles.wrapper}>
+    <div className={`volume ${featureStyles.wrapper}`}>
       <Accordion Header={<h4 className={featureStyles.title}>Документация</h4>}>
         <ul className={styles.links}>
           <a href="#" className={styles.link}>

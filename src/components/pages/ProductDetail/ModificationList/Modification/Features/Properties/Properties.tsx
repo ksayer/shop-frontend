@@ -5,7 +5,7 @@ import { Accordion } from '@/components/Accordion';
 
 export function Properties() {
   return (
-    <div className={featureStyles.wrapper}>
+    <div className={`volume ${featureStyles.wrapper}`}>
       <Accordion Header={<h4 className={`${featureStyles.title}`}>Характеристики:</h4>}>
         <ul className={styles.list}>
           <li className={styles.item}>
