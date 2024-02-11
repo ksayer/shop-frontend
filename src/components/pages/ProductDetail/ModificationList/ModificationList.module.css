@@ -35,7 +35,7 @@
 .image-wrapper::after {
   display: block;
   padding-top: 33%;
-  content: "";
+  content: '';
 }
 
 .image {
@@ -52,8 +52,7 @@
   color: var(--black);
 }
 
-
-@media(min-width: 768px) {
+@media (min-width: 768px) {
   .list {
     display: flex;
   }
@@ -62,21 +61,20 @@
   }
 }
 
-@media(min-width: 1024px) {
+@media (min-width: 1024px) {
   .list {
     gap: 3rem;
   }
 }
 
-@media(min-width: 1400px) {
+@media (min-width: 1400px) {
   .title {
     font-size: 2.2rem;
     margin-bottom: 3rem;
   }
 }
 
-
-@media(min-width: 1920px) {
+@media (min-width: 1920px) {
   .title {
     font-size: 3.2rem;
     margin-bottom: 4rem;

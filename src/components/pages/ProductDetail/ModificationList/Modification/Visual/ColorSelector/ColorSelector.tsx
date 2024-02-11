@@ -1,7 +1,7 @@
-import React, {useRef, useState} from 'react';
+import React, { useRef, useState } from 'react';
 import styles from './ColorSelector.module.css';
-import {set} from "immutable";
-import {useClickOutside} from "@/features/hooks/useClickOutside";
+import { set } from 'immutable';
+import { useClickOutside } from '@/features/hooks/useClickOutside';
 
 export function ColorSelector() {
   const [isOpened, setIsOpened] = useState(false);
@@ -10,18 +10,33 @@ export function ColorSelector() {
   const handleClick = (color: string) => {
     setColor(color);
     setIsOpened(false);
-  }
-  useClickOutside({isOpened: isOpened, ref: ref, setIsOpened: setIsOpened});
+  };
+  useClickOutside({ isOpened: isOpened, ref: ref, setIsOpened: setIsOpened });
   return (
-    <>
+    <div className={styles.wrapper}>
       <h4 className={styles.title}>Цвет корпуса:</h4>
       <div ref={ref} className={styles.selector}>
-        <button onClick={() => setIsOpened(!isOpened)} className={styles.btn}>{color}</button>
+        <button
+          onClick={() => setIsOpened(!isOpened)}
+          className={`${styles.btn} ${isOpened && styles['btn--opened']}`}
+        >
+          {color}
+        </button>
         <ul className={`${styles.list} ${isOpened && styles['list--active']}`}>
-          <li className={`${styles.item} ${color === 'Черный' && styles['item--selected']}`} onClick={() => handleClick('Черный')}>Черный</li>
-          <li className={`${styles.item} ${color === 'Белый' && styles['item--selected']}`} onClick={() => handleClick('Белый')}>Белый</li>
+          <li
+            className={`${styles.item} ${color === 'Черный' && styles['item--selected']}`}
+            onClick={() => handleClick('Черный')}
+          >
+            Черный
+          </li>
+          <li
+            className={`${styles.item} ${color === 'Белый' && styles['item--selected']}`}
+            onClick={() => handleClick('Белый')}
+          >
+            Белый
+          </li>
         </ul>
       </div>
-    </>
+    </div>
   );
 }

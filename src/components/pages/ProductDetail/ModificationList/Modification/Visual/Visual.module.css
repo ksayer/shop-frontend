@@ -1,5 +1,51 @@
 .wrapper {
   padding: 2rem 1rem;
   border: 1px solid var(--grey-db);
-  border-radius: 5px;
+  border-radius: 8px;
+}
+
+.images {
+  border: 1px solid var(--grey-db);
+  border-radius: 8px;
+}
+
+.image-wrapper {
+  position: relative;
+  height: 60vw;
+}
+
+.image {
+  display: none;
+  object-fit: cover;
+  width: 100%;
+}
+
+.image--active {
+  display: flex;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.4rem;
+  color: var(--black);
+  font-weight: 300;
+  border-top: 1px solid var(--grey-db);
+}
+
+.button:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.button:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.button--active {
+  border: 1px solid var(--black);
 }

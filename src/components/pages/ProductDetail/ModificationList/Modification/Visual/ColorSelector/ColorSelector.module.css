@@ -1,3 +1,6 @@
+.wrapper {
+  margin-bottom: 2rem;
+}
 .title {
   margin-bottom: 0.8rem;
   font-size: 1.4rem;
@@ -12,12 +15,29 @@
 }
 
 .btn {
+  position: relative;
   width: 100%;
   padding: 1rem 1.5rem;
   text-align: left;
   border: 1px solid var(--grey-db);
   border-radius: 10px;
   background-color: var(--white-dark);
+}
+
+.btn::after {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  right: 10px;
+  border-left: 2px solid var(--grey-c6);
+  border-bottom: 2px solid var(--grey-c6);
+  transform-origin: center;
+  transform: rotate(-45deg);
+  content: '';
+}
+
+.btn--opened::after {
+  transform: rotate(135deg);
 }
 
 .list {

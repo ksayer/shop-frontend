@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from './ModificationList.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
-import {ImageType} from '@/api/types';
+import { ImageType } from '@/api/types';
 import {
   IProduct,
-  Modification
-} from "@/components/pages/ProductDetail/ModificationList/Modification";
+  Modification,
+} from '@/components/pages/ProductDetail/ModificationList/Modification';
 
 export interface IModification {
   id?: number;
@@ -20,7 +20,7 @@ interface IModifications {
   modifications: IModification[];
 }
 
-export function ModificationList({modifications}: IModifications) {
+export function ModificationList({ modifications }: IModifications) {
   const [activeId, setActiveId] = useState(modifications[0].id);
   return (
     <section className={`container`}>
@@ -28,10 +28,10 @@ export function ModificationList({modifications}: IModifications) {
       <ul className={styles.list}>
         {modifications.map(modification => (
           <li key={modification.id} className={styles.item}>
-              <button
-                className={`${styles.btn} ${activeId === modification.id && styles['btn--active']}`}
-                onClick={() => setActiveId(modification.id)}
-              >
+            <button
+              className={`${styles.btn} ${activeId === modification.id && styles['btn--active']}`}
+              onClick={() => setActiveId(modification.id)}
+            >
               <div className={`${styles['image-wrapper']}`}>
                 <Image
                   src={modification.image?.absolute_url}
@@ -43,7 +43,9 @@ export function ModificationList({modifications}: IModifications) {
                 />
               </div>
               <h4
-                className={`${styles.subtitle} ${activeId === modification.id && styles['subtitle--active']}`}
+                className={`${styles.subtitle} ${
+                  activeId === modification.id && styles['subtitle--active']
+                }`}
               >
                 {modification.title}
               </h4>

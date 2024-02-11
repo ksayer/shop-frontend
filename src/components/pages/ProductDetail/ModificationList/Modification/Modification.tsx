@@ -33,11 +33,12 @@ interface IModification {
 }
 
 export function Modification({ title, products }: IModification) {
+  console.log(products);
   return (
     <div>
       <h3 className={styles.title}>Опции {title}</h3>
       <div>
-        <Visual />
+        <Visual image={products[0].image} scheme={products[0].scheme} />
         <Features />
       </div>
       <div>
