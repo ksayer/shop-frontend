@@ -59,7 +59,7 @@
 
 .list--active {
   opacity: 1;
-  transform: scaleY(1) translateY(15px);
+  transform: scaleY(1) translateY(10px);
 }
 
 .item {

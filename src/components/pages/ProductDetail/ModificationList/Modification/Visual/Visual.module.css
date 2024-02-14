@@ -50,3 +50,15 @@
 .button--active {
   border: 1px solid var(--black);
 }
+
+@media (min-width: 768px) {
+  .image-wrapper {
+    height: 100%;
+  }
+  .image {
+    height: 25vw;
+  }
+  .selector {
+    display: none;
+  }
+}

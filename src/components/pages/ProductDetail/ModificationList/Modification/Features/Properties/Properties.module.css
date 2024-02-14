@@ -5,9 +5,33 @@
   gap: 2rem;
 }
 
+.simple-list {
+  display: none;
+}
+
 .item {
   display: flex;
   justify-content: space-between;
   font-size: 1.4rem;
   font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .accordion {
+    display: none;
+  }
+  .simple-list {
+    display: block;
+  }
+  .list {
+    padding: 2rem;
+    border: 1px solid var(--grey-db);
+    border-radius: 10px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .item {
+    font-size: 1.8rem;
+  }
 }

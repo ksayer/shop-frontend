@@ -1,8 +1,10 @@
+'use client';
 import React, { useState } from 'react';
 import styles from './Visual.module.css';
 import { ColorSelector } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual/ColorSelector';
 import Image from 'next/image';
 import { ImageType } from '@/api/types';
+import { useWidth } from '@/features/hooks/useWidth';
 
 interface IVisual {
   image: ImageType;
@@ -11,9 +13,15 @@ interface IVisual {
 
 export function Visual({ image, scheme }: IVisual) {
   const [activeImage, setActiveImage] = useState('image');
+  const [width] = useWidth();
+
   return (
     <div className={`volume ${styles.wrapper}`}>
-      <ColorSelector />
+      {width < 768 && (
+        <div className={styles.selector}>
+          <ColorSelector />
+        </div>
+      )}
       <div className={`${styles.images}`}>
         <div className={`${styles['image-wrapper']}`}>
           <Image

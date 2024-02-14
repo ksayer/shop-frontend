@@ -17,3 +17,38 @@
   font-size: 1.4rem;
   font-weight: 400;
 }
+
+.simple-list {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .accordion {
+    display: none;
+  }
+  .simple-list {
+    display: block;
+  }
+  .link {
+    box-shadow: 0 1px 40px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (min-width: 1440px) {
+  .links {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .link {
+    width: 100%;
+    max-width: 32%;
+  }
+}
+
+@media (min-width: 1920px) {
+  .link {
+    padding: 1.4rem;
+    font-size: 1.8rem;
+  }
+}
