@@ -6,9 +6,7 @@ export function Purchasing() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.price}>12910₽</div>
-      <div className={styles.counter}>
-        <Counter />
-      </div>
+      <Counter />
       <button className={styles.btn}>В корзину</button>
     </div>
   );

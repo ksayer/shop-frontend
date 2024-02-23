@@ -32,6 +32,8 @@ export function Visual({ image, scheme }: IVisual) {
             quality={image.optimized ? 100 : 75}
             className={`${styles.image} ${activeImage === 'image' && styles['image--active']}`}
           />
+        </div>
+        <div className={`${styles['image-wrapper']}`}>
           <Image
             src={scheme?.absolute_url}
             alt={'scheme'}
@@ -41,20 +43,20 @@ export function Visual({ image, scheme }: IVisual) {
             className={`${styles.image} ${activeImage === 'scheme' && styles['image--active']}`}
           />
         </div>
-        <div className={styles.buttons}>
-          <button
-            className={`${styles.button} ${activeImage === 'image' && styles['button--active']}`}
-            onClick={() => setActiveImage('image')}
-          >
-            Изображение
-          </button>
-          <button
-            className={`${styles.button} ${activeImage === 'scheme' && styles['button--active']}`}
-            onClick={() => setActiveImage('scheme')}
-          >
-            Схема
-          </button>
-        </div>
+      </div>
+      <div className={styles.buttons}>
+        <button
+          className={`${styles.button} ${activeImage === 'image' && styles['button--active']}`}
+          onClick={() => setActiveImage('image')}
+        >
+          Изображение
+        </button>
+        <button
+          className={`${styles.button} ${activeImage === 'scheme' && styles['button--active']}`}
+          onClick={() => setActiveImage('scheme')}
+        >
+          Схема
+        </button>
       </div>
     </div>
   );

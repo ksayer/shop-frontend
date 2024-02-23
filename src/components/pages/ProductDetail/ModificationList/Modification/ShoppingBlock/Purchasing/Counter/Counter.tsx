@@ -12,7 +12,9 @@ export function Counter() {
       >
         -
       </button>
-      <span className={styles.number}>{counter}</span>
+      <span className={styles.number}>
+        <span>{counter}</span>
+      </span>
       <button onClick={() => setCount(counter + 1)} className={`${styles.btn} ${styles.plus}`}>
         +
       </button>

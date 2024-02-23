@@ -7,6 +7,7 @@ import {
   IProduct,
   Modification,
 } from '@/components/pages/ProductDetail/ModificationList/Modification';
+import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock';
 
 export interface IModification {
   id?: number;

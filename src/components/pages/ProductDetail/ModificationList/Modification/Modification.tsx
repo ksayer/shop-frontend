@@ -45,16 +45,13 @@ export function Modification({ title, products }: IModification) {
           <Visual image={products[0].image} scheme={products[0].scheme} />
         </div>
         <div className={styles.features}>
-          {width > 768 && (
+          {width >= 768 && (
             <div className={`${styles['color-switcher']}`}>
               <ColorSwitcher />
             </div>
           )}
           <Features />
         </div>
-      </div>
-      <div>
-        <ShoppingBlock />
       </div>
     </div>
   );
