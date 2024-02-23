@@ -18,8 +18,8 @@ const ImageComponent = ({ image }: { image: ImageType }) => {
       <Image
         src={image?.absolute_url}
         alt={'image'}
-        fill={true}
-        sizes="100vw"
+        fill
+        sizes="(max-width: 1024px) 100vw, 100vw"
         quality={image.optimized ? 100 : 75}
         className={`${styles.image}`}
       />

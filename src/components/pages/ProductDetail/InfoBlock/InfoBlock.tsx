@@ -20,6 +20,7 @@ export function InfoBlock({ image, title, text, price, discountedPrice }: IInfoB
           sizes="(max-width: 1024px) 100vw, 50vw"
           quality={image.optimized ? 100 : 75}
           className={`${styles.image}`}
+          priority
         />
       </div>
       <div className={styles.content}>

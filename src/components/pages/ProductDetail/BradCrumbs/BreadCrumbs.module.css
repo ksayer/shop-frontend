@@ -8,6 +8,7 @@
   font-size: 1.2rem;
   border-bottom: 1px solid var(--grey-ee);
   background-color: var(--white);
+  z-index: 100;
 }
 
 .separator {
@@ -18,6 +19,9 @@
   display: none;
 }
 
+.left {
+  display: flex;
+}
 .current,
 .link--selected {
   font-weight: 500;
