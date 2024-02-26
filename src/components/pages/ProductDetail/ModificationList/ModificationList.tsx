@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './ModificationList.module.css';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -24,7 +24,7 @@ interface IModifications {
 export function ModificationList({ modifications }: IModifications) {
   const [activeId, setActiveId] = useState(modifications[0].id);
   return (
-    <section className={`container`}>
+    <section id={'modifications'} className={`container`}>
       <h3 className={styles.title}>Модификации</h3>
       <ul className={styles.list}>
         {modifications.map(modification => (

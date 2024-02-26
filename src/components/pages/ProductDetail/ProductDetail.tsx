@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './ProductDetail.module.css';
 import { FormConsult } from '@/components/CMS/FormConsult';
 import { IReviewBlock, ReviewBlock } from '@/components/CMS/ReviewBlock';

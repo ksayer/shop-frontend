@@ -9,7 +9,7 @@ interface IFeatures {
 
 export function Features({ title, features }: IFeatures) {
   return (
-    <div className={`${styles.wrapper} container`}>
+    <div id={'features'} className={`${styles.wrapper} container`}>
       <h2 className={`section__title ${styles['title']}`}>Особенности модели {title}</h2>
       <div className={styles.features}>
         {features?.map((feature, index) => (

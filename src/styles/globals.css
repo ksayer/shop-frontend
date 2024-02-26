@@ -15,6 +15,7 @@
   margin: auto;
   max-width: 1920px;
   width: 100%;
+  scroll-margin-top: 150px;
 }
 
 .alt-container {
@@ -132,6 +133,7 @@ body {
 
   .link {
     position: relative;
+    cursor: pointer;
   }
 
   .link::after {

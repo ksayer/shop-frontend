@@ -10,7 +10,7 @@ interface IInfoBlock extends IContent {
 
 export function InfoBlock({ image, title, text, price, discountedPrice }: IInfoBlock) {
   return (
-    <div className={`${styles.wrapper} container`}>
+    <div id={'infoblock'} className={`${styles.wrapper} container`}>
       <div className={`${styles['image-wrapper']}`}>
         <Image
           src={image?.absolute_url}

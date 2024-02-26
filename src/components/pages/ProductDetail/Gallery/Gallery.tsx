@@ -29,7 +29,7 @@ const ImageComponent = ({ image }: { image: ImageType }) => {
 
 export function Gallery({ title, images }: IGallery) {
   return (
-    <div className={`container ${styles.wrapper}`}>
+    <div id={'gallery'} className={`container ${styles.wrapper}`}>
       <h3 className={`section__title ${styles.title}`}>{title}</h3>
 
       <div className={styles.buttons}>

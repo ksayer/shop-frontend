@@ -22,9 +22,13 @@
 .left {
   display: flex;
 }
-.current,
-.link--selected {
+.current {
   font-weight: 500;
+}
+.link--selected {
+  display: block;
+  color: black;
+  transform: scale(1.1);
 }
 
 .link--selected::after {
