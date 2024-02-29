@@ -31,6 +31,7 @@ export function Visual({ image, scheme }: IVisual) {
             sizes="(max-width: 768px) 100vw, 50vw"
             quality={image.optimized ? 100 : 75}
             className={`${styles.image} ${activeImage === 'image' && styles['image--active']}`}
+            priority
           />
         </div>
         <div className={`${styles['image-wrapper']}`}>

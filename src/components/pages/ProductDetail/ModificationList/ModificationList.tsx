@@ -12,8 +12,7 @@ import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList
 export interface IModification {
   id?: number;
   title: string;
-  image: ImageType;
-  link: string;
+  slug: string;
   products: IProduct[];
 }
 
@@ -35,11 +34,11 @@ export function ModificationList({ modifications }: IModifications) {
             >
               <div className={`${styles['image-wrapper']}`}>
                 <Image
-                  src={modification.image?.absolute_url}
+                  src={modification.products[0].image?.absolute_url}
                   alt={'image'}
                   fill
                   sizes="50vw"
-                  quality={modification.image.optimized ? 100 : 75}
+                  quality={modification.products[0].image.optimized ? 100 : 75}
                   className={`${styles.image}`}
                 />
               </div>

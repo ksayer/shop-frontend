@@ -3,7 +3,6 @@ import React from 'react';
 import styles from './Modification.module.css';
 import { ImageType } from '@/api/types';
 import { Visual } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual';
-import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock';
 import { Features } from '@/components/pages/ProductDetail/ModificationList/Modification/Features';
 import { ColorSwitcher } from '@/components/pages/ProductDetail/ModificationList/Modification/ColorSwitcher';
 import { useWidth } from '@/features/hooks/useWidth';
@@ -13,21 +12,21 @@ interface IFile {
   link: string;
 }
 
+export interface IProperty {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
 export interface IProduct {
-  color: string;
-  link: string;
+  id: number;
+  slug: string;
   image: ImageType;
   scheme: ImageType;
   files?: IFile[];
-  power?: string;
-  beam?: string;
-  color_index?: string;
-  color_temperature?: string;
-  dimming?: string;
-  beam_angle?: string;
-  protection?: string;
-  frame_color?: string;
   price: string;
+  discounted_price: string | null;
+  property: IProperty;
 }
 
 interface IModification {
@@ -50,7 +49,7 @@ export function Modification({ title, products }: IModification) {
               <ColorSwitcher />
             </div>
           )}
-          <Features />
+          <Features product={products[0]} />
         </div>
       </div>
     </div>

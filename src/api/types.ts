@@ -8,6 +8,11 @@ export interface PaginatedAPIResponse<T> {
   results: Array<T>;
 }
 
+export interface ImageObject {
+  id: string;
+  image: ImageType;
+}
+
 export type ImageType = {
   id: string | number;
   absolute_url: string;

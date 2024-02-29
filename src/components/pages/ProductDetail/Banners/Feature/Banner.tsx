@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './Feature.module.css';
+import styles from './Banner.module.css';
 import { ImageType } from '@/api/types';
 import Image from 'next/image';
-export interface IFeature {
+export interface IBanner {
   id?: number;
   title: string;
   description?: string;
@@ -10,7 +10,7 @@ export interface IFeature {
   imageRight?: boolean;
 }
 
-export function Feature({ title, image, description, imageRight }: IFeature) {
+export function Banner({ title, image, description, imageRight }: IBanner) {
   return (
     <div className={styles.wrapper}>
       <div className={`${styles['image-block']}`}>

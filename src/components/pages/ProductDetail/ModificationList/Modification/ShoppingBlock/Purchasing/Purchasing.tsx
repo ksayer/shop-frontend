@@ -2,10 +2,10 @@ import React from 'react';
 import styles from './Purchasing.module.css';
 import { Counter } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock/Purchasing/Counter';
 
-export function Purchasing() {
+export function Purchasing({ price }: { price: number }) {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.price}>12910₽</div>
+      <div className={styles.price}>{price}₽</div>
       <Counter />
       <button className={styles.btn}>В корзину</button>
     </div>

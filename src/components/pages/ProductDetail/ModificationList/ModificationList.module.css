@@ -40,7 +40,7 @@
 }
 
 .image {
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .subtitle {
@@ -66,6 +66,9 @@
   .list {
     gap: 3rem;
   }
+  .subtitle {
+    font-size: 1.6rem;
+  }
 }
 
 @media (min-width: 1400px) {
@@ -85,5 +88,8 @@
   }
   .image-wrapper {
     max-height: 150px;
+  }
+  .subtitle {
+    font-size: 1.8rem;
   }
 }

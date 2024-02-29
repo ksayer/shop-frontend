@@ -14,15 +14,16 @@ interface IImage {
 export interface ICard {
   id?: string | number;
   title: string;
+  slug: string;
   min_price: number;
   innerRef: RefObject<HTMLDivElement> | null;
   images: IImage[];
 }
 
-export function Card({ innerRef, title, min_price, images }: ICard) {
+export function Card({ innerRef, title, slug, min_price, images }: ICard) {
   const [imageIndex, setImageIndex] = useState(0);
   return (
-    <Link href={'/catalog/models'} className={styles.card}>
+    <Link href={`/catalog/models/${slug}/`} className={styles.card}>
       <div ref={innerRef} className={`${styles['image-wrapper']}`}>
         <Image
           src={images[imageIndex].file}

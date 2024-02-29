@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './BreadCrumbs.module.css';
 import Link from 'next/link';
-import {useActiveBlockId} from "@/components/pages/ProductDetail/BradCrumbs/useActiveBlockId";
+import { useActiveBlockId } from '@/components/pages/ProductDetail/BradCrumbs/useActiveBlockId';
 
 interface ILink {
   title: string;
@@ -18,7 +18,7 @@ const scrollTo = (element: string) => {
 };
 
 export function BreadCrumbs({ title, links }: IBreadCrumbs) {
-  const [activeBlockId] = useActiveBlockId()
+  const [activeBlockId] = useActiveBlockId();
 
   return (
     <div className={`${styles.wrapper} container`}>
@@ -45,8 +45,8 @@ export function BreadCrumbs({ title, links }: IBreadCrumbs) {
           </li>
           <li>
             <a
-              className={`link ${activeBlockId === 'features' && styles['link--selected']}`}
-              onClick={() => scrollTo('features')}
+              className={`link ${activeBlockId === 'banners' && styles['link--selected']}`}
+              onClick={() => scrollTo('banners')}
             >
               Преимущества
             </a>

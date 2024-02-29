@@ -1,14 +1,15 @@
 'use client';
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import styles from './ProductDetail.module.css';
 import { FormConsult } from '@/components/CMS/FormConsult';
 import { IReviewBlock, ReviewBlock } from '@/components/CMS/ReviewBlock';
 import { BreadCrumbs } from '@/components/pages/ProductDetail/BradCrumbs';
 import { InfoBlock } from '@/components/pages/ProductDetail/InfoBlock';
-import { Features } from '@/components/pages/ProductDetail/Features';
 import { Gallery } from '@/components/pages/ProductDetail/Gallery';
 import { ModificationList } from '@/components/pages/ProductDetail/ModificationList';
 import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock';
+import { useModel } from '@/api/hooks/useModel';
+import { Banners } from '@/components/pages/ProductDetail/Banners';
 
 const breadCrumbs = [
   { title: 'Интерьерные', url: '/catalog' },
@@ -445,25 +446,30 @@ const modifications = [
   },
 ];
 
-export function ProductDetail({ reviewBlock }: { reviewBlock: IReviewBlock }) {
-  return (
+export function ProductDetail({ reviewBlock, slug }: { reviewBlock: IReviewBlock; slug: string }) {
+  const { data, isLoading } = useModel({ slug: slug });
+  console.log(data);
+
+  return isLoading ? (
+    <div>Loading</div>
+  ) : data ? (
     <>
       <BreadCrumbs title={card.title} links={breadCrumbs} />
       <InfoBlock
-        image={card.image}
-        title={card.title}
-        price={card.price}
-        discountedPrice={card.discountedPrice}
-        text={card.text}
+        image={data.modifications[0].products[0].image}
+        title={data.title}
+        price={data.min_price}
+        discountedPrice={data.min_discounted_price}
+        text={data.description}
       />
-      <Features title={card.title} features={features} />
-      <Gallery title={'Решения в интерьере'} images={interiors} />
-      <ModificationList modifications={modifications} />
+      {data.banners.length > 0 && <Banners title={data.title} banners={data.banners} />}
+      <Gallery title={'Решения в интерьере'} images={data.gallery} />
+      <ModificationList modifications={data.modifications} />
       <div className={`container ${styles.shopping}`}>
-        <ShoppingBlock />
+        <ShoppingBlock model={data} />
       </div>
       <FormConsult />
       <ReviewBlock key={reviewBlock.id} {...reviewBlock} />
     </>
-  );
+  ) : null;
 }

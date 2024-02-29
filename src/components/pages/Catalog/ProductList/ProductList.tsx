@@ -31,7 +31,6 @@ export function ProductList({ categories }: IProductList) {
       { rootMargin: '200px' },
     );
     if (loadMoreElement.current) {
-      console.log(2);
       observer.observe(loadMoreElement.current);
     }
   }, [loadMoreElement, fetchNextPage, data, hasNextPage, isFetching]);
@@ -48,6 +47,7 @@ export function ProductList({ categories }: IProductList) {
                 key={product.id}
                 min_price={product.min_price}
                 title={product.title}
+                slug={product.slug}
                 images={product.images}
                 id={product.id}
                 innerRef={isLastProduct ? loadMoreElement : null}

@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import { useEffect, useRef, useState } from 'react';
 
 export const useActiveBlockId = () => {
   const [activeBlockId, setActiveBlockId] = useState('infoblock');
@@ -40,5 +40,5 @@ export const useActiveBlockId = () => {
       if (el) observer.observe(el);
     });
   }, [y, direction]);
-  return [activeBlockId]
-}
+  return [activeBlockId];
+};

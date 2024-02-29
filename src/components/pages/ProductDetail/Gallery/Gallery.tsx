@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Gallery.module.css';
-import { ImageType } from '@/api/types';
+import { ImageObject, ImageType } from '@/api/types';
 import Image from 'next/image';
 import { SliderArrow } from '@/components/icons/SliderArrow/SliderArrow';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,7 +9,7 @@ import { Autoplay, Navigation } from 'swiper/modules';
 
 interface IGallery {
   title: string;
-  images: ImageType[];
+  images: ImageObject[];
 }
 
 const ImageComponent = ({ image }: { image: ImageType }) => {
@@ -22,6 +22,7 @@ const ImageComponent = ({ image }: { image: ImageType }) => {
         sizes="(max-width: 1024px) 100vw, 100vw"
         quality={image.optimized ? 100 : 75}
         className={`${styles.image}`}
+        priority
       />
     </div>
   );
@@ -52,12 +53,12 @@ export function Gallery({ title, images }: IGallery) {
       >
         {images?.map(image => (
           <SwiperSlide key={image.id}>
-            <ImageComponent key={image.id} image={image} />
+            <ImageComponent key={image.id} image={image.image} />
           </SwiperSlide>
         ))}
       </Swiper>
       <div className={styles.images}>
-        {images?.map(image => <ImageComponent key={image.id} image={image} />)}
+        {images?.map(image => <ImageComponent key={image.id} image={image.image} />)}
       </div>
     </div>
   );
