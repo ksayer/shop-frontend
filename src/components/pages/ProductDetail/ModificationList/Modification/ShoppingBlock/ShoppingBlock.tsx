@@ -8,7 +8,9 @@ import { IModel } from '@/api/catalog/models';
 export function ShoppingBlock({ model }: { model: IModel }) {
   const price = model.modifications[0].products[0].price;
   const discounted_price = model.modifications[0].products[0].discounted_price;
-  const min_price = Number(discounted_price) ? Math.min(Number(price), Number(discounted_price)) : Number(price);
+  const min_price = Number(discounted_price)
+    ? Math.min(Number(price), Number(discounted_price))
+    : Number(price);
   return (
     <div className={`volume ${styles.wrapper}`}>
       <div className={styles.left}>
@@ -24,10 +26,12 @@ export function ShoppingBlock({ model }: { model: IModel }) {
               <span>{model.modifications[0].products[0].property.power.title}</span>
             </li>
           )}
-          <li className={styles.item}>
-            <span className={`${styles['item__name']}`}>{PROPERTIES.body_color.title}:</span>
-            <span>{model.modifications[0].products[0].property.body_color.title}</span>
-          </li>
+          {model.modifications[0].products[0].property.body_color && (
+            <li className={styles.item}>
+              <span className={`${styles['item__name']}`}>{PROPERTIES.body_color.title}:</span>
+              <span>{model.modifications[0].products[0].property.body_color.title}</span>
+            </li>
+          )}
           {model.modifications[0].products[0].property.color_temperature && (
             <li className={styles.item}>
               <span className={`${styles['item__name']}`}>

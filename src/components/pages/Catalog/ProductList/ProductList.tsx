@@ -34,7 +34,6 @@ export function ProductList({ categories }: IProductList) {
       observer.observe(loadMoreElement.current);
     }
   }, [loadMoreElement, fetchNextPage, data, hasNextPage, isFetching]);
-
   return (
     <div className={styles.catalog}>
       {data?.pages?.map(

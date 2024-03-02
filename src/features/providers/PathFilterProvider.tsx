@@ -10,9 +10,10 @@ export default function PathFilterProvider({ children }: { children: React.React
     createPathFilterStore({
       groupSlug: pathname.split('/')[2] === 'models' ? '' : pathname.split('/')[2],
       categorySlug: pathname.split('/')[2] === 'models' ? '' : pathname.split('/')[3],
+      modelSlug: pathname.split('/')[2] === 'models' ? '' : pathname.split('/')[3],
+      productSlug: pathname.split('/')[2] === 'models' ? pathname.split('/')[4] : '',
     }),
   ).current;
-
   return (
     <PathFiltersContext.Provider value={store}>
       {children}

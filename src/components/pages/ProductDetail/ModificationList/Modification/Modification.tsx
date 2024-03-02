@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Modification.module.css';
 import { ImageType } from '@/api/types';
 import { Visual } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual';
@@ -31,25 +31,28 @@ export interface IProduct {
 
 interface IModification {
   title: string;
+  product: IProduct;
   products: IProduct[];
+  changeSlug: (slug: string) => void;
 }
 
-export function Modification({ title, products }: IModification) {
+export function Modification({ title, product, products, changeSlug }: IModification) {
   const [width] = useWidth(1920);
+
   return (
     <div>
       <h3 className={styles.title}>Опции {title}</h3>
       <div className={styles.top}>
         <div className={styles.images}>
-          <Visual image={products[0].image} scheme={products[0].scheme} />
+          <Visual image={product.image} scheme={product.scheme} />
         </div>
         <div className={styles.features}>
           {width >= 768 && (
             <div className={`${styles['color-switcher']}`}>
-              <ColorSwitcher />
+              <ColorSwitcher changeSlug={changeSlug} products={products} />
             </div>
           )}
-          <Features product={products[0]} />
+          <Features product={product} />
         </div>
       </div>
     </div>
