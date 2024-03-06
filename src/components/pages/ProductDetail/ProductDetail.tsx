@@ -12,11 +12,6 @@ import { useModel } from '@/api/hooks/useModel';
 import { Banners } from '@/components/pages/ProductDetail/Banners';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
 
-const breadCrumbs = [
-  { title: 'Интерьерные', url: '/catalog' },
-  { title: 'Встраиваемые', url: '/contacts' },
-];
-
 export function ProductDetail({
   reviewBlock,
   modelSlug,
@@ -27,7 +22,7 @@ export function ProductDetail({
   productSlug: string;
 }) {
   const { data, isLoading } = useModel({ slug: modelSlug });
-  // console.log(data);
+  console.log(data);
   const updateProductSlug = usePathFiltersContext(state => state?.updateProductSlug);
 
   useEffect(() => {
@@ -42,7 +37,7 @@ export function ProductDetail({
     <div>Loading</div>
   ) : data ? (
     <>
-      <BreadCrumbs title={data.title} links={breadCrumbs} />
+      <BreadCrumbs model={data} />
       <InfoBlock
         image={data.modifications[0].products[0].image}
         title={data.title}
