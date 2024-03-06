@@ -5,9 +5,10 @@ import { IProduct } from '@/components/pages/ProductDetail/ModificationList/Modi
 interface IColorSwitcher {
   products: IProduct[];
   changeSlug: (slug: string) => void;
+  property: string;
 }
 
-export function ColorSwitcher({ products, changeSlug }: IColorSwitcher) {
+export function ColorSwitcher({ products, changeSlug, property }: IColorSwitcher) {
   const productSlug = usePathFiltersContext(state => state?.productSlug);
   if (!products[0].property.body_color) {
     return;
@@ -22,7 +23,7 @@ export function ColorSwitcher({ products, changeSlug }: IColorSwitcher) {
             className={`${styles.btn} ${product.slug == productSlug && styles['border--active']}`}
             onClick={() => changeSlug(product.slug)}
           >
-            {product.property.body_color.title}
+            {product.property[property].title}
           </button>
         ))}
       </div>

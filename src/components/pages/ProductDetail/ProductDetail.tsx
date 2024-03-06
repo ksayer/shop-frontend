@@ -11,7 +11,6 @@ import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList
 import { useModel } from '@/api/hooks/useModel';
 import { Banners } from '@/components/pages/ProductDetail/Banners';
 import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
-import { usePathname } from 'next/navigation';
 
 const breadCrumbs = [
   { title: 'Интерьерные', url: '/catalog' },
@@ -38,6 +37,7 @@ export function ProductDetail({
       updateProductSlug(data.modifications[0].products[0].slug);
     }
   }, [data]);
+
   return isLoading ? (
     <div>Loading</div>
   ) : data ? (
