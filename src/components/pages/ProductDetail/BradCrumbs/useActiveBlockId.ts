@@ -15,7 +15,7 @@ export const useActiveBlockId = () => {
     };
     const sections = [
       document.getElementById('infoblock'),
-      document.getElementById('features'),
+      document.getElementById('banners'),
       document.getElementById('gallery'),
       document.getElementById('modifications'),
     ];

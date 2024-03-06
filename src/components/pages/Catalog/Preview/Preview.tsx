@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Preview.module.css';
-import { Section } from '../Section';
+import { Section } from '@/components/ui/Section';
 
 interface IPreview {
   title: string;

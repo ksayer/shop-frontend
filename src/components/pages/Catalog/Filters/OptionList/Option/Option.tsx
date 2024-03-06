@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Option.module.css';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
-import { FilterType } from '@/features/store/catalog/pathFilters';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
+import { FilterType } from '@/api/catalog/models';
 
 export interface IOptionValue {
   ids: number[];

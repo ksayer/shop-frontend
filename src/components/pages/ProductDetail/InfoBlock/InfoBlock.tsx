@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './InfoBlock.module.css';
-import { ImageType } from '@/api/types';
+import { ImageData } from '@/api/types';
 import Image from 'next/image';
 import { Content, IContent } from '@/components/pages/ProductDetail/InfoBlock/Content';
 
 interface IInfoBlock extends IContent {
-  image: ImageType;
+  image: ImageData;
 }
 
 export function InfoBlock({ image, title, text, price, discountedPrice }: IInfoBlock) {

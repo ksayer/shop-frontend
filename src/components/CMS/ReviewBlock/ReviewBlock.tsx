@@ -1,15 +1,10 @@
 import React from 'react';
 import styles from './ReviewBlock.module.css';
-import { Section } from '../../Section';
+import { Section } from '../../ui/Section';
 import { IReview, Review } from '@/components/CMS/ReviewBlock/Review';
+import { ICard, IContent } from '@/api/cms';
 
-export interface IReviewBlock {
-  id: string | number;
-  title: string;
-  cards: IReview[];
-}
-
-export function ReviewBlock({ title, cards }: IReviewBlock) {
+export function ReviewBlock({ title, cards }: IContent) {
   return (
     <Section>
       <div className={`${styles.wrapper} flex-gap-title`}>

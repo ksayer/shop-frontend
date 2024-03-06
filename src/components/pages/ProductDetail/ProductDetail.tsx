@@ -2,27 +2,27 @@
 import React, { useEffect } from 'react';
 import styles from './ProductDetail.module.css';
 import { FormConsult } from '@/components/CMS/FormConsult';
-import { IReviewBlock, ReviewBlock } from '@/components/CMS/ReviewBlock';
+import { ReviewBlock } from '@/components/CMS/ReviewBlock';
 import { BreadCrumbs } from '@/components/pages/ProductDetail/BradCrumbs';
 import { InfoBlock } from '@/components/pages/ProductDetail/InfoBlock';
 import { Gallery } from '@/components/pages/ProductDetail/Gallery';
 import { ModificationList } from '@/components/pages/ProductDetail/ModificationList';
 import { ShoppingBlock } from '@/components/pages/ProductDetail/ModificationList/Modification/ShoppingBlock';
-import { useModel } from '@/api/hooks/useModel';
+import { useModel } from '@/hooks/useModel';
 import { Banners } from '@/components/pages/ProductDetail/Banners';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
+import { IContent } from '@/api/cms';
 
 export function ProductDetail({
   reviewBlock,
   modelSlug,
   productSlug,
 }: {
-  reviewBlock: IReviewBlock;
+  reviewBlock: IContent;
   modelSlug: string;
   productSlug: string;
 }) {
   const { data, isLoading } = useModel({ slug: modelSlug });
-  console.log(data);
   const updateProductSlug = usePathFiltersContext(state => state?.updateProductSlug);
 
   useEffect(() => {

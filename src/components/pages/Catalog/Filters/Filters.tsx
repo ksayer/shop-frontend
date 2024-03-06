@@ -3,11 +3,11 @@ import React, { useMemo, useRef, useState } from 'react';
 import styles from './Filters.module.css';
 import { Filter } from '@/components/icons/Filter';
 import { OptionList } from '@/components/pages/Catalog/Filters/OptionList';
-import { useClickOutside } from '@/features/hooks/useClickOutside';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { useClickOutside } from '@/hooks/useClickOutside';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 import { IGroup } from '@/api/catalog/catalog';
 import { collapseFilters } from '@/components/pages/Catalog/Filters/collapseFilters';
-import { FilterType } from '@/features/store/catalog/pathFilters';
+import { FilterType } from '@/api/catalog/models';
 
 interface IFilterComponent {
   groups: IGroup[];

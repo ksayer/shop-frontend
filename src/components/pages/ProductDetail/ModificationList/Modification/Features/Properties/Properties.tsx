@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Properties.module.css';
 import featureStyles from '@/components/pages/ProductDetail/ModificationList/Modification/Features/Features.module.css';
-import { Accordion } from '@/components/Accordion';
+import { Accordion } from '../../../../../../ui/Accordion';
 import {
   IProduct,
   IProperty,

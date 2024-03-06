@@ -5,9 +5,9 @@ import { ProductList } from '@/components/pages/Catalog/ProductList';
 import { Filters } from '@/components/pages/Catalog/Filters';
 import { LargeNavigator } from '@/components/pages/Catalog/LargeNavigator';
 import { InputDropdown, ItemType } from '@/components/pages/Catalog/InputDropdown';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 import { ICategory, IGroup } from '@/api/catalog/catalog';
-import { useModels } from '@/api/hooks/useModels';
+import { useModels } from '@/hooks/useModels';
 import { CATALOG, ALL_GROUPS } from '@/features/constants/urls';
 
 interface ICatalog {

@@ -1,19 +1,18 @@
 import React from 'react';
-import { ContentBlock } from '@/api/types';
 import { BannerBlock } from '../../CMS/BannerBlock';
 import { ReviewBlock } from '../../CMS/ReviewBlock';
 import { CardBlock } from '../../CMS/CardBlock';
 import { FormConsult } from '../../CMS/FormConsult';
 import { FormCatalog } from '../../CMS/FormCatalog';
-import { Section } from '../../Section';
-import { getCMSContent } from '@/api/cms';
+import { Section } from '../../ui/Section';
+import { getCMSContent, IContent } from '@/api/cms';
 
 export async function CMS({ path }: { path: string }) {
   const content = await getCMSContent(path);
   const blocks = content.results;
   return (
     <>
-      {blocks.map((block: ContentBlock) => {
+      {blocks.map((block: IContent) => {
         if (block.banners.length > 0) {
           if (block.type === 'WIDE_BANNERS') {
             return (

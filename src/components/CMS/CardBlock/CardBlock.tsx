@@ -1,16 +1,10 @@
 import React from 'react';
-import { Section } from '../../Section';
+import { Section } from '../../ui/Section';
 import styles from './CardBlock.module.css';
-import { Card, ICard } from './Card';
+import { Card } from './Card';
+import { IContent } from '@/api/cms';
 
-export interface ICardBlock {
-  title: string;
-  link_text: string;
-  link: string;
-  cards: ICard[];
-}
-
-export function CardBlock({ title, link_text, link, cards }: ICardBlock) {
+export function CardBlock({ title, link_text, link, cards }: IContent) {
   return (
     <Section>
       <div className={`${styles.wrapper} flex-gap-title`}>

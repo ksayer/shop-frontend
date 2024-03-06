@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FormCatalog.module.css';
-import { Section } from '../../Section';
+import { Section } from '../../ui/Section';
 import { FormHeader } from '../FormHeader';
 import { Profile } from '@/components/icons/Profile';
 import { Mail } from '@/components/icons/Mail';

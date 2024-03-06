@@ -1,14 +1,7 @@
 import React from 'react';
 import styles from './Banner.module.css';
-import { ImageType } from '@/api/types';
 import Image from 'next/image';
-export interface IBanner {
-  id?: number;
-  title: string;
-  description?: string;
-  image: ImageType;
-  imageRight?: boolean;
-}
+import { IBanner } from '@/api/catalog/models';
 
 export function Banner({ title, image, description, imageRight }: IBanner) {
   return (

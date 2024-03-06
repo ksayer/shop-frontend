@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Gallery.module.css';
-import { ImageObject, ImageType } from '@/api/types';
+import { ImageObject, ImageData } from '@/api/types';
 import Image from 'next/image';
 import { SliderArrow } from '@/components/icons/SliderArrow/SliderArrow';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +12,7 @@ interface IGallery {
   images: ImageObject[];
 }
 
-const ImageComponent = ({ image }: { image: ImageType }) => {
+const ImageComponent = ({ image }: { image: ImageData }) => {
   return (
     <div key={image.id} className={`${styles['image-wrapper']}`}>
       <Image

@@ -1,19 +1,7 @@
 import { createStore } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { devtools } from 'zustand/middleware';
-
-export type FilterType =
-  | 'beam'
-  | 'power'
-  | 'beam_angle'
-  | 'color_temperature'
-  | 'protection'
-  | 'dimming';
-
-export interface IFilter {
-  name: string;
-  ids?: number[];
-}
+import { FilterType, IFilter } from '@/api/catalog/models';
 
 interface IPathFilterStore {
   groupSlug: string;

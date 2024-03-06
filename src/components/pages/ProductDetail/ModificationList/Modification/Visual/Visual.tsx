@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 import styles from './Visual.module.css';
 import { ColorSelector } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual/ColorSelector';
 import Image from 'next/image';
-import { ImageType } from '@/api/types';
-import { useWidth } from '@/features/hooks/useWidth';
+import { ImageData } from '@/api/types';
+import { useWidth } from '@/hooks/useWidth';
 
 interface IVisual {
-  image: ImageType;
-  scheme: ImageType;
+  image: ImageData;
+  scheme: ImageData;
 }
 
 export function Visual({ image, scheme }: IVisual) {
@@ -34,16 +34,18 @@ export function Visual({ image, scheme }: IVisual) {
             priority
           />
         </div>
-        <div className={`${styles['image-wrapper']}`}>
-          <Image
-            src={scheme?.absolute_url}
-            alt={'scheme'}
-            fill
-            sizes="(max-width: 768px) 100vw, 50vw"
-            quality={scheme.optimized ? 100 : 75}
-            className={`${styles.image} ${activeImage === 'scheme' && styles['image--active']}`}
-          />
-        </div>
+        {scheme && (
+          <div className={`${styles['image-wrapper']}`}>
+            <Image
+              src={scheme?.absolute_url}
+              alt={'scheme'}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              quality={scheme.optimized ? 100 : 75}
+              className={`${styles.image} ${activeImage === 'scheme' && styles['image--active']}`}
+            />
+          </div>
+        )}
       </div>
       <div className={styles.buttons}>
         <button
@@ -53,8 +55,11 @@ export function Visual({ image, scheme }: IVisual) {
           Изображение
         </button>
         <button
-          className={`${styles.button} ${activeImage === 'scheme' && styles['button--active']}`}
+          className={`${styles.button} ${activeImage === 'scheme' && styles['button--active']} ${
+            !scheme && styles['button--disabled']
+          }`}
           onClick={() => setActiveImage('scheme')}
+          disabled={!scheme}
         >
           Схема
         </button>

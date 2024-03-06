@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import Image from 'next/image';
-import { ImageType } from '@/api/types';
+import { ImageData } from '@/api/types';
 
 interface IHero {
   title?: string;
   description?: string;
-  image: ImageType;
+  image: ImageData;
 }
 
 export function Hero({ image, title, description }: IHero) {

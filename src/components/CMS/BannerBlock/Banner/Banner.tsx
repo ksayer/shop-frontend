@@ -4,36 +4,11 @@ import styles from './Banner.module.css';
 import { MapPoint } from '@/components/icons/MapPoint';
 import { Mail } from '@/components/icons/Mail';
 import { PhoneSmall } from '@/components/icons/PhoneSmall';
-import { ImageType } from '@/api/types';
+import { ImageData } from '@/api/types';
+import { IBanner } from '@/api/cms';
 
-type IButton = {
-  id?: string | number;
-  title: string;
-  link: string;
-};
-
-export type TabType = {
-  id: string | number;
-  title: string;
-  description: string;
-  image: ImageType;
-};
-
-export interface IBanner {
-  id?: string | number;
-  image: ImageType;
-  pre_title?: string;
-  title: string;
-  description?: string;
-  image_position: 'left' | 'right' | 'bottom' | 'top';
-  mobile_image?: boolean;
-  priority?: boolean;
-  phone?: string;
-  address?: string;
-  email?: string;
-  type: 'SIMPLE' | 'HERO' | 'TAB' | 'CONSULTANT';
-  buttons?: IButton[];
-  tabs?: TabType[];
+interface IBannerExtended extends IBanner {
+  priority: boolean;
 }
 
 export function Banner({
@@ -49,7 +24,7 @@ export function Banner({
   email,
   type,
   mobile_image,
-}: IBanner) {
+}: IBannerExtended) {
   return (
     <article
       className={`${styles.article} ${!mobile_image && styles.small} volume ${

@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Review.module.css';
 import Image from 'next/image';
-import { ImageType } from '@/api/types';
+import { ImageData } from '@/api/types';
 
 export interface IReview {
   id?: string | number;
-  image: ImageType;
+  image: ImageData;
   slug?: string;
   title: string;
   subtitle?: string;

@@ -1,5 +1,5 @@
 import styles from './ColorSwitcher.module.css';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 import { IProduct } from '@/components/pages/ProductDetail/ModificationList/Modification';
 
 interface IColorSwitcher {

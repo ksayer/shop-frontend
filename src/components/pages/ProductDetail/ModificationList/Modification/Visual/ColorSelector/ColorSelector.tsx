@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import styles from './ColorSelector.module.css';
-import { useClickOutside } from '@/features/hooks/useClickOutside';
+import { useClickOutside } from '@/hooks/useClickOutside';
 
 export function ColorSelector() {
   const [isOpened, setIsOpened] = useState(false);

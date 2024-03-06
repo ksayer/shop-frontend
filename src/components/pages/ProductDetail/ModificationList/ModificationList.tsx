@@ -5,15 +5,9 @@ import {
   IProduct,
   Modification,
 } from '@/components/pages/ProductDetail/ModificationList/Modification';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 import { usePathname } from 'next/navigation';
-
-export interface IModification {
-  id?: number;
-  title: string;
-  slug: string;
-  products: IProduct[];
-}
+import { IModification } from '@/api/catalog/models';
 
 interface IModifications {
   modifications: IModification[];

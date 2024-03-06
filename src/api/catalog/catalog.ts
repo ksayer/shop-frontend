@@ -53,7 +53,7 @@ export const collapseGroupSlug = (array: ICategory[]) => {
 };
 
 export async function getGroups(): Promise<PaginatedAPIResponse<IGroup>> {
-  const res = await fetch(`${API_URL}/catalog/groups/?active=true`, { next: { revalidate: 0 } });
+  const res = await fetch(`${API_URL}/catalog/groups/?active=true`, { next: { revalidate: 60 } });
   if (!res.ok) {
     throw new Error('Failed to fetch data');
   }

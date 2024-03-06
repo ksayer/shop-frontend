@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './FormConsult.module.css';
-import { Section } from '../../Section';
+import { Section } from '../../ui/Section';
 import Image from 'next/image';
 import { FormHeader } from '../FormHeader';
 

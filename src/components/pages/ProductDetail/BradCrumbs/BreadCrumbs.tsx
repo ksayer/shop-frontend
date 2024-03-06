@@ -3,7 +3,7 @@ import styles from './BreadCrumbs.module.css';
 import Link from 'next/link';
 import { useActiveBlockId } from '@/components/pages/ProductDetail/BradCrumbs/useActiveBlockId';
 import { IModel } from '@/api/catalog/models';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 
 interface ILink {
   title: string;
@@ -22,7 +22,6 @@ export function BreadCrumbs({ model }: IBreadCrumbs) {
   const [activeBlockId] = useActiveBlockId();
   const updateGroupSlug = usePathFiltersContext(state => state?.updateGroupSlug);
   const updateCategorySlug = usePathFiltersContext(state => state?.updateCategorySlug);
-
   return (
     <div className={`${styles.wrapper} container`}>
       <div className={styles.left}>
@@ -64,14 +63,16 @@ export function BreadCrumbs({ model }: IBreadCrumbs) {
               Описание
             </a>
           </li>
-          <li>
-            <a
-              className={`link ${activeBlockId === 'banners' && styles['link--selected']}`}
-              onClick={() => scrollTo('banners')}
-            >
-              Преимущества
-            </a>
-          </li>
+          {model.banners.length > 0 &&
+            <li>
+              <a
+                className={`link ${activeBlockId === 'banners' && styles['link--selected']}`}
+                onClick={() => scrollTo('banners')}
+              >
+                Преимущества
+              </a>
+            </li>
+          }
           <li>
             <a
               className={`link ${activeBlockId === 'gallery' && styles['link--selected']}`}

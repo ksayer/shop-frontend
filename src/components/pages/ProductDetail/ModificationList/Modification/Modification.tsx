@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import styles from './Modification.module.css';
-import { ImageType } from '@/api/types';
+import { ImageData } from '@/api/types';
 import { Visual } from '@/components/pages/ProductDetail/ModificationList/Modification/Visual';
 import { Features } from '@/components/pages/ProductDetail/ModificationList/Modification/Features';
 import { ColorSwitcher } from '@/components/pages/ProductDetail/ModificationList/Modification/ColorSwitcher';
-import { useWidth } from '@/features/hooks/useWidth';
+import { useWidth } from '@/hooks/useWidth';
 
 interface IFile {
   title: string;
@@ -20,8 +20,8 @@ export interface IProperty {
 export interface IProduct {
   id: number;
   slug: string;
-  image: ImageType;
-  scheme: ImageType;
+  image: ImageData;
+  scheme: ImageData;
   files?: IFile[];
   price: string;
   discounted_price: string | null;

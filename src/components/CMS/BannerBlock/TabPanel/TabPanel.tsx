@@ -5,9 +5,9 @@ import styles from './TabPanel.module.css';
 import Image from 'next/image';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import './transition.css';
-import { IBanner, TabType } from '@/components/CMS/BannerBlock/Banner';
+import { IBanner, ITab } from '@/api/cms';
 
-type ExtendedTabType = TabType & {
+type ExtendedTabType = ITab & {
   ref?: React.RefObject<HTMLImageElement>;
 };
 

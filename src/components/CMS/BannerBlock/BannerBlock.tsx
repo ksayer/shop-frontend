@@ -1,17 +1,11 @@
 import React from 'react';
-import { Banner, IBanner } from '@/components/CMS/BannerBlock/Banner';
+import { Banner } from '@/components/CMS/BannerBlock/Banner';
 import styles from './BannerBlock.module.css';
 import { Hero } from '@/components/CMS/Hero';
 import { TabPanel } from '@/components/CMS/BannerBlock/TabPanel';
+import { IContent } from '@/api/cms';
 
-export interface IBannerBlock {
-  id?: number | string;
-  ordering?: number;
-  title?: string;
-  banners?: IBanner[];
-}
-
-export function BannerBlock({ ordering, title, banners }: IBannerBlock) {
+export function BannerBlock({ ordering, title, banners }: IContent) {
   return (
     <div className={`${styles.wrapper} flex-gap-title`}>
       {title && (

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Docs.module.css';
 import featureStyles from '@/components/pages/ProductDetail/ModificationList/Modification/Features/Features.module.css';
-import { Accordion } from '@/components/Accordion';
+import { Accordion } from '../../../../../../ui/Accordion';
 import { File } from '@/components/icons/File';
 
 function List() {

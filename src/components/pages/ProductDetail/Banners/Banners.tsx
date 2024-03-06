@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Banners.module.css';
-import { Banner, IBanner } from '@/components/pages/ProductDetail/Banners/Feature';
+import { Banner } from '@/components/pages/ProductDetail/Banners/Feature';
+import { IBanner } from '@/api/catalog/models';
 
 interface IBanners {
   title: string;

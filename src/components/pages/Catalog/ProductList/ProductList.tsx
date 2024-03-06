@@ -1,11 +1,12 @@
 'use client';
 import React, { useEffect, useRef } from 'react';
 import styles from './ProducLlist.module.css';
-import { Card, ICard } from '@/components/pages/Catalog/ProductList/Card';
-import { usePathFiltersContext } from '@/features/hooks/usePathFiltersContext';
-import { useModels } from '@/api/hooks/useModels';
+import { Card } from '@/components/pages/Catalog/ProductList/Card';
+import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
+import { useModels } from '@/hooks/useModels';
 import { ICategory } from '@/api/catalog/catalog';
 import { PaginatedAPIResponse } from '@/api/types';
+import { IModelFromList } from '@/api/catalog/models';
 
 interface IProductList {
   categories: ICategory[];
@@ -37,20 +38,12 @@ export function ProductList({ categories }: IProductList) {
   return (
     <div className={styles.catalog}>
       {data?.pages?.map(
-        (page: PaginatedAPIResponse<ICard>, pageIndex) =>
-          page?.results?.map((product, productIndex) => {
+        (page: PaginatedAPIResponse<IModelFromList>, pageIndex) =>
+          page?.results?.map((model, productIndex) => {
             const isLastProduct =
               pageIndex === data.pages.length - 1 && productIndex === page.results.length - 1;
             return (
-              <Card
-                key={product.id}
-                min_price={product.min_price}
-                title={product.title}
-                slug={product.slug}
-                images={product.images}
-                id={product.id}
-                innerRef={isLastProduct ? loadMoreElement : null}
-              />
+              <Card key={model.id} {...model} innerRef={isLastProduct ? loadMoreElement : null} />
             );
           }),
       )}

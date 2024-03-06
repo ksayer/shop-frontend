@@ -2,19 +2,7 @@ import React from 'react';
 import styles from './Card.module.css';
 import Image from 'next/image';
 import { RightSimpleArrow } from '@/components/icons/RightSimpleArrow';
-import { ImageType } from '@/api/types';
-
-type CardType = 'publication' | 'model' | 'feedback' | null;
-
-export interface ICard {
-  id?: string | number;
-  image: ImageType;
-  slug?: string;
-  title: string;
-  description?: string;
-  arrow?: boolean;
-  type?: CardType;
-}
+import { CardType, ICard } from '@/api/cms';
 
 function getUrl(type: CardType): string {
   if (type === 'model') return '/catalog/models/';
@@ -22,7 +10,7 @@ function getUrl(type: CardType): string {
   return '/';
 }
 
-export function Card({ image, title, description, arrow, slug, type = null }: ICard) {
+export function Card({ image, title, description, arrow, slug, type }: ICard) {
   return (
     <article className={`${styles.article} volume`}>
       <a href={`${getUrl(type)}${slug}`} className={styles.button}>
