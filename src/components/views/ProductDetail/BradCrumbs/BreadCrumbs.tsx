@@ -63,7 +63,7 @@ export function BreadCrumbs({ model }: IBreadCrumbs) {
               Описание
             </a>
           </li>
-          {model.banners.length > 0 &&
+          {model.banners.length > 0 && (
             <li>
               <a
                 className={`link ${activeBlockId === 'banners' && styles['link--selected']}`}
@@ -72,7 +72,7 @@ export function BreadCrumbs({ model }: IBreadCrumbs) {
                 Преимущества
               </a>
             </li>
-          }
+          )}
           <li>
             <a
               className={`link ${activeBlockId === 'gallery' && styles['link--selected']}`}

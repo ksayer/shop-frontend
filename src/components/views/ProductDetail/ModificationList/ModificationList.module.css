@@ -21,6 +21,7 @@
   padding: 1rem;
   border: 1px solid var(--grey-db);
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .btn--active {

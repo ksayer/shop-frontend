@@ -22,7 +22,6 @@ const ImageComponent = ({ image }: { image: ImageData }) => {
         sizes="(max-width: 1024px) 100vw, 100vw"
         quality={image.optimized ? 100 : 75}
         className={`${styles.image}`}
-        priority
       />
     </div>
   );

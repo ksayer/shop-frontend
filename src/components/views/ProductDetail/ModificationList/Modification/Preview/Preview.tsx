@@ -1,27 +1,18 @@
-'use client';
 import React, { useState } from 'react';
-import styles from './Visual.module.css';
-import { ColorSelector } from '@/components/views/ProductDetail/ModificationList/Modification/Visual/ColorSelector';
+import styles from './Preview.module.css';
 import Image from 'next/image';
 import { ImageData } from '@/api/types';
-import { useWidth } from '@/hooks/useWidth';
 
-interface IVisual {
+interface IPreview {
   image: ImageData;
   scheme: ImageData;
 }
 
-export function Visual({ image, scheme }: IVisual) {
+export function Preview({ image, scheme }: IPreview) {
   const [activeImage, setActiveImage] = useState('image');
-  const [width] = useWidth();
 
   return (
-    <div className={`volume ${styles.wrapper}`}>
-      {width < 768 && (
-        <div className={styles.selector}>
-          <ColorSelector />
-        </div>
-      )}
+    <>
       <div className={`${styles.images}`}>
         <div className={`${styles['image-wrapper']}`}>
           <Image
@@ -64,6 +55,6 @@ export function Visual({ image, scheme }: IVisual) {
           Схема
         </button>
       </div>
-    </div>
+    </>
   );
 }

@@ -32,6 +32,9 @@ export const PROPERTIES: { [key: string]: { title: string } } = {
   body_color: {
     title: 'Цвет корпуса',
   },
+  frame_color: {
+    title: 'Цвет рамки',
+  },
 };
 
 function List({ property }: { property: IProperty }) {

@@ -1,6 +1,7 @@
 import styles from './ColorSwitcher.module.css';
 import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
 import { IProduct } from '@/components/views/ProductDetail/ModificationList/Modification';
+import { PROPERTIES } from '@/components/views/ProductDetail/ModificationList/Modification/Features/Properties';
 
 interface IColorSwitcher {
   products: IProduct[];
@@ -10,12 +11,12 @@ interface IColorSwitcher {
 
 export function ColorSwitcher({ products, changeSlug, property }: IColorSwitcher) {
   const productSlug = usePathFiltersContext(state => state?.productSlug);
-  if (!products[0].property.body_color) {
+  if (!products[0].property[property]) {
     return;
   }
   return (
     <>
-      <h4 className={styles.title}>Цвет корпуса</h4>
+      <h4 className={styles.title}>{PROPERTIES[property].title}</h4>
       <div className={styles.buttons}>
         {products.map(product => (
           <button
