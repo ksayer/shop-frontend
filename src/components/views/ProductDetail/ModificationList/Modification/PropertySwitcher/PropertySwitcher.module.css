@@ -1,0 +1,29 @@
+.switchers {
+  display: none;
+}
+
+.dropdowns {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.switchers,
+.dropdowns {
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  .dropdowns {
+    display: none;
+  }
+  .switchers {
+    display: flex;
+  }
+}
+
+@media (min-width: 1024px) {
+  .switchers,
+  .dropdowns {
+    gap: 2rem;
+  }
+}

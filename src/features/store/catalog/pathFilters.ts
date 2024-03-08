@@ -1,23 +1,13 @@
 import { createStore } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 import { devtools } from 'zustand/middleware';
-
-export type FilterType =
-  | 'beam'
-  | 'power'
-  | 'beam_angle'
-  | 'color_temperature'
-  | 'protection'
-  | 'dimming';
-
-export interface IFilter {
-  name: string;
-  ids?: number[];
-}
+import { FilterType, IFilter } from '@/api/catalog/models';
 
 interface IPathFilterStore {
   groupSlug: string;
   categorySlug: string;
+  modelSlug: string;
+  productSlug: string;
   filters: {
     [key in FilterType as string]: IFilter;
   };
@@ -26,6 +16,7 @@ interface IPathFilterStore {
 export interface PathFilterState extends IPathFilterStore {
   updateGroupSlug: (groupSlug: string) => void;
   updateCategorySlug: (categorySlug: string) => void;
+  updateProductSlug: (productSlug: string) => void;
   updateFilter: ({
     filter,
     name,
@@ -44,6 +35,8 @@ export const createPathFilterStore = (initProps?: Partial<IPathFilterStore>) => 
   const DEFAULT_PROPS: IPathFilterStore = {
     groupSlug: '',
     categorySlug: '',
+    modelSlug: '',
+    productSlug: '',
     filters: {},
   };
   return createStore<PathFilterState>()(
@@ -59,6 +52,11 @@ export const createPathFilterStore = (initProps?: Partial<IPathFilterStore>) => 
         updateCategorySlug: (categorySlug: string) => {
           set(state => {
             state.categorySlug = categorySlug;
+          });
+        },
+        updateProductSlug: (productSlug: string) => {
+          set(state => {
+            state.productSlug = productSlug;
           });
         },
         updateFilter: ({ filter, name, ids = [] }) =>

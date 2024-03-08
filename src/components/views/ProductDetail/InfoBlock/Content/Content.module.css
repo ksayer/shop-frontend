@@ -1,0 +1,67 @@
+.title {
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.text {
+  margin-bottom: 3rem;
+}
+
+.sell-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.prices-wrapper {
+  display: flex;
+  gap: 2rem;
+  font-size: 2.4rem;
+}
+
+.discount {
+  color: var(--dark-orange);
+  font-weight: 600;
+}
+
+.price--old {
+  text-decoration: line-through;
+}
+
+.btn-buy {
+  padding: 10px 50px;
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+@media (hover: hover) {
+  .btn-buy:hover {
+    border-color: var(--hover);
+  }
+}
+
+@media (min-width: 768px) {
+  .sell-info {
+    flex-direction: row;
+    align-items: center;
+  }
+  .btn-buy {
+    order: -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title {
+    font-size: 3.2rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: 4rem;
+  }
+  .btn-buy {
+    font-size: 1.8rem;
+  }
+}

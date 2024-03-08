@@ -1,4 +1,4 @@
-import { CMS } from '@/components/pages/CMS';
+import { CMS } from '@/components/views/CMS';
 import React from 'react';
 import { API_URL } from '@/features/constants';
 

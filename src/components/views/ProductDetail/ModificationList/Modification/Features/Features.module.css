@@ -1,0 +1,31 @@
+.title {
+  position: relative;
+  padding: 2rem 1rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.wrapper {
+  border: 1px solid var(--grey-db);
+  border-radius: 8px;
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    border: none;
+    box-shadow: none;
+  }
+  .title {
+    padding: 0;
+    margin-bottom: 2rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}

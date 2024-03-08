@@ -1,0 +1,15 @@
+.title {
+  margin-bottom: 2rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1920px) {
+  .title {
+    margin-bottom: 4rem;
+  }
+}

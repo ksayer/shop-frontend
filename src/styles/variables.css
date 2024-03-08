@@ -4,12 +4,14 @@
   --white: #fff;
   --white-dark: #f9f8f9;
   --black: #333;
+  --light-black: #666;
   --text: rgb(102, 102, 102);
   --grey-ultra-light: rgb(249, 248, 249);
   --grey-c6: #c6c6c6;
   --grey-db: #dbdbdb;
   --grey-ed: #ededed;
   --grey-ee: #eee;
+  --grey-99: #999;
   --hover-light: #a3f6f6;
   --hover-semi-light: #b5e1e1;
   --hover-ultra-light: #d9f5f5;

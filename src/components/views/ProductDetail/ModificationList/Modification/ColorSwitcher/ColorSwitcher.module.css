@@ -1,0 +1,56 @@
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.4rem;
+  color: var(--grey-c6);
+  transition: var(--transition);
+}
+
+.btn:first-child {
+  border-left: 1px solid var(--grey-db);
+  border-bottom: 1px solid var(--grey-db);
+  border-top: 1px solid var(--grey-db);
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.btn:last-child {
+  border-right: 1px solid var(--grey-db);
+  border-bottom: 1px solid var(--grey-db);
+  border-top: 1px solid var(--grey-db);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.border--active:last-child {
+  border-left: 1px solid var(--black);
+  border-color: var(--black);
+  color: var(--black);
+}
+
+.border--active:first-child {
+  border-right: 1px solid var(--black);
+  border-color: var(--black);
+  color: var(--black);
+}
+
+@media (min-width: 1920px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .btn {
+    font-size: 1.8rem;
+    padding: 1.4rem;
+  }
+}

@@ -1,4 +1,4 @@
-import { CMS } from '@/components/pages/CMS';
+import { CMS } from '@/components/views/CMS';
 import { API_URL } from '@/features/constants';
 
 export default async function Solutions() {

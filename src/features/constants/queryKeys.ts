@@ -1,1 +1,2 @@
 export const QUERY_KEY_MODELS = 'QUERY_KEY_MODELS';
+export const QUERY_KEY_MODEL = 'QUERY_KEY_MODEL';
