@@ -1,0 +1,51 @@
+.skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 1000;
+}
+
+.breadcrumbs {
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.breadcrumbs span {
+  display: block;
+  width: 8rem;
+  height: 1.5rem;
+  border-radius: 10px;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+.image span {
+  display: flex;
+  height: 50vw;
+  border-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+}
+.title {
+  display: inline-block;
+  height: 3rem;
+  width: 20rem;
+  border-radius: 10px;
+}
+
+.text {
+  display: inline-block;
+  height: 50vh;
+  width: 100%;
+  border-radius: 10px;
+}

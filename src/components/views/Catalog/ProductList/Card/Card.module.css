@@ -1,10 +1,11 @@
 .card {
-  height: fit-content;
+  height: 100%;
 
   border-radius: 5px;
   border: 1px solid var(--grey-ed);
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
   background-color: rgb(245, 245, 245);
+  overflow: hidden;
 }
 .image-wrapper {
   position: relative;
@@ -31,7 +32,8 @@
 .info {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  align-items: flex-start;
   gap: 0.5rem;
 }
 
@@ -67,9 +69,38 @@
   z-index: 100;
 }
 
+.image__skeleton {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.skeleton__info {
+  display: flex;
+  flex-direction: column;
+}
+
+.skeleton__title {
+  height: 1.2rem;
+  width: 6rem;
+  border-radius: 10px;
+}
+
+.skeleton__price {
+  display: inline-block;
+  height: 1rem;
+  width: 4rem;
+  border-radius: 10px;
+}
+
+.skeleton__option {
+  width: 6rem;
+  border-radius: 10px;
+}
+
 @media (min-width: 380px) {
   .info {
     flex-direction: row;
+    align-items: center;
     gap: 0.5rem;
   }
 }
@@ -83,6 +114,13 @@
   }
   .options {
     font-size: 1.2rem;
+  }
+  .skeleton__title {
+    height: 1.4rem;
+  }
+  .skeleton__price,
+  .skeleton__option {
+    height: 1.2rem;
   }
 }
 
@@ -108,5 +146,13 @@
   .color {
     width: 18px;
     height: 18px;
+  }
+
+  .skeleton__title {
+    height: 1.8rem;
+  }
+  .skeleton__price,
+  .skeleton__option {
+    height: 1.4rem;
   }
 }

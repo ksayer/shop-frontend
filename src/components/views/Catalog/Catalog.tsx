@@ -1,14 +1,14 @@
 'use client';
-import React, { useMemo } from 'react';
+import React, {useMemo} from 'react';
 import styles from './Catalog.module.css';
-import { ProductList } from '@/components/views/Catalog/ProductList';
-import { Filters } from '@/components/views/Catalog/Filters';
-import { LargeNavigator } from '@/components/views/Catalog/LargeNavigator';
-import { InputDropdown, ItemType } from '@/components/views/Catalog/InputDropdown';
-import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
-import { ICategory, IGroup } from '@/api/catalog/catalog';
-import { useModels } from '@/hooks/useModels';
-import { CATALOG, ALL_GROUPS } from '@/features/constants/urls';
+import {ProductList} from '@/components/views/Catalog/ProductList';
+import {Filters} from '@/components/views/Catalog/Filters';
+import {LargeNavigator} from '@/components/views/Catalog/LargeNavigator';
+import {InputDropdown, ItemType} from '@/components/views/Catalog/InputDropdown';
+import {usePathFiltersContext} from '@/hooks/usePathFiltersContext';
+import {ICategory, IGroup} from '@/api/catalog/catalog';
+import {useModels} from '@/hooks/useModels';
+import {CATALOG, ALL_GROUPS} from '@/features/constants/urls';
 
 interface ICatalog {
   groups: IGroup[];
@@ -21,7 +21,7 @@ function sortByGroupSlug(groupSlug: string, data: ICategory[]) {
   return filteredArray.concat(remainingArray);
 }
 
-export function Catalog({ groups, categories }: ICatalog) {
+export function Catalog({groups, categories}: ICatalog) {
   const groupSlug = usePathFiltersContext(state => state?.groupSlug);
   const categorySlug = usePathFiltersContext(state => state?.categorySlug);
   const resetFilter = usePathFiltersContext(state => state.resetFilter);
@@ -85,33 +85,25 @@ export function Catalog({ groups, categories }: ICatalog) {
           <button onClick={resetAllFilters} className={styles.btn}>
             Убрать все фильтры
           </button>
-          {groups ? (
-            <LargeNavigator
-              setSlug={setGroupSlug}
-              groupSlug={groupSlug}
-              items={groups}
-              categorySlug={categorySlug}
-              setCategorySlug={setCategorySlug}
-              clearCategorySlug={clearCategorySlug}
-            />
-          ) : (
-            'Loading...'
-          )}
+          <LargeNavigator
+            setSlug={setGroupSlug}
+            groupSlug={groupSlug}
+            items={groups}
+            categorySlug={categorySlug}
+            setCategorySlug={setCategorySlug}
+            clearCategorySlug={clearCategorySlug}
+          />
         </div>
         <div className={`${styles['left-side']}`}>
-          {groups ? (
-            <InputDropdown
-              slug={groupSlug !== ALL_GROUPS ? groupSlug : ''}
-              clearSlug={setGroupSlug}
-              setSlug={setGroupSlug}
-              zIndex={4}
-              items={groups}
-              title={'Группы'}
-              selectedItem={selectedGroup}
-            />
-          ) : (
-            'Loading...'
-          )}
+          <InputDropdown
+            slug={groupSlug !== ALL_GROUPS ? groupSlug : ''}
+            clearSlug={setGroupSlug}
+            setSlug={setGroupSlug}
+            zIndex={4}
+            items={groups}
+            title={'Группы'}
+            selectedItem={selectedGroup}
+          />
         </div>
         <InputDropdown
           slug={categorySlug}
@@ -123,8 +115,8 @@ export function Catalog({ groups, categories }: ICatalog) {
           selectedItem={selectedCategory}
           disableItem={categoryDisabled}
         />
-        <Filters groups={groups} />
-        <ProductList categories={categories} />
+        <Filters groups={groups}/>
+        <ProductList categories={categories}/>
       </div>
     </div>
   );
