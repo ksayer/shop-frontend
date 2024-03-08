@@ -34,7 +34,9 @@ export function ProductDetail({
   }, [data]);
 
   return isLoading ? (
-    <div>Loading</div>
+    <div className={`${styles.loader}`}>
+      <div className={`${styles['loader__spinner']} loader-spinner`}></div>
+    </div>
   ) : data ? (
     <>
       <BreadCrumbs model={data} />
