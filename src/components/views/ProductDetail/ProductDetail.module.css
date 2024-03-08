@@ -2,6 +2,18 @@
   margin-top: -2rem;
 }
 
+.loader {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader__spinner {
+  border-width: 9px;
+  width: 10rem;
+}
+
 @media (min-width: 768px) {
   .shopping {
     padding: 0;
