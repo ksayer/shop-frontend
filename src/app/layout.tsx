@@ -1,8 +1,8 @@
 import React from 'react';
 import '@/styles/main.css';
-import { Header } from '@/components/pages/Header';
+import { Header } from '../components/Header';
 import { raleway, montserrat } from '@/app/fonts';
-import { Footer } from '@/components/pages/Footer';
+import { Footer } from '../components/Footer';
 import Providers from '@/features/providers/providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,7 +1,7 @@
 import { API_URL } from '@/features/constants';
 import { ALL_GROUPS } from '@/features/constants/urls';
 import { ImageObject, ImageData, PaginatedAPIResponse } from '@/api/types';
-import { IProduct } from '@/components/pages/ProductDetail/ModificationList/Modification';
+import { IProduct } from '@/components/views/ProductDetail/ModificationList/Modification';
 
 const PATH = '/catalog/models';
 

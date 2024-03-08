@@ -1,7 +1,7 @@
 import { getCMSContent } from '@/api/cms';
 import { API_URL } from '@/features/constants';
 import React from 'react';
-import { ProductDetail } from '@/components/pages/ProductDetail';
+import { ProductDetail } from '@/components/views/ProductDetail';
 
 export default async function ModelDetailPage({
   params,
