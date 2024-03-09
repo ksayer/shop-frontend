@@ -12,9 +12,9 @@ export function Menu() {
           </Link>
         </li>
         <li className={'link'}>
-          <a href="#" className={styles.link}>
+          <Link href={'/compilations'} className={styles.link}>
             Подборки
-          </a>
+          </Link>
         </li>
         <li className={'link'}>
           <Link href={'/solutions'} className={styles.link}>

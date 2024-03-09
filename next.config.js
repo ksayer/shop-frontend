@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {hostname: 'ledmonster.ru'}, {hostname: 'localhost'}
+      {hostname: 'led.apptrix.ru'}, {hostname: 'localhost'}, {hostname: 'ledmonster.ru'}
     ],
     deviceSizes: [480, 768, 1024, 1920],
   },
