@@ -1,12 +1,3 @@
-.title {
-  margin-bottom: 2rem;
-  font-weight: 600;
-}
-
-.text {
-  margin-bottom: 3rem;
-}
-
 .sell-info {
   display: flex;
   flex-direction: column;
@@ -19,13 +10,13 @@
   font-size: 2.4rem;
 }
 
+.price--old {
+  text-decoration: line-through;
+}
+
 .discount {
   color: var(--dark-orange);
   font-weight: 600;
-}
-
-.price--old {
-  text-decoration: line-through;
 }
 
 .btn-buy {
@@ -46,21 +37,13 @@
     flex-direction: row;
     align-items: center;
   }
+
   .btn-buy {
     order: -1;
   }
 }
 
-@media (min-width: 1024px) {
-  .title {
-    font-size: 3.2rem;
-  }
-}
-
 @media (min-width: 1920px) {
-  .title {
-    font-size: 4rem;
-  }
   .btn-buy {
     font-size: 1.8rem;
   }

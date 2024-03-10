@@ -1,0 +1,3 @@
+.swiper .swiper-wrapper .swiper-slide-thumb-active {
+  border-color: var(--hover);
+}

@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import styles from './ProductDetail.module.css';
 import { FormConsult } from '../CMS/FormConsult';
 import { ReviewBlock } from '../CMS/ReviewBlock';
-import {ModelBreadCrumbs} from '@/components/views/ProductDetail/ModelBreadCrumbs';
+import { ModelBreadCrumbs } from '@/components/views/ProductDetail/ModelBreadCrumbs';
 import { InfoBlock } from '@/components/views/ProductDetail/InfoBlock';
 import { Gallery } from '@/components/views/ProductDetail/Gallery';
 import { ModificationList } from '@/components/views/ProductDetail/ModificationList';

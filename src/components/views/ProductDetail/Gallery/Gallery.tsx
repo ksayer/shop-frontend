@@ -41,6 +41,7 @@ export function Gallery({ title, images }: IGallery) {
         </button>
       </div>
       <Swiper
+        grabCursor={true}
         modules={[Autoplay, Navigation]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         navigation={{

@@ -1,9 +1,12 @@
 .wrapper {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  gap: 2rem;
   padding-top: 50px;
+  align-items: center;
+}
+.view {
+  position: relative;
+  order: -1;
 }
 
 .image {
@@ -12,18 +15,22 @@
   height: auto;
 }
 
-@media (min-width: 1024px) {
+.view {
+  min-height: 0;
+  min-width: 0;
+}
+@media (min-width: 768px) {
   .wrapper {
     flex-direction: row;
+    gap: 8rem;
     padding-top: 75px;
   }
-  .image-wrapper {
+  .view {
+    order: 1;
     width: 50%;
   }
   .content {
-    order: -1;
     width: 50%;
-    padding-right: 50px;
   }
 }
 
@@ -31,5 +38,6 @@
   .wrapper {
     min-height: 87vh;
     max-height: 100vh;
+    padding-top: 0;
   }
 }

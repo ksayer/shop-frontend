@@ -2,10 +2,15 @@ import React from 'react';
 import styles from './InfoBlock.module.css';
 import { ImageData } from '@/api/types';
 import Image from 'next/image';
-import { Content, IContent } from '@/components/views/ProductDetail/InfoBlock/Content';
+import { Content, IContent } from '../../../ui/Content';
+import { Pricing } from '@/components/views/ProductDetail/InfoBlock/Pricing';
 
 interface IInfoBlock extends IContent {
+  title: string;
+  text: string;
   image: ImageData;
+  price: number;
+  discountedPrice?: number;
 }
 
 export function InfoBlock({ image, title, text, price, discountedPrice }: IInfoBlock) {
@@ -24,7 +29,9 @@ export function InfoBlock({ image, title, text, price, discountedPrice }: IInfoB
         />
       </div>
       <div className={styles.content}>
-        <Content title={title} text={text} price={price} discountedPrice={discountedPrice} />
+        <Content title={title} text={text}>
+          <Pricing price={price} discountedPrice={discountedPrice} />
+        </Content>
       </div>
     </div>
   );

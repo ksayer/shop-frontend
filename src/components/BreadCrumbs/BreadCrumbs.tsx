@@ -1,41 +1,37 @@
 import React from 'react';
 import styles from './BreadCrumbs.module.css';
-import {useActiveBlockId} from "@/components/BreadCrumbs/useActiveBlockId";
-import Link from "next/link";
+import { useActiveBlockId } from '@/components/BreadCrumbs/useActiveBlockId';
+import Link from 'next/link';
 
 export interface IAnchor {
-  title: string,
-  id: string,
+  title: string;
+  id: string;
 }
 
 export interface ILink {
-  title: string,
-  href: string,
-  onClick: () => void,
+  title: string;
+  href: string;
+  onClick?: () => void;
 }
 
 interface IBreadCrumbs {
-  activeLink: string,
-  links: ILink[],
-  anchors: IAnchor[],
+  activeLink: string;
+  links: ILink[];
+  anchors: IAnchor[];
 }
 
 const scrollTo = (element: string) => {
   document.getElementById(element)?.scrollIntoView({ behavior: 'smooth' });
 };
 
-export function BreadCrumbs({activeLink, links, anchors}: IBreadCrumbs) {
+export function BreadCrumbs({ activeLink, links, anchors }: IBreadCrumbs) {
   const [activeBlockId] = useActiveBlockId();
   return (
     <div className={`${styles.wrapper} container`}>
       <div className={styles.left}>
         {links.map(l => (
           <div key={l.href} className={`${styles['link-wrapper']}`}>
-            <Link
-              href={l.href}
-              className={`link ${styles.link}`}
-              onClick={l.onClick}
-            >
+            <Link href={l.href} className={`link ${styles.link}`} onClick={l.onClick}>
               {l.title}
             </Link>
             <span className={styles.separator}>/</span>

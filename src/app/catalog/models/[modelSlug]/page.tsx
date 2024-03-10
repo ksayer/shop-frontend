@@ -7,7 +7,7 @@ export interface IModelDetailPage {
   params: { modelSlug: string; productSlug: string };
 }
 
-export default async function ModelDetailPage({params}: IModelDetailPage) {
+export default async function ModelDetailPage({ params }: IModelDetailPage) {
   const content = await getCMSContent(`${API_URL}/content/content_blocks/?inner_title=Отзывы`);
   const reviewBlock = content.results[0];
   return (
