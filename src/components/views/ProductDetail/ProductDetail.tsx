@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import styles from './ProductDetail.module.css';
 import { FormConsult } from '../CMS/FormConsult';
 import { ReviewBlock } from '../CMS/ReviewBlock';
-import { BreadCrumbs } from '@/components/views/ProductDetail/BradCrumbs';
+import {ModelBreadCrumbs} from '@/components/views/ProductDetail/ModelBreadCrumbs';
 import { InfoBlock } from '@/components/views/ProductDetail/InfoBlock';
 import { Gallery } from '@/components/views/ProductDetail/Gallery';
 import { ModificationList } from '@/components/views/ProductDetail/ModificationList';
@@ -38,7 +38,7 @@ export function ProductDetail({
     </div>
   ) : data ? (
     <>
-      <BreadCrumbs model={data} />
+      <ModelBreadCrumbs model={data} />
       <InfoBlock
         image={data.modifications[0].products[0].image}
         title={data.title}

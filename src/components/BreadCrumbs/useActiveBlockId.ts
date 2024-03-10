@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 export const useActiveBlockId = () => {
-  const [activeBlockId, setActiveBlockId] = useState('infoblock');
+  const [activeBlockId, setActiveBlockId] = useState<string | null>(null);
   const direction = useRef<string>('down');
   const y = useRef<number>(0);
   useEffect(() => {
