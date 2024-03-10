@@ -7,7 +7,7 @@ import { PROPERTIES } from '@/components/views/ProductDetail/ModificationList/Mo
 interface IColorDropdown {
   products: IProduct[];
   changeSlug: (slug: string) => void;
-  property: string;
+  property: keyof typeof PROPERTIES;
 }
 
 export function ColorDropdown({ products, changeSlug, property }: IColorDropdown) {

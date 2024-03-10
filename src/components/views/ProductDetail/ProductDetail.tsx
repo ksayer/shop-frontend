@@ -32,7 +32,6 @@ export function ProductDetail({
       updateProductSlug(data.modifications[0].products[0].slug);
     }
   }, [data]);
-
   return isLoading ? (
     <div className={`${styles.loader}`}>
       <div className={`${styles['loader__spinner']} loader-spinner`}></div>

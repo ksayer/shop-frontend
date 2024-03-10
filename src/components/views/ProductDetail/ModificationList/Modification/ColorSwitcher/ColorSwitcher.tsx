@@ -6,17 +6,17 @@ import { PROPERTIES } from '@/components/views/ProductDetail/ModificationList/Mo
 interface IColorSwitcher {
   products: IProduct[];
   changeSlug: (slug: string) => void;
-  property: string;
+  property: keyof typeof PROPERTIES;
 }
 
 export function ColorSwitcher({ products, changeSlug, property }: IColorSwitcher) {
   const productSlug = usePathFiltersContext(state => state?.productSlug);
-  if (!products[0].property[property]) {
+  if (products.length === 0 || !products[0].property[property]) {
     return;
   }
   return (
     <>
-      <h4 className={styles.title}>{PROPERTIES[property].title}</h4>
+      <h4 className={styles.title}>{PROPERTIES[property]?.title}</h4>
       <div className={styles.buttons}>
         {products.map(product => (
           <button

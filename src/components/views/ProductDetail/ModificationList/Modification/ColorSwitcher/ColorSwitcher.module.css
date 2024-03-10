@@ -15,35 +15,32 @@
   font-size: 1.4rem;
   color: var(--grey-c6);
   transition: var(--transition);
+  margin-left: -1px;
+}
+
+.btn {
+  border-bottom: 1px solid var(--grey-db);
+  border-top: 1px solid var(--grey-db);
+  border-left: 1px solid var(--grey-db);
+  border-right: 1px solid var(--grey-db);
 }
 
 .btn:first-child {
-  border-left: 1px solid var(--grey-db);
-  border-bottom: 1px solid var(--grey-db);
-  border-top: 1px solid var(--grey-db);
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
 }
 
 .btn:last-child {
-  border-right: 1px solid var(--grey-db);
-  border-bottom: 1px solid var(--grey-db);
-  border-top: 1px solid var(--grey-db);
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
 }
 
-.border--active:last-child {
-  border-left: 1px solid var(--black);
+.border--active {
   border-color: var(--black);
   color: var(--black);
+  z-index: 100;
 }
 
-.border--active:first-child {
-  border-right: 1px solid var(--black);
-  border-color: var(--black);
-  color: var(--black);
-}
 
 @media (min-width: 1920px) {
   .title {

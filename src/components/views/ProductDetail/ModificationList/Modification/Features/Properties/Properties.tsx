@@ -1,11 +1,11 @@
 import React from 'react';
 import styles from './Properties.module.css';
 import featureStyles from '@/components/views/ProductDetail/ModificationList/Modification/Features/Features.module.css';
-import { Accordion } from '../../../../../../ui/Accordion';
 import {
   IProduct,
   IProperty,
 } from '@/components/views/ProductDetail/ModificationList/Modification';
+import {Accordion} from "@/components/ui/Accordion";
 
 export const PROPERTIES: { [key: string]: { title: string } } = {
   power: {
@@ -34,6 +34,9 @@ export const PROPERTIES: { [key: string]: { title: string } } = {
   },
   frame_color: {
     title: 'Цвет рамки',
+  },
+  cover_color: {
+    title: 'Цвет накладки',
   },
 };
 
