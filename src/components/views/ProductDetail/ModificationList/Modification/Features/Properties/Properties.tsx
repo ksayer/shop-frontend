@@ -5,7 +5,7 @@ import {
   IProduct,
   IProperty,
 } from '@/components/views/ProductDetail/ModificationList/Modification';
-import {Accordion} from "@/components/ui/Accordion";
+import { Accordion } from '@/components/ui/Accordion';
 
 export const PROPERTIES: { [key: string]: { title: string } } = {
   power: {

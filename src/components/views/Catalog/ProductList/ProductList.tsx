@@ -47,19 +47,14 @@ export function ProductList({ categories }: IProductList) {
         <Skeleton />
       ) : (
         <>
-          {data?.pages?.map(
-            (page: PaginatedAPIResponse<IModelFromList>, pageIndex) =>
-              page?.results?.map((model, productIndex) => {
-                const isLastProduct =
-                  pageIndex === data.pages.length - 1 && productIndex === page.results.length - 1;
-                return (
-                  <Card
-                    key={model.id}
-                    {...model}
-                    innerRef={isLastProduct ? loadMoreElement : null}
-                  />
-                );
-              }),
+          {data?.pages?.map((page: PaginatedAPIResponse<IModelFromList>, pageIndex) =>
+            page?.results?.map((model, productIndex) => {
+              const isLastProduct =
+                pageIndex === data.pages.length - 1 && productIndex === page.results.length - 1;
+              return (
+                <Card key={model.id} {...model} innerRef={isLastProduct ? loadMoreElement : null} />
+              );
+            }),
           )}
           {isFetchingNextPage ? <Skeleton /> : null}
         </>

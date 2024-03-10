@@ -3,11 +3,11 @@ import { API_URL } from '@/features/constants';
 import React from 'react';
 import { ProductDetail } from '@/components/views/ProductDetail';
 
-export default async function ModelDetailPage({
-  params,
-}: {
+export interface IModelDetailPage {
   params: { modelSlug: string; productSlug: string };
-}) {
+}
+
+export default async function ModelDetailPage({params}: IModelDetailPage) {
   const content = await getCMSContent(`${API_URL}/content/content_blocks/?inner_title=Отзывы`);
   const reviewBlock = content.results[0];
   return (

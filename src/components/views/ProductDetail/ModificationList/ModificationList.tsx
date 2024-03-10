@@ -6,8 +6,8 @@ import {
   Modification,
 } from '@/components/views/ProductDetail/ModificationList/Modification';
 import { usePathFiltersContext } from '@/hooks/usePathFiltersContext';
-import { usePathname } from 'next/navigation';
 import { IModification } from '@/api/catalog/models';
+import { useRouter } from 'next/navigation';
 
 interface IModifications {
   modifications: IModification[];
@@ -31,18 +31,11 @@ export function ModificationList({ modifications }: IModifications) {
   const productSlug = usePathFiltersContext(state => state?.productSlug);
   const updateProductSlug = usePathFiltersContext(state => state?.updateProductSlug);
   const [product, modification] = parseProduct(modifications, productSlug);
-  const pathname = usePathname();
+  const router = useRouter();
 
   const handleChangeSlug = (slug: string) => {
-    const parts = pathname.split('/');
-    if (parts.length === 5) {
-      parts[parts.length - 1] = slug;
-    } else {
-      parts.push(slug);
-    }
-    const newPath = parts.join('/');
-    window.history.pushState(null, '', newPath);
     updateProductSlug(slug);
+    router.replace(slug, { scroll: false });
   };
 
   return (
